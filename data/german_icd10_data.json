@@ -1,0 +1,47 @@
+[
+  {
+    "code": "A00",
+    "name": "Cholera",
+    "fachgebiet": "Infektiologie"
+  },
+  {
+    "code": "A01.0",
+    "name": "Typhus abdominalis",
+    "fachgebiet": "Infektiologie"
+  },
+  {
+    "code": "A02.0",
+    "name": "Salmonellenenteritis",
+    "fachgebiet": "Gastroenterologie"
+  },
+  {
+    "code": "A09",
+    "name": "Diarrhoe und Gastroenteritis vermutlich infektiösen Ursprungs",
+    "fachgebiet": "Gastroenterologie"
+  },
+  {
+    "code": "I10",
+    "name": "Essentielle (primäre) Hypertonie",
+    "fachgebiet": "Kardiologie"
+  },
+  {
+    "code": "I21",
+    "name": "Akuter Myokardinfarkt",
+    "fachgebiet": "Kardiologie"
+  },
+  {
+    "code": "J18",
+    "name": "Pneumonie, Erreger nicht näher bezeichnet",
+    "fachgebiet": "Pneumologie"
+  },
+  {
+    "code": "J44",
+    "name": "Sonstige chronische obstruktive Lungenkrankheit",
+    "fachgebiet": "Pneumologie"
+  },
+  {
+    "code": "E11",
+    "name": "Diabetes mellitus, Typ 2",
+    "fachgebiet": "Endokrinologie"
+  }
+] 

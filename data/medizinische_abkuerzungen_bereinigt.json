@@ -1,0 +1,2977 @@
+[
+  {
+    "id": "aa",
+    "term": "AA",
+    "definition": "Arrhytma absoluta"
+  },
+  {
+    "id": "aaa",
+    "term": "AAA",
+    "definition": "abdominelles Aortenaneurysma"
+  },
+  {
+    "id": "aae",
+    "term": "AAE",
+    "definition": "akute allergische Enzephalitis"
+  },
+  {
+    "id": "aag",
+    "term": "AAG)",
+    "definition": "Aortoarteriographie"
+  },
+  {
+    "id": "aak",
+    "term": "AAK)",
+    "definition": "Autoantikörper"
+  },
+  {
+    "id": "ab",
+    "term": "AB",
+    "definition": "asthmatische Bronchitis"
+  },
+  {
+    "id": "abc",
+    "term": "ABC)",
+    "definition": "Antibindungskapazität"
+  },
+  {
+    "id": "abg",
+    "term": "ABG",
+    "definition": "arterielle Blutgase"
+  },
+  {
+    "id": "abs",
+    "term": "ABS)",
+    "definition": "Aortenbogensyndrom"
+  },
+  {
+    "id": "ac",
+    "term": "AC)",
+    "definition": "Arteria Carotis"
+  },
+  {
+    "id": "acb",
+    "term": "ACB",
+    "definition": "arteriocoronarer Bypass"
+  },
+  {
+    "id": "acc",
+    "term": "ACC)",
+    "definition": "Acetylcystein"
+  },
+  {
+    "id": "ach",
+    "term": "ACH)",
+    "definition": "Allgemeinchirurgie"
+  },
+  {
+    "id": "aci",
+    "term": "ACI)",
+    "definition": "Arteria carotis interna"
+  },
+  {
+    "id": "acvb",
+    "term": "ACVB",
+    "definition": "arteriocoronarer Venenbypass"
+  },
+  {
+    "id": "ad",
+    "term": "AD",
+    "definition": "Antidepressiva"
+  },
+  {
+    "id": "ada",
+    "term": "ADA)",
+    "definition": "Adenosindesaminase"
+  },
+  {
+    "id": "adem",
+    "term": "ADEM",
+    "definition": "akute demyelinisierende"
+  },
+  {
+    "id": "adh",
+    "term": "ADH",
+    "definition": "antidiuretisches Hormon"
+  },
+  {
+    "id": "ado",
+    "term": "ADO)",
+    "definition": "Adenosin"
+  },
+  {
+    "id": "ae",
+    "term": "AE)",
+    "definition": "Appendektomie"
+  },
+  {
+    "id": "aed",
+    "term": "AED",
+    "definition": "Automatischer Externer"
+  },
+  {
+    "id": "ael",
+    "term": "AEL",
+    "definition": "Akute Erythroblastenleukämie"
+  },
+  {
+    "id": "aes",
+    "term": "AES)",
+    "definition": "Atriumextrasystole"
+  },
+  {
+    "id": "af",
+    "term": "AF)",
+    "definition": "Atemfrequenz"
+  },
+  {
+    "id": "age",
+    "term": "AGE",
+    "definition": "arterielle Gasembolie"
+  },
+  {
+    "id": "agf",
+    "term": "AGF)",
+    "definition": "Antigammaglobulinfaktor"
+  },
+  {
+    "id": "agw",
+    "term": "AGW)",
+    "definition": "Atemgrenzwert"
+  },
+  {
+    "id": "ahb",
+    "term": "AHB)",
+    "definition": "Anschlussheilbehandlung"
+  },
+  {
+    "id": "ahe",
+    "term": "AHE",
+    "definition": "akute hämorrhagische"
+  },
+  {
+    "id": "ahfa",
+    "term": "AHFA)",
+    "definition": "Antihämophiliefaktor A"
+  },
+  {
+    "id": "ahfb",
+    "term": "AHFB",
+    "definition": "Antihämophiliefaktor B"
+  },
+  {
+    "id": "ahg",
+    "term": "AHG)",
+    "definition": "Antihämophilie-Globulin"
+  },
+  {
+    "id": "ai",
+    "term": "AI)",
+    "definition": "Aorteninsuffizienz"
+  },
+  {
+    "id": "aicd",
+    "term": "AICD",
+    "definition": "automatischer implantierter"
+  },
+  {
+    "id": "ais",
+    "term": "AIS)",
+    "definition": "Aortenisthmusstenose"
+  },
+  {
+    "id": "ak",
+    "term": "AK)",
+    "definition": "Antikörper"
+  },
+  {
+    "id": "akb",
+    "term": "AKB",
+    "definition": "aortokoronarer Bypass"
+  },
+  {
+    "id": "ake",
+    "term": "AKE",
+    "definition": "Aortenklappenersatz"
+  },
+  {
+    "id": "akt",
+    "term": "AKT)",
+    "definition": "Antikörpersuchtest"
+  },
+  {
+    "id": "all",
+    "term": "ALL",
+    "definition": "akute lymphatische Leukämie"
+  },
+  {
+    "id": "alv",
+    "term": "ALV",
+    "definition": "akutes Leberversagen"
+  },
+  {
+    "id": "am",
+    "term": "AM)",
+    "definition": "Arzneimittel"
+  },
+  {
+    "id": "ame",
+    "term": "AME)",
+    "definition": "Arzneimittelexanthem"
+  },
+  {
+    "id": "amg",
+    "term": "AMG)",
+    "definition": "Arzneimittelgesetz"
+  },
+  {
+    "id": "ami",
+    "term": "AMI",
+    "definition": "akuter Myokardinfarkt"
+  },
+  {
+    "id": "aml",
+    "term": "AML",
+    "definition": "akute myeloische Leukämie"
+  },
+  {
+    "id": "amv",
+    "term": "AMV)",
+    "definition": "Atemminutenvolumen"
+  },
+  {
+    "id": "ans",
+    "term": "ANS)",
+    "definition": "Atemnotsyndrom"
+  },
+  {
+    "id": "anv",
+    "term": "ANV",
+    "definition": "akutes Nierenversagen"
+  },
+  {
+    "id": "aog",
+    "term": "AOG)",
+    "definition": "Aortographie"
+  },
+  {
+    "id": "ap",
+    "term": "AP)",
+    "definition": "Angina pectoris"
+  },
+  {
+    "id": "apgar",
+    "term": "APGAR",
+    "definition": "Atmung-Puls-Grundtonus-"
+  },
+  {
+    "id": "arf",
+    "term": "ARF",
+    "definition": "akutes rheumatisches Fieber"
+  },
+  {
+    "id": "arg",
+    "term": "ARG)",
+    "definition": "Aortorenographie"
+  },
+  {
+    "id": "ari",
+    "term": "ARI",
+    "definition": "akute respiratorische"
+  },
+  {
+    "id": "arl",
+    "term": "ARL)",
+    "definition": "Atemruhelage"
+  },
+  {
+    "id": "ass",
+    "term": "ASS)",
+    "definition": "Acetylsalicylsäure"
+  },
+  {
+    "id": "atr",
+    "term": "ATR",
+    "definition": "Augentropfen"
+  },
+  {
+    "id": "aus",
+    "term": "AUS)",
+    "definition": "Augensalbe"
+  },
+  {
+    "id": "av",
+    "term": "AV",
+    "definition": "arteriovenös"
+  },
+  {
+    "id": "avg",
+    "term": "AVG)",
+    "definition": "Aortovenographie"
+  },
+  {
+    "id": "avk",
+    "term": "AVK",
+    "definition": "arterielle Verschlusskrankheit"
+  },
+  {
+    "id": "avo",
+    "term": "AVO)",
+    "definition": "Arztverordnung"
+  },
+  {
+    "id": "aw",
+    "term": "AW)",
+    "definition": "Atemwiderstand"
+  },
+  {
+    "id": "awr",
+    "term": "AWR)",
+    "definition": "Aufwachraum"
+  },
+  {
+    "id": "az",
+    "term": "AZ)",
+    "definition": "Allgemeinzustand"
+  },
+  {
+    "id": "azv",
+    "term": "AZV)",
+    "definition": "Atemzugvolumen"
+  },
+  {
+    "id": "baa",
+    "term": "BAA)",
+    "definition": "Bauchaortenaneurysma"
+  },
+  {
+    "id": "bäo",
+    "term": "BÄO)",
+    "definition": "Bundesärzteordnung"
+  },
+  {
+    "id": "bak",
+    "term": "BAK)",
+    "definition": "Blutalkoholkonzentration"
+  },
+  {
+    "id": "bäk",
+    "term": "BÄK",
+    "definition": "Bundesausschuss der Ärzte und"
+  },
+  {
+    "id": "bal",
+    "term": "BAL",
+    "definition": "bronchoalveoläre Lavage"
+  },
+  {
+    "id": "bb",
+    "term": "BB)",
+    "definition": "Beckenboden"
+  },
+  {
+    "id": "bc",
+    "term": "BC)",
+    "definition": "Bronchialkarzinom"
+  },
+  {
+    "id": "bd",
+    "term": "BD)",
+    "definition": "Bauchdecke"
+  },
+  {
+    "id": "bdr",
+    "term": "BDR)",
+    "definition": "Bauchdeckenreflex"
+  },
+  {
+    "id": "be",
+    "term": "BE)",
+    "definition": "Beckeneingang"
+  },
+  {
+    "id": "bga",
+    "term": "BGA)",
+    "definition": "Blutgasanalyse"
+  },
+  {
+    "id": "bk",
+    "term": "BK)",
+    "definition": "Blutkultur"
+  },
+  {
+    "id": "bks",
+    "term": "BKS)",
+    "definition": "Blutkörperchensenkung"
+  },
+  {
+    "id": "bl",
+    "term": "BL)",
+    "definition": "Bauchlage"
+  },
+  {
+    "id": "bm",
+    "term": "BM)",
+    "definition": "Beckenmitte"
+  },
+  {
+    "id": "bmi",
+    "term": "BMI)",
+    "definition": "Body-Mass-Index"
+  },
+  {
+    "id": "bro",
+    "term": "BRO)",
+    "definition": "Bronchoskopie"
+  },
+  {
+    "id": "bs",
+    "term": "BS",
+    "definition": "basale Stimulation"
+  },
+  {
+    "id": "bsv",
+    "term": "BSV)",
+    "definition": "Bandscheibenvorfall"
+  },
+  {
+    "id": "btd",
+    "term": "BTD)",
+    "definition": "Brustthermodetektor"
+  },
+  {
+    "id": "bvh",
+    "term": "BVH",
+    "definition": "biventrikuläre Hypertrophie"
+  },
+  {
+    "id": "bvk",
+    "term": "BVK)",
+    "definition": "Blasenverweilkatheter"
+  },
+  {
+    "id": "bvt",
+    "term": "BVT)",
+    "definition": "Beinvenenthrombose"
+  },
+  {
+    "id": "bw",
+    "term": "BW)",
+    "definition": "Brustwirbel"
+  },
+  {
+    "id": "bws",
+    "term": "BWS)",
+    "definition": "Brustwirbelsäule"
+  },
+  {
+    "id": "bz",
+    "term": "BZ)",
+    "definition": "Blutungszeit"
+  },
+  {
+    "id": "bzd",
+    "term": "BZD",
+    "definition": "Benzodiazepine"
+  },
+  {
+    "id": "bztp",
+    "term": "BZTP)",
+    "definition": "Blutzuckertagesprofil"
+  },
+  {
+    "id": "caw",
+    "term": "CAW",
+    "definition": "chefärztliche Wahlbehandlung"
+  },
+  {
+    "id": "cd",
+    "term": "CD",
+    "definition": "chronische Diarrhö"
+  },
+  {
+    "id": "cdb",
+    "term": "CDB",
+    "definition": "cerebrale Durchblutung"
+  },
+  {
+    "id": "cf",
+    "term": "CF",
+    "definition": "cystische Fibrose"
+  },
+  {
+    "id": "cfm",
+    "term": "CFM",
+    "definition": "chemotaktischer Faktor für"
+  },
+  {
+    "id": "chi",
+    "term": "CHI)",
+    "definition": "Chirurgie"
+  },
+  {
+    "id": "ck",
+    "term": "CK)",
+    "definition": "Cervikalkanal"
+  },
+  {
+    "id": "cl",
+    "term": "CL",
+    "definition": "chronische Lymphadenose"
+  },
+  {
+    "id": "cml",
+    "term": "CML",
+    "definition": "chronische myeloiche Leukämie"
+  },
+  {
+    "id": "coe",
+    "term": "COE",
+    "definition": "chronisch obstructive"
+  },
+  {
+    "id": "ct",
+    "term": "CT)",
+    "definition": "Computertomographie"
+  },
+  {
+    "id": "curs",
+    "term": "CURS",
+    "definition": "chronisches unspezifisches"
+  },
+  {
+    "id": "cvi",
+    "term": "CVI",
+    "definition": "chronisch venöse Insuffizienz"
+  },
+  {
+    "id": "dabd",
+    "term": "DABD",
+    "definition": "durchschnittlicher arterieller"
+  },
+  {
+    "id": "at",
+    "term": "AT",
+    "definition": "direkter Antiglubintest"
+  },
+  {
+    "id": "dbd",
+    "term": "DBD",
+    "definition": "diastolischer Blutdruck"
+  },
+  {
+    "id": "dbs",
+    "term": "DBS)",
+    "definition": "Differenzialblutsenkung"
+  },
+  {
+    "id": "dct",
+    "term": "DCT",
+    "definition": "direkter Coombs-Test"
+  },
+  {
+    "id": "dd",
+    "term": "DD)",
+    "definition": "Differenzialdiagnose"
+  },
+  {
+    "id": "dgi",
+    "term": "DGI",
+    "definition": "disseminierte"
+  },
+  {
+    "id": "di",
+    "term": "DI)",
+    "definition": "Diabetes insipidus"
+  },
+  {
+    "id": "dios",
+    "term": "DIOS",
+    "definition": "distale intestinale"
+  },
+  {
+    "id": "dip",
+    "term": "DIP",
+    "definition": "desquamative interstitielle"
+  },
+  {
+    "id": "dipi",
+    "term": "DIPI",
+    "definition": "direkte intraperitoneale"
+  },
+  {
+    "id": "dk",
+    "term": "DK)",
+    "definition": "Dauerkatheter"
+  },
+  {
+    "id": "dka",
+    "term": "DKA",
+    "definition": "diabetische Ketoazidose"
+  },
+  {
+    "id": "dm",
+    "term": "DM)",
+    "definition": "Diabetes mellitus"
+  },
+  {
+    "id": "dpad",
+    "term": "DPAD",
+    "definition": "diastolischer"
+  },
+  {
+    "id": "dpt",
+    "term": "DPT",
+    "definition": "Diphtherie-Pertussis-Tetanus"
+  },
+  {
+    "id": "dss",
+    "term": "DSS)",
+    "definition": "Dengue-Schock-Syndrom"
+  },
+  {
+    "id": "dti",
+    "term": "DTI)",
+    "definition": "Dauertropfinfusion"
+  },
+  {
+    "id": "dv",
+    "term": "DV)",
+    "definition": "Druckverband"
+  },
+  {
+    "id": "ea",
+    "term": "EA)",
+    "definition": "Eigenanamnese"
+  },
+  {
+    "id": "eap",
+    "term": "EAP",
+    "definition": "erweiterte ambulante Pflege"
+  },
+  {
+    "id": "eas",
+    "term": "EAS)",
+    "definition": "Erregungsausbreitungsstörung"
+  },
+  {
+    "id": "east",
+    "term": "EAST)",
+    "definition": "Enzym-Allergo-Sorbent-Test"
+  },
+  {
+    "id": "eat",
+    "term": "EAT)",
+    "definition": "Ehrlich-Aszites-Tumor"
+  },
+  {
+    "id": "e-",
+    "term": "E-",
+    "definition": "Bericht"
+  },
+  {
+    "id": "ecg",
+    "term": "ECG)",
+    "definition": "Elektrochochleogramm"
+  },
+  {
+    "id": "ect",
+    "term": "ECT)",
+    "definition": "Emissionscomputertomographie"
+  },
+  {
+    "id": "ed",
+    "term": "ED)",
+    "definition": "Einzeldosis"
+  },
+  {
+    "id": "edg",
+    "term": "EDG)",
+    "definition": "Elektrodermatogramm"
+  },
+  {
+    "id": "edh",
+    "term": "EDH",
+    "definition": "epidurales Hämatom"
+  },
+  {
+    "id": "eg",
+    "term": "EG)",
+    "definition": "Elektrogramm"
+  },
+  {
+    "id": "egg",
+    "term": "EGG)",
+    "definition": "Elektrogastrographie"
+  },
+  {
+    "id": "egt",
+    "term": "EGT",
+    "definition": "errechneter Geburtstermin"
+  },
+  {
+    "id": "eiab",
+    "term": "EIAB",
+    "definition": "extra-intrakranieller arterieller Bypass"
+  },
+  {
+    "id": "ek",
+    "term": "EK)",
+    "definition": "Erythrozytenkonzentrat"
+  },
+  {
+    "id": "ekg",
+    "term": "EKG)",
+    "definition": "Elektrokardiographie"
+  },
+  {
+    "id": "ekkg",
+    "term": "EKKG)",
+    "definition": "Elektrokartokardiographie"
+  },
+  {
+    "id": "ekv",
+    "term": "EKV)",
+    "definition": "Elektrokardioversion"
+  },
+  {
+    "id": "ekz",
+    "term": "EKZ)",
+    "definition": "extrakorporale Zirkulation"
+  },
+  {
+    "id": "emi",
+    "term": "EMI",
+    "definition": "elektromechanisches Intervall"
+  },
+  {
+    "id": "emv",
+    "term": "EMV)",
+    "definition": "Enzephalomyokarditisvirus"
+  },
+  {
+    "id": "eng",
+    "term": "ENG)",
+    "definition": "Elektroneurographie"
+  },
+  {
+    "id": "eog",
+    "term": "EOG)",
+    "definition": "Elektrookulogramm"
+  },
+  {
+    "id": "ept",
+    "term": "EPT",
+    "definition": "endoskopische Papillotomie"
+  },
+  {
+    "id": "epu",
+    "term": "EPU",
+    "definition": "elektrophysiologische Untersuchung"
+  },
+  {
+    "id": "er",
+    "term": "ER",
+    "definition": "endoplasmatisches Retikulum"
+  },
+  {
+    "id": "erg",
+    "term": "ERG)",
+    "definition": "Elektroretinographie"
+  },
+  {
+    "id": "erid",
+    "term": "ERID",
+    "definition": "einfache radiale Immundiffusion"
+  },
+  {
+    "id": "erv",
+    "term": "ERV",
+    "definition": "expiratorisches Reservevolumen"
+  },
+  {
+    "id": "es",
+    "term": "ES)",
+    "definition": "Extrasystole"
+  },
+  {
+    "id": "esg",
+    "term": "ESG",
+    "definition": "Erythrozytensenkungsgeschwindigkeit"
+  },
+  {
+    "id": "est",
+    "term": "EST)",
+    "definition": "Elektroschocktherapie"
+  },
+  {
+    "id": "esv",
+    "term": "ESV",
+    "definition": "endsystolisches Ventrikelvolumen"
+  },
+  {
+    "id": "eswl",
+    "term": "ESWL",
+    "definition": "extrakorporale Stoßwellenlithotripsie"
+  },
+  {
+    "id": "etw",
+    "term": "ETW)",
+    "definition": "Einsatztoleranzwert"
+  },
+  {
+    "id": "eu",
+    "term": "EU)",
+    "definition": "Erwerbsunfähigkeit"
+  },
+  {
+    "id": "evg",
+    "term": "EVG)",
+    "definition": "Elektroventrikulographie"
+  },
+  {
+    "id": "evlt",
+    "term": "EVLT",
+    "definition": "endovenöse Lasertherapie"
+  },
+  {
+    "id": "ew",
+    "term": "EW)",
+    "definition": "Eiweiß"
+  },
+  {
+    "id": "ez",
+    "term": "EZ)",
+    "definition": "Ernährungszustand"
+  },
+  {
+    "id": "ezr",
+    "term": "EZR)",
+    "definition": "Extrazellularraum"
+  },
+  {
+    "id": "ezv",
+    "term": "EZV",
+    "definition": "Extrazelluläres Volumen"
+  },
+  {
+    "id": "fa",
+    "term": "FA)",
+    "definition": "Facharzt"
+  },
+  {
+    "id": "fap",
+    "term": "FAP",
+    "definition": "familiar adenomatöse Polyposis"
+  },
+  {
+    "id": "fba",
+    "term": "FBA)",
+    "definition": "Finger-Boden-Abstand"
+  },
+  {
+    "id": "f-",
+    "term": "F-",
+    "definition": "Bericht"
+  },
+  {
+    "id": "fd",
+    "term": "FD)",
+    "definition": "Frühdienst"
+  },
+  {
+    "id": "fekg",
+    "term": "FEKG)",
+    "definition": "fetales Elektrokardiogramm"
+  },
+  {
+    "id": "fg",
+    "term": "FG)",
+    "definition": "Frühgeburt"
+  },
+  {
+    "id": "ga",
+    "term": "GA",
+    "definition": "gynäkologische Anamnese"
+  },
+  {
+    "id": "gas",
+    "term": "GAS",
+    "definition": "generalisierte Arteriosklerose"
+  },
+  {
+    "id": "gba",
+    "term": "GBA",
+    "definition": "geriatrisches Basisassessment"
+  },
+  {
+    "id": "gbm",
+    "term": "GBM",
+    "definition": "glomeruläre Basalmembran"
+  },
+  {
+    "id": "gbv",
+    "term": "GBV)",
+    "definition": "Gesamtblutvolumen"
+  },
+  {
+    "id": "gd",
+    "term": "GD)",
+    "definition": "Gesamtdosis"
+  },
+  {
+    "id": "ge",
+    "term": "GE)",
+    "definition": "Gastroenterostomie"
+  },
+  {
+    "id": "gep",
+    "term": "GEP",
+    "definition": "gastrenteropankreatisch"
+  },
+  {
+    "id": "ger",
+    "term": "GER",
+    "definition": "granuläres endoplasmatisches"
+  },
+  {
+    "id": "gf",
+    "term": "GF",
+    "definition": "glomeruläres Filtrat"
+  },
+  {
+    "id": "gh",
+    "term": "GH)",
+    "definition": "Großhirn"
+  },
+  {
+    "id": "ghr",
+    "term": "GHR",
+    "definition": "galvanischer Hautreflex"
+  },
+  {
+    "id": "gi",
+    "term": "GI",
+    "definition": "gastrointestinal"
+  },
+  {
+    "id": "gist",
+    "term": "GIST",
+    "definition": "gastrointestinaler Stromatumor"
+  },
+  {
+    "id": "gk",
+    "term": "GK)",
+    "definition": "Gewebekultur"
+  },
+  {
+    "id": "gkb",
+    "term": "GKB)",
+    "definition": "Ganzkörperbestrahlung"
+  },
+  {
+    "id": "gl",
+    "term": "GL)",
+    "definition": "Gesichtslage"
+  },
+  {
+    "id": "goä",
+    "term": "GOÄ",
+    "definition": "Gebührenordnung für Ärzte"
+  },
+  {
+    "id": "gör",
+    "term": "GÖR",
+    "definition": "gastroösophagealer Reflux"
+  },
+  {
+    "id": "got",
+    "term": "GOT",
+    "definition": "Glutamat-Oxalat-Transaminase"
+  },
+  {
+    "id": "gpv",
+    "term": "GPV)",
+    "definition": "Gesamtplasmavolumen"
+  },
+  {
+    "id": "gsj",
+    "term": "GSJ)",
+    "definition": "Gesamtserumjod"
+  },
+  {
+    "id": "gt",
+    "term": "GT)",
+    "definition": "Geburtstermin"
+  },
+  {
+    "id": "gtf",
+    "term": "GTF)",
+    "definition": "Glukosetoleranzfaktor"
+  },
+  {
+    "id": "gtt",
+    "term": "GTT)",
+    "definition": "Glukosetoleranztest"
+  },
+  {
+    "id": "gu",
+    "term": "GU)",
+    "definition": "Grundumsatz"
+  },
+  {
+    "id": "guv",
+    "term": "GUV",
+    "definition": "gesetzliche Unfallversicherung"
+  },
+  {
+    "id": "gv",
+    "term": "GV)",
+    "definition": "Geschlechtsverkehr"
+  },
+  {
+    "id": "gvd",
+    "term": "GVD)",
+    "definition": "Grenzverweildauer"
+  },
+  {
+    "id": "gz",
+    "term": "GZ)",
+    "definition": "Gerinnungszeit"
+  },
+  {
+    "id": "ha",
+    "term": "HA)",
+    "definition": "Hausarzt"
+  },
+  {
+    "id": "haa",
+    "term": "HAA",
+    "definition": "hepatitisassoziiertes Antigen"
+  },
+  {
+    "id": "haart",
+    "term": "HAART",
+    "definition": "hochaktive antiretrovirale"
+  },
+  {
+    "id": "hah",
+    "term": "HAH)",
+    "definition": "Hämagglutinationshemmung"
+  },
+  {
+    "id": "haht/",
+    "term": "HAHT/",
+    "definition": "HHT"
+  },
+  {
+    "id": "halp",
+    "term": "HALP",
+    "definition": "homologes menschliches"
+  },
+  {
+    "id": "ham",
+    "term": "HAM)",
+    "definition": "Höchstabgabemenge"
+  },
+  {
+    "id": "hast",
+    "term": "HAST)",
+    "definition": "Harnstoff"
+  },
+  {
+    "id": "hav",
+    "term": "HAV)",
+    "definition": "Hepatitis A-Virus"
+  },
+  {
+    "id": "hb",
+    "term": "HB",
+    "definition": "Hepatitis B"
+  },
+  {
+    "id": "hbe",
+    "term": "HBE)",
+    "definition": "His-Bündel-Elektrogramm"
+  },
+  {
+    "id": "hcc",
+    "term": "HCC",
+    "definition": "hepatozelluläres Karzinom"
+  },
+  {
+    "id": "hch",
+    "term": "HCH)",
+    "definition": "Herzchirurgie"
+  },
+  {
+    "id": "hcm",
+    "term": "HCM",
+    "definition": "hypertrophe Kardiomyopathie"
+  },
+  {
+    "id": "hcp",
+    "term": "HCP",
+    "definition": "hereditäre Coproporphyrie"
+  },
+  {
+    "id": "hcr",
+    "term": "HCR",
+    "definition": "hepatische Clearancerate"
+  },
+  {
+    "id": "hcs",
+    "term": "HCS)",
+    "definition": "Hydrocortison"
+  },
+  {
+    "id": "hcv",
+    "term": "HCV)",
+    "definition": "Hepatitis C-Virus"
+  },
+  {
+    "id": "hd",
+    "term": "HD)",
+    "definition": "Herddosis"
+  },
+  {
+    "id": "hda",
+    "term": "HDA",
+    "definition": "Hydroxydopamin"
+  },
+  {
+    "id": "hdf",
+    "term": "HDF)",
+    "definition": "Hämodiafiltration"
+  },
+  {
+    "id": "hdm",
+    "term": "HDM)",
+    "definition": "Herzdruckmassage"
+  },
+  {
+    "id": "hdv",
+    "term": "HDV)",
+    "definition": "Hepatitis D-Virus"
+  },
+  {
+    "id": "he",
+    "term": "HE)",
+    "definition": "Hysterektomie"
+  },
+  {
+    "id": "hea",
+    "term": "HEA",
+    "definition": "humanes Erythrozyten-Antigen"
+  },
+  {
+    "id": "hed",
+    "term": "HED)",
+    "definition": "Herdeinfalldosis"
+  },
+  {
+    "id": "hf",
+    "term": "HF)",
+    "definition": "Herzfrequenz"
+  },
+  {
+    "id": "hg",
+    "term": "HG)",
+    "definition": "Hypoglykämie"
+  },
+  {
+    "id": "hgg",
+    "term": "HGG",
+    "definition": "humanes Gammaglobulin"
+  },
+  {
+    "id": "hh",
+    "term": "HH",
+    "definition": "hereditäre Hämochromatose"
+  },
+  {
+    "id": "hhe",
+    "term": "HHE",
+    "definition": "hypertensive Herzerkrankung"
+  },
+  {
+    "id": "hhl",
+    "term": "HHL)",
+    "definition": "Hypophysenhinterlappen"
+  },
+  {
+    "id": "hi",
+    "term": "HI)",
+    "definition": "Herzinfarkt"
+  },
+  {
+    "id": "hie",
+    "term": "HIE",
+    "definition": "hypoxisch-ischämische"
+  },
+  {
+    "id": "hig",
+    "term": "HIG)",
+    "definition": "Hyperimmunglobulin"
+  },
+  {
+    "id": "hisg",
+    "term": "HISG",
+    "definition": "humanes Immunserumglobulin"
+  },
+  {
+    "id": "hit",
+    "term": "HIT",
+    "definition": "heparininduzierte"
+  },
+  {
+    "id": "hitoc",
+    "term": "HITOC",
+    "definition": "hypertherme intrathorakale"
+  },
+  {
+    "id": "hk/",
+    "term": "HK/",
+    "definition": "HKt."
+  },
+  {
+    "id": "hkg",
+    "term": "HKG",
+    "definition": "Herzkranzgefäße"
+  },
+  {
+    "id": "hl",
+    "term": "HL)",
+    "definition": "Hodgkin-Lymphom"
+  },
+  {
+    "id": "hli",
+    "term": "HLI)",
+    "definition": "Herz-Lungen-Index"
+  },
+  {
+    "id": "hlm",
+    "term": "HLM)",
+    "definition": "Herz-Lungen-Maschine"
+  },
+  {
+    "id": "hlp",
+    "term": "HLP)",
+    "definition": "Hyperlipoproteinämie"
+  },
+  {
+    "id": "hlw",
+    "term": "HLW",
+    "definition": "Herz-Lungen-Wiederbelebung"
+  },
+  {
+    "id": "hml",
+    "term": "HML",
+    "definition": "Hypophysenmittellappen"
+  },
+  {
+    "id": "hmv",
+    "term": "HMV)",
+    "definition": "Herzminutenvolumen"
+  },
+  {
+    "id": "hno",
+    "term": "HNO",
+    "definition": "Hals-Nasen-Ohren"
+  },
+  {
+    "id": "hnw",
+    "term": "HNW)",
+    "definition": "Hauptnachtwache"
+  },
+  {
+    "id": "hoal",
+    "term": "HOAL",
+    "definition": "hirnorganisches Anfallsleiden"
+  },
+  {
+    "id": "hocm",
+    "term": "HOCM",
+    "definition": "hypertrophisch obstruktive"
+  },
+  {
+    "id": "hops",
+    "term": "HOPS",
+    "definition": "hirnorganisches Psychosyndrom"
+  },
+  {
+    "id": "hot",
+    "term": "HOT",
+    "definition": "hyperbare Sauerstofftherapie"
+  },
+  {
+    "id": "hp",
+    "term": "HP",
+    "definition": "Helicobacter pylori"
+  },
+  {
+    "id": "hpg",
+    "term": "HPG)",
+    "definition": "Heilpraktikergesetz"
+  },
+  {
+    "id": "hprl",
+    "term": "HPRL",
+    "definition": "humanes Prolactin"
+  },
+  {
+    "id": "hr",
+    "term": "HR)",
+    "definition": "Handrücken"
+  },
+  {
+    "id": "hrh",
+    "term": "HRH",
+    "definition": "hoher renaler Hochdruck"
+  },
+  {
+    "id": "hrs",
+    "term": "HRS",
+    "definition": "hepatorenales Syndrom"
+  },
+  {
+    "id": "hs",
+    "term": "HS)",
+    "definition": "Harnsäure"
+  },
+  {
+    "id": "hse",
+    "term": "HSE)",
+    "definition": "Hebe-Senk-Einlauf"
+  },
+  {
+    "id": "hsg",
+    "term": "HSG",
+    "definition": "Hysterosalpingographie"
+  },
+  {
+    "id": "hsl",
+    "term": "HSL",
+    "definition": "Herpes simplex labialis"
+  },
+  {
+    "id": "hsn",
+    "term": "HSN",
+    "definition": "hereditäre sensible Neuropathie"
+  },
+  {
+    "id": "hsv",
+    "term": "HSV)",
+    "definition": "Herpes simplex-Virus"
+  },
+  {
+    "id": "hsw",
+    "term": "HSW)",
+    "definition": "Hinterseitenwandinfarkt"
+  },
+  {
+    "id": "ht",
+    "term": "HT)",
+    "definition": "Hauttemperatur"
+  },
+  {
+    "id": "hta",
+    "term": "HTA",
+    "definition": "Halstabletten"
+  },
+  {
+    "id": "htgl",
+    "term": "HTGL",
+    "definition": "hepatische Triglyceridlipase"
+  },
+  {
+    "id": "htla",
+    "term": "HTLA",
+    "definition": "humanes Thymus-Lymphozyten-"
+  },
+  {
+    "id": "htp",
+    "term": "HTP",
+    "definition": "humanes Trockenplasma"
+  },
+  {
+    "id": "htq",
+    "term": "HTQ)",
+    "definition": "Herz-Thorax-Quotient"
+  },
+  {
+    "id": "htx",
+    "term": "HTX)",
+    "definition": "Herztransplantation"
+  },
+  {
+    "id": "hus",
+    "term": "HUS",
+    "definition": "hämolytisch urämisches"
+  },
+  {
+    "id": "hvi",
+    "term": "HVI)",
+    "definition": "Hyperventilationsindex"
+  },
+  {
+    "id": "hvl",
+    "term": "HVL)",
+    "definition": "Hypophysenvorderlappen"
+  },
+  {
+    "id": "hw",
+    "term": "HW)",
+    "definition": "Halswirbel"
+  },
+  {
+    "id": "hwd",
+    "term": "HWD)",
+    "definition": "Halbwertsdosis"
+  },
+  {
+    "id": "hwi",
+    "term": "HWI)",
+    "definition": "Hinterwandsinfarkt"
+  },
+  {
+    "id": "hwk",
+    "term": "HWK)",
+    "definition": "Halswirbelkörper"
+  },
+  {
+    "id": "hws",
+    "term": "HWS)",
+    "definition": "Halswirbelsäule"
+  },
+  {
+    "id": "hwz",
+    "term": "HWZ)",
+    "definition": "Halbwertzeit"
+  },
+  {
+    "id": "hzv",
+    "term": "HZV)",
+    "definition": "Herzzeitvolumen"
+  },
+  {
+    "id": "hzvi",
+    "term": "HZVI)",
+    "definition": "Herzzeitvolumenindex"
+  },
+  {
+    "id": "iab",
+    "term": "IAB",
+    "definition": "intraatrialer Block"
+  },
+  {
+    "id": "iabp",
+    "term": "IABP",
+    "definition": "intraaortale"
+  },
+  {
+    "id": "iat",
+    "term": "IAT",
+    "definition": "indirekter Antiglobulintest"
+  },
+  {
+    "id": "iai",
+    "term": "IAI",
+    "definition": "intraabdominelle Infektion"
+  },
+  {
+    "id": "iak",
+    "term": "IAK)",
+    "definition": "Insulin-Antikörper"
+  },
+  {
+    "id": "ians",
+    "term": "IANS",
+    "definition": "idiopathisches Atemnotsyndrom"
+  },
+  {
+    "id": "ibt",
+    "term": "IBT",
+    "definition": "inhalativer bronchialer"
+  },
+  {
+    "id": "ica",
+    "term": "ICA)",
+    "definition": "Inselzellantikörper"
+  },
+  {
+    "id": "icb",
+    "term": "ICB",
+    "definition": "intrakranielle Blutung"
+  },
+  {
+    "id": "icd",
+    "term": "ICD",
+    "definition": "implantierbarer Cardioverter-"
+  },
+  {
+    "id": "ice",
+    "term": "ICE",
+    "definition": "intrakardiale Echokardiographie"
+  },
+  {
+    "id": "ich",
+    "term": "ICH",
+    "definition": "intrazerebrales Hämatom"
+  },
+  {
+    "id": "icp",
+    "term": "ICP",
+    "definition": "intrakranieller Druck"
+  },
+  {
+    "id": "icr",
+    "term": "ICR)",
+    "definition": "Interkostalraum"
+  },
+  {
+    "id": "icsa",
+    "term": "ICSA",
+    "definition": "Inselzelloberflächenantikörper"
+  },
+  {
+    "id": "id",
+    "term": "ID)",
+    "definition": "Immundefekt"
+  },
+  {
+    "id": "ids",
+    "term": "IDS",
+    "definition": "irritables Darmsyndrom"
+  },
+  {
+    "id": "ie",
+    "term": "IE",
+    "definition": "internationale Einheit"
+  },
+  {
+    "id": "iep",
+    "term": "IEP)",
+    "definition": "Immunelektrophorese"
+  },
+  {
+    "id": "igtt",
+    "term": "IGTT",
+    "definition": "intravenöser"
+  },
+  {
+    "id": "iha",
+    "term": "IHA",
+    "definition": "immunhämolytische Anämie"
+  },
+  {
+    "id": "ihb",
+    "term": "IHB)",
+    "definition": "Infra-IS-Block"
+  },
+  {
+    "id": "ihe",
+    "term": "IHE",
+    "definition": "ischämische Herzerkrankung"
+  },
+  {
+    "id": "ihgt",
+    "term": "IHGT)",
+    "definition": "Insulin-Hypoglykämie-Test"
+  },
+  {
+    "id": "ihk",
+    "term": "IHK",
+    "definition": "ischämische Herzkrankheit"
+  },
+  {
+    "id": "ihss",
+    "term": "IHSS",
+    "definition": "idiopathisch hypertrophische"
+  },
+  {
+    "id": "iht",
+    "term": "IHT)",
+    "definition": "Insulin-Hypoglykämie-Test"
+  },
+  {
+    "id": "iift",
+    "term": "IIFT",
+    "definition": "indirekter"
+  },
+  {
+    "id": "ik",
+    "term": "IK)",
+    "definition": "Immunkomplex"
+  },
+  {
+    "id": "ikk",
+    "term": "IKK",
+    "definition": "Innungskrankenkassen"
+  },
+  {
+    "id": "ilf",
+    "term": "ILF",
+    "definition": "idiopathische Lungenfibrose"
+  },
+  {
+    "id": "im",
+    "term": "IM",
+    "definition": "innere Medizin"
+  },
+  {
+    "id": "in",
+    "term": "IN)",
+    "definition": "Insulin"
+  },
+  {
+    "id": "inb",
+    "term": "INB",
+    "definition": "intranodaler Block"
+  },
+  {
+    "id": "ino",
+    "term": "INO",
+    "definition": "internukleäre Ophthalmoplegie"
+  },
+  {
+    "id": "ios",
+    "term": "IOS",
+    "definition": "Innenohrschallempfindungs-"
+  },
+  {
+    "id": "ipaa",
+    "term": "IPAA",
+    "definition": "Ileumpouch-anale Anastomose"
+  },
+  {
+    "id": "ipka",
+    "term": "IPKA",
+    "definition": "inverse passive kutane"
+  },
+  {
+    "id": "ipm",
+    "term": "IPM",
+    "definition": "Impulse pro Minute"
+  },
+  {
+    "id": "ips",
+    "term": "IPS)",
+    "definition": "Intensivpflegestation"
+  },
+  {
+    "id": "ipsid",
+    "term": "IPSID",
+    "definition": "immunproliferative Erkrankung"
+  },
+  {
+    "id": "iq",
+    "term": "IQ)",
+    "definition": "Infektionsquelle"
+  },
+  {
+    "id": "irr",
+    "term": "IRR",
+    "definition": "irreversibel"
+  },
+  {
+    "id": "irv",
+    "term": "IRV",
+    "definition": "inspiratorisches"
+  },
+  {
+    "id": "is",
+    "term": "IS)",
+    "definition": "Intensivstation"
+  },
+  {
+    "id": "isa",
+    "term": "ISA",
+    "definition": "intravenöse"
+  },
+  {
+    "id": "isg",
+    "term": "ISG)",
+    "definition": "Iliosakralgelenk"
+  },
+  {
+    "id": "isk",
+    "term": "ISK",
+    "definition": "isolierter Schilddrüsenknoten"
+  },
+  {
+    "id": "isr",
+    "term": "ISR)",
+    "definition": "Interskapularraum"
+  },
+  {
+    "id": "ist",
+    "term": "IST)",
+    "definition": "Intelligenzstrukturtest"
+  },
+  {
+    "id": "ista",
+    "term": "ISTA",
+    "definition": "Isthmusstenose der Aorta"
+  },
+  {
+    "id": "it",
+    "term": "IT)",
+    "definition": "Indifferenztyp"
+  },
+  {
+    "id": "itgv",
+    "term": "ITGV",
+    "definition": "intrathorakales Gasvolumen"
+  },
+  {
+    "id": "ith",
+    "term": "ITH",
+    "definition": "Intensivtransporthubschrauber"
+  },
+  {
+    "id": "itp",
+    "term": "ITP",
+    "definition": "idiopathische"
+  },
+  {
+    "id": "itr",
+    "term": "ITR",
+    "definition": "intratracheal"
+  },
+  {
+    "id": "iudm",
+    "term": "IUDM",
+    "definition": "intrauterine Druckmessung"
+  },
+  {
+    "id": "iup",
+    "term": "IUP)",
+    "definition": "Intrauterinpessar"
+  },
+  {
+    "id": "ivb",
+    "term": "IVB",
+    "definition": "intraventrikulärer Block"
+  },
+  {
+    "id": "ivf",
+    "term": "IVF)",
+    "definition": "In-vitro-Fertilisation"
+  },
+  {
+    "id": "ivp",
+    "term": "IVP)",
+    "definition": "intravenöse Pyelographie"
+  },
+  {
+    "id": "iza",
+    "term": "IZA)",
+    "definition": "Insellzellantikörper"
+  },
+  {
+    "id": "izr",
+    "term": "IZR)",
+    "definition": "Intrazellularraum"
+  },
+  {
+    "id": "j",
+    "term": "J.)",
+    "definition": "Jahr"
+  },
+  {
+    "id": "ja",
+    "term": "JA)",
+    "definition": "Jetztanamnese"
+  },
+  {
+    "id": "jb",
+    "term": "JB)",
+    "definition": "Jetztbefund"
+  },
+  {
+    "id": "jbe",
+    "term": "JBE)",
+    "definition": "Japan-B-Enzephalitis"
+  },
+  {
+    "id": "jcv",
+    "term": "JCV)",
+    "definition": "Jacob-Creutzfeld-Virus"
+  },
+  {
+    "id": "jhr",
+    "term": "JHR",
+    "definition": "Jarisch-Herxheimer-Reaktion"
+  },
+  {
+    "id": "kag",
+    "term": "KAG)",
+    "definition": "Karotisangiographie"
+  },
+  {
+    "id": "kap",
+    "term": "KAP",
+    "definition": "Kapseln"
+  },
+  {
+    "id": "kbp",
+    "term": "KBP)",
+    "definition": "Kreislaufbelastungsprüfung"
+  },
+  {
+    "id": "kbr",
+    "term": "KBR",
+    "definition": "Komplementbindungsreaktion"
+  },
+  {
+    "id": "kda",
+    "term": "KDA",
+    "definition": "kongenital dyserythropoetische"
+  },
+  {
+    "id": "ke",
+    "term": "KE)",
+    "definition": "Kolonkontrasteinlauf"
+  },
+  {
+    "id": "kea",
+    "term": "KEA",
+    "definition": "karzinoembryonales Antigen"
+  },
+  {
+    "id": "kep",
+    "term": "KEP",
+    "definition": "künstliches endokrines Pankreas"
+  },
+  {
+    "id": "kg",
+    "term": "KG)",
+    "definition": "Krankengymnastik"
+  },
+  {
+    "id": "kh",
+    "term": "KH)",
+    "definition": "Krankenhaus"
+  },
+  {
+    "id": "khe",
+    "term": "KHE",
+    "definition": "koronare Herzerkrankung"
+  },
+  {
+    "id": "khg",
+    "term": "KHG",
+    "definition": "Krankenhausfinanzierungsgesetz"
+  },
+  {
+    "id": "ki",
+    "term": "KI)",
+    "definition": "Kontraindikation"
+  },
+  {
+    "id": "kis",
+    "term": "KIS",
+    "definition": "klinisches Informationssystem"
+  },
+  {
+    "id": "kke",
+    "term": "KKE)",
+    "definition": "Kolonkontrasteinlauf"
+  },
+  {
+    "id": "kkt",
+    "term": "KKT)",
+    "definition": "Körperkerntemperatur"
+  },
+  {
+    "id": "km",
+    "term": "KM)",
+    "definition": "Kontrastmittel"
+  },
+  {
+    "id": "kna",
+    "term": "KNA)",
+    "definition": "Kosten-Nutzen-Analyse"
+  },
+  {
+    "id": "kod",
+    "term": "KOD",
+    "definition": "kolloidosmotischer Druck"
+  },
+  {
+    "id": "kof",
+    "term": "KOF)",
+    "definition": "Körperoberfläche"
+  },
+  {
+    "id": "kp",
+    "term": "KP)",
+    "definition": "Klinikpackung"
+  },
+  {
+    "id": "kph",
+    "term": "KPH)",
+    "definition": "Krankenpflegerhelfer"
+  },
+  {
+    "id": "kpl",
+    "term": "KPL",
+    "definition": "kontinuierliche postoperative"
+  },
+  {
+    "id": "ksd",
+    "term": "KSD)",
+    "definition": "Kammerseptumdefekt"
+  },
+  {
+    "id": "kss",
+    "term": "KSS)",
+    "definition": "Karotis-Sinus-Syndrom"
+  },
+  {
+    "id": "kst",
+    "term": "KST)",
+    "definition": "Kernspintomographie"
+  },
+  {
+    "id": "ksu",
+    "term": "KSU)",
+    "definition": "Kindersuppositorium"
+  },
+  {
+    "id": "kt",
+    "term": "KT)",
+    "definition": "Kardiotechnik"
+  },
+  {
+    "id": "kts",
+    "term": "KTS)",
+    "definition": "Karpaltunnelsyndrom"
+  },
+  {
+    "id": "ku",
+    "term": "KU",
+    "definition": "körperliche Untersuchung"
+  },
+  {
+    "id": "kv",
+    "term": "KV",
+    "definition": "Kassenärztliche Vereinigung"
+  },
+  {
+    "id": "kvt",
+    "term": "KVT)",
+    "definition": "Konzentrationsverlauftest"
+  },
+  {
+    "id": "kz",
+    "term": "KZ",
+    "definition": "körperlicher Zustand"
+  },
+  {
+    "id": "kzg",
+    "term": "KZG)",
+    "definition": "Kurzzeitgedächtnis"
+  },
+  {
+    "id": "la",
+    "term": "LA)",
+    "definition": "Lokalanästhesie"
+  },
+  {
+    "id": "lah",
+    "term": "LAH",
+    "definition": "linksanteriorer Hemiblock"
+  },
+  {
+    "id": "läk",
+    "term": "LÄK)",
+    "definition": "Landesärztekammer"
+  },
+  {
+    "id": "las",
+    "term": "LAS)",
+    "definition": "Lymphadenopathiesyndrom"
+  },
+  {
+    "id": "lav",
+    "term": "LAV",
+    "definition": "lymphadenopathie-assoziiertes"
+  },
+  {
+    "id": "lbp",
+    "term": "LBP)",
+    "definition": "Leberblindpunktion"
+  },
+  {
+    "id": "lbv",
+    "term": "LBV)",
+    "definition": "Lungenblutvolumen"
+  },
+  {
+    "id": "ldh",
+    "term": "LDH)",
+    "definition": "Lactatdehydrogenase"
+  },
+  {
+    "id": "ldsg",
+    "term": "LDSG)",
+    "definition": "Landesdatenschutzgesetz"
+  },
+  {
+    "id": "le",
+    "term": "LE)",
+    "definition": "Lungenembolie"
+  },
+  {
+    "id": "lebk",
+    "term": "LEBK",
+    "definition": "latente Eisenbindungskapazität"
+  },
+  {
+    "id": "leer",
+    "term": "LEER",
+    "definition": "laterale erweiterte endopelvine"
+  },
+  {
+    "id": "lhv",
+    "term": "LHV)",
+    "definition": "Linksherzversagen"
+  },
+  {
+    "id": "lif",
+    "term": "LIF",
+    "definition": "leukozyteninduzierender Faktor"
+  },
+  {
+    "id": "lima",
+    "term": "LIMA",
+    "definition": "Arteria mammaria interna links"
+  },
+  {
+    "id": "lis",
+    "term": "LIS)",
+    "definition": "Lumbago-Ischias-Syndrom"
+  },
+  {
+    "id": "lit",
+    "term": "LIT)",
+    "definition": "Leberinkooperationstest"
+  },
+  {
+    "id": "litt",
+    "term": "LITT",
+    "definition": "laserinduzierte Thermotherapie"
+  },
+  {
+    "id": "lk",
+    "term": "LK)",
+    "definition": "Linkskatheter"
+  },
+  {
+    "id": "lkg",
+    "term": "LKG",
+    "definition": "Lippen-Kiefer-Gaumen"
+  },
+  {
+    "id": "lkm",
+    "term": "LKM",
+    "definition": "latente Kardiomyopathie"
+  },
+  {
+    "id": "lm",
+    "term": "LM",
+    "definition": "letzte Menstruation"
+  },
+  {
+    "id": "lmm",
+    "term": "LMM",
+    "definition": "Lentigomaligna-Melanom"
+  },
+  {
+    "id": "lna",
+    "term": "LNA",
+    "definition": "leitender Notarzt"
+  },
+  {
+    "id": "lns",
+    "term": "LNS)",
+    "definition": "Linton-Nachlas-Sonde"
+  },
+  {
+    "id": "lot",
+    "term": "LOT)",
+    "definition": "Lotio"
+  },
+  {
+    "id": "lp",
+    "term": "LP)",
+    "definition": "Lumbalpunktion"
+  },
+  {
+    "id": "lpe",
+    "term": "LPE",
+    "definition": "lymphoproliferative Erkrankung"
+  },
+  {
+    "id": "lph",
+    "term": "LPH",
+    "definition": "linksposteriorer Hemiblock"
+  },
+  {
+    "id": "lpl",
+    "term": "LPL)",
+    "definition": "Lipoproteinlipase"
+  },
+  {
+    "id": "lr",
+    "term": "LR)",
+    "definition": "Lichtreaktion"
+  },
+  {
+    "id": "lrs",
+    "term": "LRS",
+    "definition": "Lese- und"
+  },
+  {
+    "id": "lsb",
+    "term": "LSB)",
+    "definition": "Linksschenkelblock"
+  },
+  {
+    "id": "lsm",
+    "term": "LSM",
+    "definition": "lebensrettende"
+  },
+  {
+    "id": "lsp",
+    "term": "LSP",
+    "definition": "leberspezifisches Protein"
+  },
+  {
+    "id": "lst",
+    "term": "LST",
+    "definition": "Lymphozytenstimulationstest"
+  },
+  {
+    "id": "lt",
+    "term": "LT",
+    "definition": "Leukotriene"
+  },
+  {
+    "id": "lta",
+    "term": "LTA Assistent)",
+    "definition": "Labortechnische Assistent"
+  },
+  {
+    "id": "ltb",
+    "term": "LTB",
+    "definition": "laryngotracheale Bronchitis"
+  },
+  {
+    "id": "lts",
+    "term": "LTS",
+    "definition": "linker Tawaraschenkel"
+  },
+  {
+    "id": "ltt",
+    "term": "LTT",
+    "definition": "Lymphozytentransformations-"
+  },
+  {
+    "id": "lv",
+    "term": "LV",
+    "definition": "linker Ventrikel"
+  },
+  {
+    "id": "lva",
+    "term": "LVA",
+    "definition": "Landesversicherungsanstalt"
+  },
+  {
+    "id": "lvat",
+    "term": "LVAT",
+    "definition": "linksventrikulärer Ausflusstrakt"
+  },
+  {
+    "id": "lvh",
+    "term": "LVH",
+    "definition": "linksventrikuläre Hypertrophie"
+  },
+  {
+    "id": "lw",
+    "term": "LW)",
+    "definition": "Lendenwirbel"
+  },
+  {
+    "id": "lwk",
+    "term": "LWK)",
+    "definition": "Lendenwirbelkörper"
+  },
+  {
+    "id": "lws",
+    "term": "LWS)",
+    "definition": "Lendenwirbelsäule"
+  },
+  {
+    "id": "ma",
+    "term": "MA)",
+    "definition": "Medikamentenanamnese"
+  },
+  {
+    "id": "maa",
+    "term": "MAA)",
+    "definition": "Mikroalbuminaggregat"
+  },
+  {
+    "id": "mac",
+    "term": "MAC",
+    "definition": "minimale alveoläre"
+  },
+  {
+    "id": "mad",
+    "term": "MAD",
+    "definition": "minimaler arterieller Blutdruck"
+  },
+  {
+    "id": "maf",
+    "term": "MAF",
+    "definition": "Makrophagenaktivierungsfaktor"
+  },
+  {
+    "id": "malt",
+    "term": "MALT",
+    "definition": "mukosaassoziiertes"
+  },
+  {
+    "id": "mao",
+    "term": "MAO)",
+    "definition": "Monoaminooxidase"
+  },
+  {
+    "id": "map",
+    "term": "MAP)",
+    "definition": "Muskelantwortpotenzial"
+  },
+  {
+    "id": "mas",
+    "term": "MAS",
+    "definition": "Malassimilationssyndrome"
+  },
+  {
+    "id": "masa",
+    "term": "MASA",
+    "definition": "Morgagni-Adam-Stokes-Anfall"
+  },
+  {
+    "id": "mbn",
+    "term": "MBN",
+    "definition": "maligner blauer Nävus"
+  },
+  {
+    "id": "mbs",
+    "term": "MBS",
+    "definition": "metabolischges Syndrom"
+  },
+  {
+    "id": "mbu",
+    "term": "MBU)",
+    "definition": "Mikroblutuntersuchung"
+  },
+  {
+    "id": "mcgn",
+    "term": "MCGN",
+    "definition": "mesangiokapilläre"
+  },
+  {
+    "id": "mcl",
+    "term": "MCL",
+    "definition": "Medioclavicularlinie"
+  },
+  {
+    "id": "mcls",
+    "term": "MCLS",
+    "definition": "mukokutantes Lymphsyndrom"
+  },
+  {
+    "id": "mcv",
+    "term": "MCV",
+    "definition": "mittleres korpuskuläres"
+  },
+  {
+    "id": "mdh",
+    "term": "MDH)",
+    "definition": "Milchsäuredehydrogenase"
+  },
+  {
+    "id": "mdk",
+    "term": "MDK",
+    "definition": "Medizinischer Dienst der"
+  },
+  {
+    "id": "mdp",
+    "term": "MDP)",
+    "definition": "Magen-Darm-Passage"
+  },
+  {
+    "id": "mds",
+    "term": "MDS",
+    "definition": "myelodysplastisches Syndrom"
+  },
+  {
+    "id": "mea",
+    "term": "MEA",
+    "definition": "multiple endokrine"
+  },
+  {
+    "id": "meas",
+    "term": "MEAS",
+    "definition": "maximale exspiratorische"
+  },
+  {
+    "id": "med",
+    "term": "MED",
+    "definition": "minimale Erythemdosis"
+  },
+  {
+    "id": "meg",
+    "term": "MEG)",
+    "definition": "Magnetenzephalographie"
+  },
+  {
+    "id": "mem",
+    "term": "MEM",
+    "definition": "Makrophagen-Elektrophorese-"
+  },
+  {
+    "id": "men",
+    "term": "MEN",
+    "definition": "multiple endokrine Neoplasien"
+  },
+  {
+    "id": "meos",
+    "term": "MEOS",
+    "definition": "mikrosomales ethanol-"
+  },
+  {
+    "id": "mep",
+    "term": "MEP",
+    "definition": "motorsich evozierte Potenziale"
+  },
+  {
+    "id": "mfk",
+    "term": "MFK)",
+    "definition": "Mittelfußknochen"
+  },
+  {
+    "id": "mg",
+    "term": "MG)",
+    "definition": "Massengewicht"
+  },
+  {
+    "id": "mhk",
+    "term": "MHK",
+    "definition": "minimale Hemmkonzentration"
+  },
+  {
+    "id": "mi",
+    "term": "MI)",
+    "definition": "Myocardinfarkt"
+  },
+  {
+    "id": "mic",
+    "term": "MIC",
+    "definition": "minimalinvasive Chirurgie"
+  },
+  {
+    "id": "mif",
+    "term": "MIF)",
+    "definition": "Migrationsinhibitionsfaktor"
+  },
+  {
+    "id": "mik",
+    "term": "MIK",
+    "definition": "maximale"
+  },
+  {
+    "id": "mj",
+    "term": "MJ)",
+    "definition": "Marihuana"
+  },
+  {
+    "id": "mk",
+    "term": "MK)",
+    "definition": "Mitralklappe"
+  },
+  {
+    "id": "mke",
+    "term": "MKE)",
+    "definition": "Mitralklappenersatz"
+  },
+  {
+    "id": "mkg",
+    "term": "MKG",
+    "definition": "Mund-Kiefer-Gesichtschirurgie"
+  },
+  {
+    "id": "ml",
+    "term": "ML)",
+    "definition": "Mittellappen"
+  },
+  {
+    "id": "mlk",
+    "term": "MLK",
+    "definition": "minimale Letalkonzentration"
+  },
+  {
+    "id": "mm",
+    "term": "MM)",
+    "definition": "Muttermund"
+  },
+  {
+    "id": "mml",
+    "term": "MML",
+    "definition": "myelomonozytäre Leukämie"
+  },
+  {
+    "id": "mmn",
+    "term": "MMN",
+    "definition": "multifokal motorische"
+  },
+  {
+    "id": "mmr",
+    "term": "MMR",
+    "definition": "Mumps-Masern-Röteln"
+  },
+  {
+    "id": "mms",
+    "term": "MMS",
+    "definition": "Monozyten-Makrophagen-"
+  },
+  {
+    "id": "mnw",
+    "term": "MNW)",
+    "definition": "Medikamentennebenwirkung"
+  },
+  {
+    "id": "mods",
+    "term": "MODS",
+    "definition": "Multiorgandysfunktionssyndrom"
+  },
+  {
+    "id": "mok",
+    "term": "MOK",
+    "definition": "maximale Organkonzentration"
+  },
+  {
+    "id": "möt",
+    "term": "MÖT)",
+    "definition": "Mitralklappenöffnungston"
+  },
+  {
+    "id": "mov",
+    "term": "MOV)",
+    "definition": "Multiorganversagen"
+  },
+  {
+    "id": "mpg",
+    "term": "MPG",
+    "definition": "Medizinproduktegesetz"
+  },
+  {
+    "id": "mps",
+    "term": "MPS",
+    "definition": "myeloproliferatives Syndrom"
+  },
+  {
+    "id": "mr",
+    "term": "MR)",
+    "definition": "Magnetresonanz"
+  },
+  {
+    "id": "mrcp",
+    "term": "MRCP",
+    "definition": "Magnetresonanz-"
+  },
+  {
+    "id": "mrr",
+    "term": "MRR)",
+    "definition": "Mund-Rachen-Raum"
+  },
+  {
+    "id": "mrt",
+    "term": "MRT)",
+    "definition": "Magnetresonanztomographie"
+  },
+  {
+    "id": "mrv",
+    "term": "MRV)",
+    "definition": "Maßregelvollzug"
+  },
+  {
+    "id": "ms",
+    "term": "MS)",
+    "definition": "Magensonde"
+  },
+  {
+    "id": "msa",
+    "term": "MSA",
+    "definition": "Multisystematrophien"
+  },
+  {
+    "id": "msh",
+    "term": "MSH",
+    "definition": "melanozytenstimulierendes"
+  },
+  {
+    "id": "msi",
+    "term": "MSI)",
+    "definition": "Mikrosatelliteninstabilität"
+  },
+  {
+    "id": "mslt",
+    "term": "MSLT",
+    "definition": "multipler Schlaflatenztest"
+  },
+  {
+    "id": "msu",
+    "term": "MSU)",
+    "definition": "Mittelstrahlurin"
+  },
+  {
+    "id": "mta",
+    "term": "MTA)",
+    "definition": "Medizinisch technische"
+  },
+  {
+    "id": "mts",
+    "term": "MTS",
+    "definition": "medizinische"
+  },
+  {
+    "id": "mwt",
+    "term": "MWT",
+    "definition": "multipler Wachbleibetest"
+  },
+  {
+    "id": "mzl",
+    "term": "MZL)",
+    "definition": "Marginalzonen-Lymphom"
+  },
+  {
+    "id": "na",
+    "term": "NA)",
+    "definition": "Nabelarterie"
+  },
+  {
+    "id": "nä",
+    "term": "NÄ)",
+    "definition": "Notärztin"
+  },
+  {
+    "id": "nap",
+    "term": "NAP)",
+    "definition": "Nervenaustrittspunkt"
+  },
+  {
+    "id": "nas",
+    "term": "NAS",
+    "definition": "neuroallergisches Syndrom"
+  },
+  {
+    "id": "nash",
+    "term": "NASH",
+    "definition": "nicht-alkoholische"
+  },
+  {
+    "id": "naw",
+    "term": "NAW)",
+    "definition": "Notarztwagen"
+  },
+  {
+    "id": "nb",
+    "term": "NB)",
+    "definition": "Nachblutung"
+  },
+  {
+    "id": "nbz",
+    "term": "NBZ)",
+    "definition": "Nüchternblutzucker"
+  },
+  {
+    "id": "nch",
+    "term": "NCH)",
+    "definition": "Neurochirurgie"
+  },
+  {
+    "id": "nd",
+    "term": "ND)",
+    "definition": "Nebendiagnose"
+  },
+  {
+    "id": "nec",
+    "term": "NEC",
+    "definition": "nekrotisierende Enterokolitis"
+  },
+  {
+    "id": "ng",
+    "term": "NG",
+    "definition": "Neugeborenes"
+  },
+  {
+    "id": "nhl",
+    "term": "NHL)",
+    "definition": "Non-Hodgkin-Lymphom"
+  },
+  {
+    "id": "nid",
+    "term": "NID",
+    "definition": "normalgewichtiger"
+  },
+  {
+    "id": "nir",
+    "term": "NIR",
+    "definition": "nichtischämische Region"
+  },
+  {
+    "id": "nk",
+    "term": "NK)",
+    "definition": "Nachkontrolle"
+  },
+  {
+    "id": "nkm",
+    "term": "NKM",
+    "definition": "nichtklassifizierbares Melanom"
+  },
+  {
+    "id": "nl",
+    "term": "NL)",
+    "definition": "Nierenlager"
+  },
+  {
+    "id": "nla",
+    "term": "NLA)",
+    "definition": "Neuroleptanalgesie"
+  },
+  {
+    "id": "nlg",
+    "term": "NLG)",
+    "definition": "Nervenleitgeschwindigkeit"
+  },
+  {
+    "id": "nlks",
+    "term": "NLKS)",
+    "definition": "Nierenlagerklopfschmerz"
+  },
+  {
+    "id": "nm",
+    "term": "NM",
+    "definition": "neuromuskulär"
+  },
+  {
+    "id": "nmm",
+    "term": "NMM",
+    "definition": "noduläres malignes Melanom"
+  },
+  {
+    "id": "nmt",
+    "term": "NMT",
+    "definition": "neuromuskuläre Transmission"
+  },
+  {
+    "id": "nn",
+    "term": "NN)",
+    "definition": "Nebenniere"
+  },
+  {
+    "id": "nnh",
+    "term": "NNH",
+    "definition": "Nasennebenhöhlen"
+  },
+  {
+    "id": "nnm",
+    "term": "NNM)",
+    "definition": "Nebennierenmark"
+  },
+  {
+    "id": "nnr",
+    "term": "NNR)",
+    "definition": "Nebennierenrinde"
+  },
+  {
+    "id": "nocm",
+    "term": "NOCM",
+    "definition": "nicht obstruktive"
+  },
+  {
+    "id": "nora",
+    "term": "NORA)",
+    "definition": "Noradrenalin"
+  },
+  {
+    "id": "npc",
+    "term": "NPC)",
+    "definition": "Nasopharynxkarzinom"
+  },
+  {
+    "id": "npl",
+    "term": "NPL)",
+    "definition": "Neoplasma"
+  },
+  {
+    "id": "nsa",
+    "term": "NSA)",
+    "definition": "Nasensalbe"
+  },
+  {
+    "id": "nsar",
+    "term": "NSAR",
+    "definition": "nichtsteroidales"
+  },
+  {
+    "id": "nse",
+    "term": "NSE",
+    "definition": "neurospezifische Enolase"
+  },
+  {
+    "id": "nsr",
+    "term": "NSR",
+    "definition": "normaler Sinusrhythmus"
+  },
+  {
+    "id": "nt",
+    "term": "NT",
+    "definition": "nasotracheal"
+  },
+  {
+    "id": "ntx",
+    "term": "NTX)",
+    "definition": "Nierentransplantation"
+  },
+  {
+    "id": "nu",
+    "term": "NU)",
+    "definition": "Nachuntersuchung"
+  },
+  {
+    "id": "nub",
+    "term": "NUB",
+    "definition": "Neue Untersuchungs- und"
+  },
+  {
+    "id": "nvk",
+    "term": "NVK)",
+    "definition": "Nabelvenenkatheter"
+  },
+  {
+    "id": "nvt",
+    "term": "NVT)",
+    "definition": "Nierenvenenthrombose"
+  },
+  {
+    "id": "nw",
+    "term": "NW)",
+    "definition": "Nachweis"
+  },
+  {
+    "id": "nx",
+    "term": "NX)",
+    "definition": "Nierenbiopsie"
+  },
+  {
+    "id": "nza",
+    "term": "NZA)",
+    "definition": "Nierenzelladenom"
+  },
+  {
+    "id": "nzc/",
+    "term": "NZC/",
+    "definition": "NZK"
+  },
+  {
+    "id": "oa",
+    "term": "OA)",
+    "definition": "Oberarm"
+  },
+  {
+    "id": "oä",
+    "term": "OÄ)",
+    "definition": "Oberärztin"
+  },
+  {
+    "id": "oae",
+    "term": "OAE",
+    "definition": "otoakustische Emissionen"
+  },
+  {
+    "id": "oak",
+    "term": "OAK",
+    "definition": "orale Antikoagulation"
+  },
+  {
+    "id": "oal",
+    "term": "OAL",
+    "definition": "oberflächenaktives Lipoprotein"
+  },
+  {
+    "id": "oas",
+    "term": "OAS",
+    "definition": "oberflächenaktive Spannung"
+  },
+  {
+    "id": "ocg",
+    "term": "OCG",
+    "definition": "orales Cholezystogramm"
+  },
+  {
+    "id": "odg",
+    "term": "ODG)",
+    "definition": "Ophtalmodynamographie"
+  },
+  {
+    "id": "oemg",
+    "term": "OEMG)",
+    "definition": "Okuloelektromyogramm"
+  },
+  {
+    "id": "oep",
+    "term": "OEP",
+    "definition": "olfaktorisch evoziertes Potenzial"
+  },
+  {
+    "id": "ofd",
+    "term": "OFD",
+    "definition": "orofazialdigitales Syndrom"
+  },
+  {
+    "id": "ogtt",
+    "term": "OGTT",
+    "definition": "oraler Glukosetoleranztest"
+  },
+  {
+    "id": "oi",
+    "term": "OI)",
+    "definition": "Osteogenesis imperfecta"
+  },
+  {
+    "id": "ok",
+    "term": "OK)",
+    "definition": "Oberkiefer"
+  },
+  {
+    "id": "okh",
+    "term": "OKH)",
+    "definition": "Oberkieferhöhle"
+  },
+  {
+    "id": "ol",
+    "term": "OL)",
+    "definition": "Oberlappen"
+  },
+  {
+    "id": "om",
+    "term": "OM)",
+    "definition": "Otitis media"
+  },
+  {
+    "id": "omf",
+    "term": "OMF)",
+    "definition": "Osteomyelofibrose"
+  },
+  {
+    "id": "oms",
+    "term": "OMS)",
+    "definition": "Osteomyelosklerose"
+  },
+  {
+    "id": "onk-",
+    "term": "ONK-",
+    "definition": "Tubus"
+  },
+  {
+    "id": "oös",
+    "term": "OÖS",
+    "definition": "oberer Ösophagussphinkter"
+  },
+  {
+    "id": "opca",
+    "term": "OPCA",
+    "definition": "olivo-ponto-cerebellare"
+  },
+  {
+    "id": "opz",
+    "term": "OPZ",
+    "definition": "operatives Zentrum"
+  },
+  {
+    "id": "orn",
+    "term": "ORN",
+    "definition": "Ornithin"
+  },
+  {
+    "id": "os",
+    "term": "OS)",
+    "definition": "Oberschenkel"
+  },
+  {
+    "id": "osas",
+    "term": "OSAS",
+    "definition": "obstruktives"
+  },
+  {
+    "id": "ota",
+    "term": "OTA)",
+    "definition": "Operationstechnische"
+  },
+  {
+    "id": "otd",
+    "term": "OTD)",
+    "definition": "Organtoleranzdosis"
+  },
+  {
+    "id": "oup",
+    "term": "OUP",
+    "definition": "oberer Umschlagspunkt"
+  },
+  {
+    "id": "öv",
+    "term": "ÖV",
+    "definition": "Ösophagusvarizen"
+  },
+  {
+    "id": "övb",
+    "term": "ÖVB)",
+    "definition": "Ösophagusvarizenblutung"
+  },
+  {
+    "id": "ovh",
+    "term": "OVH)",
+    "definition": "Ovulationshemmer"
+  },
+  {
+    "id": "pa",
+    "term": "PA)",
+    "definition": "Pflegeanamnese"
+  },
+  {
+    "id": "pad",
+    "term": "PAD",
+    "definition": "perkutane Abszessdrainage"
+  },
+  {
+    "id": "paf",
+    "term": "PAF",
+    "definition": "plättchenaktiviernder Faktor"
+  },
+  {
+    "id": "page",
+    "term": "PAGE",
+    "definition": "Polyacrylamidgelelektrophorese"
+  },
+  {
+    "id": "pak",
+    "term": "PAK",
+    "definition": "Pulmonalarterienkatheter"
+  }
+]

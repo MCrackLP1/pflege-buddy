@@ -1,0 +1,447 @@
+[
+  {
+    "id": "afasie",
+    "term": "Afasie",
+    "definition": "Störung der Sprachfunktion nach Hirnschädigung bei intakten Sprechwerkzeugen. Hauptformen sind die Broca-Afasie (motorisch/expressiv), Wernicke-Afasie (sensorisch/rezeptiv), globale und amnestische Afasie."
+  },
+  {
+    "id": "agnosie",
+    "term": "Agnosie",
+    "definition": "Unfähigkeit, Sinneseindrücke zu erkennen und zu interpretieren trotz intakter Sinnesorgane. Je nach betroffenem Sinnessystem unterscheidet man visuelle, akustische und taktile Agnosie."
+  },
+  {
+    "id": "agraphie",
+    "term": "Agraphie",
+    "definition": "Erworbene Störung der Schreibfähigkeit nach Hirnschädigung trotz erhaltener motorischer Fähigkeiten und Sprachverständnis."
+  },
+  {
+    "id": "alexie",
+    "term": "Alexie",
+    "definition": "Erworbene Lesestörung nach Hirnschädigung trotz intaktem Sehvermögen und Sprachverständnis."
+  },
+  {
+    "id": "amnesie",
+    "term": "Amnesie",
+    "definition": "Gedächtnisstörung, die das Abspeichern neuer Informationen (anterograde A.) oder den Abruf bereits gespeicherter Informationen (retrograde A.) betrifft."
+  },
+  {
+    "id": "aneurysma",
+    "term": "Aneurysma (zerebral)",
+    "definition": "Aussackung einer Hirnarterie, meist an Gefäßverzweigungen. Ruptur kann zu Subarachnoidalblutung führen. Häufigste Lokalisation: Circulus arteriosus Willisii."
+  },
+  {
+    "id": "aphonie",
+    "term": "Aphonie",
+    "definition": "Vollständiger Stimmverlust bei erhaltener Flüsterstimme, oft psychogen oder durch Kehlkopferkrankungen verursacht. Keine primär neurologische Störung."
+  },
+  {
+    "id": "aphasie",
+    "term": "Aphasie",
+    "definition": "Zentrale Sprachstörung nach Hirnschädigung. Variante von Afasie, in manchen Klassifikationen als stärkere Ausprägung der Sprachstörung beschrieben."
+  },
+  {
+    "id": "apraxie",
+    "term": "Apraxie",
+    "definition": "Störung zielgerichteter Bewegungen und Handlungen trotz intakter motorischer Funktion. Ideomotorische (Ausführung einzelner Bewegungen), ideatorische (komplexe Handlungsabläufe) und konstruktive Apraxie (räumliche Anordnung)."
+  },
+  {
+    "id": "arachnoidalzyste",
+    "term": "Arachnoidalzyste",
+    "definition": "Gutartige, mit Liquor gefüllte Zyste zwischen Arachnoidea und Pia mater. Meist angeboren und asymptomatisch, kann aber durch Raumforderung Symptome verursachen."
+  },
+  {
+    "id": "astrozytom",
+    "term": "Astrozytom",
+    "definition": "Hirntumor, der aus Astrozyten (einem Typ von Gliazellen) entsteht. WHO-Grad I-IV, wobei Grad IV dem Glioblastom entspricht."
+  },
+  {
+    "id": "ataxie",
+    "term": "Ataxie",
+    "definition": "Störung der Bewegungskoordination mit unsicherem Gang, ungenauer Zielbewegung und Intentionstremor. Meist durch Schädigung des Kleinhirns oder der Kleinhirnbahnen."
+  },
+  {
+    "id": "athetose",
+    "term": "Athetose",
+    "definition": "Unwillkürliche, langsame, wurmartige Bewegungen v.a. der Extremitäten. Häufig bei extrapyramidalen Bewegungsstörungen wie Zerebralparese."
+  },
+  {
+    "id": "babinskizeichen",
+    "term": "Babinski-Zeichen",
+    "definition": "Pathologisches Reflex-Phänomen mit Großzehendorsiflexion und Fächerung der übrigen Zehen bei Reizung der Fußsohle. Hinweis auf Schädigung der Pyramidenbahn."
+  },
+  {
+    "id": "ballismus",
+    "term": "Ballismus",
+    "definition": "Schwere Form der Hyperkinese mit heftigen, schleudernden Bewegungen der Extremitäten. Oft einseitig (Hemiballismus) durch Schädigung des Nucleus subthalamicus."
+  },
+  {
+    "id": "baroreflexversagen",
+    "term": "Baroreflexversagen",
+    "definition": "Störung der Blutdruckregulation durch Ausfall der Barorezeptoren oder ihrer zentralen Verschaltung. Führt zu starken Blutdruckschwankungen, v.a. orthostatisch."
+  },
+  {
+    "id": "brainpressure",
+    "term": "Brain Pressure (Hirndruck)",
+    "definition": "Erhöhter intrakranieller Druck durch Raumforderungen, Ödeme, Blutungen oder Liquorzirkulationsstörungen. Symptome: Kopfschmerz, Übelkeit, Erbrechen, Bewusstseinsstörungen, Stauungspapille."
+  },
+  {
+    "id": "cerebritisheard",
+    "term": "Cerebritis-Herd",
+    "definition": "Lokalisierte Entzündung des Hirngewebes, Frühstadium eines Hirnabszesses. Verursacht durch bakterielle, virale oder pilzbedingte Infektionen."
+  },
+  {
+    "id": "chorea",
+    "term": "Chorea",
+    "definition": "Unwillkürliche, rasche, unregelmäßige, nicht-rhythmische Bewegungen, die fließend ineinander übergehen. Wichtigstes Beispiel: Chorea Huntington."
+  },
+  {
+    "id": "cva",
+    "term": "CVA (Cerebrovascular Accident)",
+    "definition": "Englische Bezeichnung für Schlaganfall. Plötzliche Unterbrechung der Blutversorgung bestimmter Hirnareale durch Ischämie oder Blutung."
+  },
+  {
+    "id": "dysdiadochokinese",
+    "term": "Dysdiadochokinese",
+    "definition": "Störung der raschen Ausführung alternierender Bewegungen (z.B. Pronation/Supination). Typisches Kleinhirnzeichen."
+  },
+  {
+    "id": "dystonie",
+    "term": "Dystonie",
+    "definition": "Bewegungsstörung mit unwillkürlichen anhaltenden Muskelkontraktionen, die zu abnormen Haltungen oder wiederholten Bewegungen führen. Fokale (z.B. Torticollis) oder generalisierte Formen."
+  },
+  {
+    "id": "eeg",
+    "term": "EEG (Elektroenzephalogramm)",
+    "definition": "Aufzeichnung der elektrischen Hirnaktivität mittels Oberflächenelektroden. Diagnostik bei Epilepsien, Bewusstseinsstörungen, Enzephalopathien und Hirntoddetermination."
+  },
+  {
+    "id": "emg",
+    "term": "EMG (Elektromyogramm)",
+    "definition": "Aufzeichnung der elektrischen Muskelaktivität. Diagnostik bei neuromuskulären Erkrankungen, zur Differenzierung von myogenen und neurogenen Erkrankungen."
+  },
+  {
+    "id": "encephalitis",
+    "term": "Enzephalitis",
+    "definition": "Entzündung des Hirngewebes, meist viral bedingt. Symptome: Fieber, Kopfschmerzen, Bewusstseinsstörungen, neurologische Ausfälle, Krampfanfälle."
+  },
+  {
+    "id": "encephalopathie",
+    "term": "Enzephalopathie",
+    "definition": "Sammelbegriff für diffuse Hirnfunktionsstörungen verschiedener Ursachen (toxisch, metabolisch, hypoxisch etc.). Symptome: Bewusstseinsstörungen, Verwirrtheit, kognitive Defizite."
+  },
+  {
+    "id": "epilepsie",
+    "term": "Epilepsie",
+    "definition": "Erkrankung mit wiederkehrenden, unprovoziert auftretenden Anfällen aufgrund paroxysmaler, synchroner neuronaler Entladungen. Fokale und generalisierte Formen."
+  },
+  {
+    "id": "evp",
+    "term": "EVP (Evozierte Potentiale)",
+    "definition": "Elektrische Antworten des Nervensystems auf definierte äußere Reize. Visuelle (VEP), akustische (AEP), somatosensorische (SEP) und motorische (MEP) evozierte Potentiale."
+  },
+  {
+    "id": "faszikulationen",
+    "term": "Faszikulationen",
+    "definition": "Unwillkürliche Kontraktionen einzelner Muskelfaserbündel, sichtbar als Muskelzucken unter der Haut. Hinweis auf Vorderhornzellschädigung, z.B. bei ALS."
+  },
+  {
+    "id": "gerstmannsyndrm",
+    "term": "Gerstmann-Syndrom",
+    "definition": "Symptomkomplex mit Fingeragnosie, Rechts-Links-Störung, Agraphie und Akalkulie. Läsion im Bereich des Gyrus angularis der dominanten Hemisphäre."
+  },
+  {
+    "id": "glioblastom",
+    "term": "Glioblastom",
+    "definition": "Bösartigster hirneigener Tumor (WHO Grad IV), ausgehend von Gliazellen. Infiltratives Wachstum, schlechte Prognose, Standardtherapie: Operation, Radiochemotherapie."
+  },
+  {
+    "id": "hemiparese",
+    "term": "Hemiparese",
+    "definition": "Inkomplette Lähmung einer Körperhälfte. Häufige Folge eines Schlaganfalls oder anderer Läsionen der Pyramidenbahn."
+  },
+  {
+    "id": "hemiplegie",
+    "term": "Hemiplegie",
+    "definition": "Vollständige Lähmung einer Körperhälfte. Schwere Form der Hemiparese bei kompletter Pyramidenbahnläsion."
+  },
+  {
+    "id": "hirnoedem",
+    "term": "Hirnödem",
+    "definition": "Vermehrter Wassergehalt des Hirngewebes mit Volumenzunahme und potenzieller Hirndrucksteigerung. Vasogene, zytotoxische und interstitielle Formen."
+  },
+  {
+    "id": "hornersyndrm",
+    "term": "Horner-Syndrom",
+    "definition": "Trias aus Miosis (enge Pupille), Ptosis (Oberlidhängen) und Enophthalmus (eingesunkener Augapfel) durch Läsion des sympathischen Nervensystems."
+  },
+  {
+    "id": "huntington",
+    "term": "Huntington-Krankheit",
+    "definition": "Autosomal-dominant vererbte neurodegenerative Erkrankung mit Chorea, kognitiven Störungen und psychiatrischen Symptomen. Ursache: CAG-Repeat-Expansion im Huntingtin-Gen."
+  },
+  {
+    "id": "hydrocephalus",
+    "term": "Hydrozephalus",
+    "definition": "Erweiterung der Hirnventrikel durch vermehrte Liquormenge. Obstruktiv (Abflussbehinderung), kommunizierend (gestörte Resorption) oder ex vacuo (bei Hirnatrophie)."
+  },
+  {
+    "id": "hyperkinese",
+    "term": "Hyperkinese",
+    "definition": "Überschießende unwillkürliche Bewegungen verschiedener Formen (Tremor, Chorea, Tics etc.). Ursache meist in Basalganglien oder Kleinhirn."
+  },
+  {
+    "id": "ischias",
+    "term": "Ischias",
+    "definition": "Schmerzsyndrom im Versorgungsgebiet des Nervus ischiadicus. Meist durch Bandscheibenvorfall oder andere Kompression der Nervenwurzel L4-S1."
+  },
+  {
+    "id": "kataplexy",
+    "term": "Kataplexie",
+    "definition": "Plötzlicher, meist emotionsausgelöster Verlust des Muskeltonus bei erhaltenem Bewusstsein. Kardinalsymptom der Narkolepsie."
+  },
+  {
+    "id": "klumpke",
+    "term": "Klumpke-Lähmung",
+    "definition": "Lähmung des unteren Plexus brachialis (C8-Th1). Betrifft kleine Handmuskeln und Fingerbeuger. Oft durch Geburtstrauma oder Zugverletzungen."
+  },
+  {
+    "id": "leptomeningitis",
+    "term": "Leptomeningitis",
+    "definition": "Entzündung der weichen Hirnhäute (Pia mater und Arachnoidea). Meist bakteriell, viral oder pilzbedingt. Symptome: Fieber, Kopfschmerz, Meningismus, Lichtscheu."
+  },
+  {
+    "id": "lhermitte",
+    "term": "Lhermitte-Zeichen",
+    "definition": "Elektrisierendes Gefühl, das bei Kopfbeugung vom Nacken in Rücken und Extremitäten ausstrahlt. Hinweis auf Läsion der Hinterstränge, typisch für Multiple Sklerose."
+  },
+  {
+    "id": "locked_in",
+    "term": "Locked-in-Syndrom",
+    "definition": "Zustand mit vollständiger Lähmung aller willkürlichen Muskeln außer der Augenbewegung bei erhaltenem Bewusstsein. Ursache meist Ponsläsion (Basilaristhrombose)."
+  },
+  {
+    "id": "meningismus",
+    "term": "Meningismus",
+    "definition": "Nackensteifigkeit und andere meningeale Reizzeichen ohne Entzündung der Meningen. Kann bei Fieber, Vergiftungen oder Hirnblutungen auftreten."
+  },
+  {
+    "id": "meningitis",
+    "term": "Meningitis",
+    "definition": "Entzündung der Hirnhäute. Bakterielle Form ist lebensbedrohlicher Notfall mit Fieber, Kopfschmerz, Nackensteife, Bewusstseinsstörung. Virale Form meist milder."
+  },
+  {
+    "id": "mnd",
+    "term": "MND (Motor Neuron Disease)",
+    "definition": "Oberbegriff für neurodegenerative Erkrankungen der motorischen Neurone. Wichtigster Vertreter: Amyotrophe Lateralsklerose (ALS)."
+  },
+  {
+    "id": "multiplesklerose",
+    "term": "Multiple Sklerose",
+    "definition": "Chronisch-entzündliche, demyelinisierende Erkrankung des ZNS. Zeitliche und örtliche Dissemination von Symptomen, schubförmiger oder progredienter Verlauf."
+  },
+  {
+    "id": "myasthenia",
+    "term": "Myasthenia gravis",
+    "definition": "Autoimmunerkrankung mit Bildung von Antikörpern gegen Acetylcholinrezeptoren der neuromuskulären Endplatte. Belastungsabhängige Muskelschwäche, Tagesschwankungen."
+  },
+  {
+    "id": "myelitis",
+    "term": "Myelitis",
+    "definition": "Entzündung des Rückenmarks. Postinfektiös, paraneoplastisch oder im Rahmen demyelinisierender Erkrankungen. Symptome: Paraparese, Sensibilitätsstörungen, vegetative Störungen."
+  },
+  {
+    "id": "narkolepsie",
+    "term": "Narkolepsie",
+    "definition": "Schlafstörung mit übermäßiger Tagesschläfrigkeit, Kataplexie, Schlaflähmung und hypnagogen Halluzinationen. Ursache: Mangel an Hypocretin (Orexin) im Hypothalamus."
+  },
+  {
+    "id": "neurofibroma",
+    "term": "Neurofibrom",
+    "definition": "Gutartiger Tumor aus Nervenscheidenzellen, oft multiple bei Neurofibromatose. Meist harmlos, kann aber durch Kompression Symptome verursachen."
+  },
+  {
+    "id": "neurofibromatose",
+    "term": "Neurofibromatose",
+    "definition": "Erbliche Erkrankung mit multiplen Neurofibromen, Café-au-lait-Flecken und höherem Risiko für Tumore des Nervensystems. Typ 1 (NF1) und Typ 2 (NF2)."
+  },
+  {
+    "id": "neuropathie",
+    "term": "Neuropathie",
+    "definition": "Erkrankung peripherer Nerven unterschiedlicher Ursache. Axonale oder demyelinisierende Formen. Häufig bei Diabetes, Alkoholabusus, Vitamin-B12-Mangel, toxisch."
+  },
+  {
+    "id": "palsy",
+    "term": "Palsy (Parese)",
+    "definition": "Englischer Begriff für Lähmung/Parese. Häufig in Zusammensetzungen wie 'Bell's palsy' (Fazialisparese) oder 'cerebral palsy' (Zerebralparese)."
+  },
+  {
+    "id": "papillenoedem",
+    "term": "Papillenödem",
+    "definition": "Schwellung der Sehnervenpapille, ophthalmoskopisch sichtbar. Häufigste Ursache ist erhöhter intrakranieller Druck (Stauungspapille)."
+  },
+  {
+    "id": "paraparese",
+    "term": "Paraparese",
+    "definition": "Inkomplette Lähmung beider Beine. Meist durch Rückenmarksläsion oberhalb des Lendensegments (Querschnittsyndrom)."
+  },
+  {
+    "id": "paraplegie",
+    "term": "Paraplegie",
+    "definition": "Vollständige Lähmung beider Beine mit Sensibilitätsverlust und vegetativen Störungen. Form des kompletten Querschnittsyndroms."
+  },
+  {
+    "id": "parkinson",
+    "term": "Parkinson-Krankheit",
+    "definition": "Neurodegenerative Erkrankung mit Verlust dopaminerger Neurone in der Substantia nigra. Kardinalsymptome: Rigor, Tremor, Bradykinese, posturale Instabilität."
+  },
+  {
+    "id": "plexopathie",
+    "term": "Plexopathie",
+    "definition": "Schädigung eines Nervengeflechts (Plexus). Plexus brachialis (Arm) oder lumbosacralis (Bein). Ursachen: Trauma, Entzündung, Tumor, Bestrahlung."
+  },
+  {
+    "id": "polyneuropathie",
+    "term": "Polyneuropathie",
+    "definition": "Generalisierte Erkrankung peripherer Nerven, meist symmetrisch, strumpf- und handschuhförmige Verteilung. Häufig bei Diabetes, Alkoholismus, Vitamin-B12-Mangel."
+  },
+  {
+    "id": "pseudobulbaer",
+    "term": "Pseudobulbärparalyse",
+    "definition": "Lähmung der Hirnnerven durch supranukleäre Läsion (oberhalb der Hirnnervenkerne). Symptome ähnlich Bulbärparalyse, aber mit erhaltenen Reflexen und emotionaler Instabilität."
+  },
+  {
+    "id": "querschnitt",
+    "term": "Querschnittsyndrom",
+    "definition": "Komplexes neurologisches Ausfallmuster bei Läsion des Rückenmarks. Je nach Höhe: Tetraplegie (zervikales Rückenmark) oder Paraplegie (thorakal/lumbal)."
+  },
+  {
+    "id": "radikulaer",
+    "term": "Radikulärsyndrom",
+    "definition": "Schädigung einer oder mehrerer Nervenwurzeln mit segmentaler motorischer Schwäche, Sensibilitätsstörung und abgeschwächten/fehlenden Reflexen."
+  },
+  {
+    "id": "restlesslegs",
+    "term": "Restless-Legs-Syndrom",
+    "definition": "Neurologische Störung mit zwanghaftem Bewegungsdrang der Beine, v.a. in Ruhe und abends/nachts. Beschrieben als Kribbeln, Ziehen oder Schmerzen."
+  },
+  {
+    "id": "sah",
+    "term": "SAB (Subarachnoidalblutung)",
+    "definition": "Blutung in den mit Liquor gefüllten Subarachnoidalraum. Häufigste Ursache: Ruptur eines Aneurysmas. Leitsymptom: plötzlicher, sehr starker Kopfschmerz ('Vernichtungskopfschmerz')."
+  },
+  {
+    "id": "singultus",
+    "term": "Singultus (Schluckauf)",
+    "definition": "Unwillkürliche, rhythmische Kontraktionen des Zwerchfells mit plötzlichem Verschluss der Glottis. Bei längerer Dauer neurologische Ursachen möglich (Hirnstamm)."
+  },
+  {
+    "id": "spastik",
+    "term": "Spastik",
+    "definition": "Erhöhter Muskeltonus mit geschwindigkeitsabhängigem Widerstand gegen passive Bewegung, pathologischen Reflexen und Kloni. Zeichen einer Pyramidenbahnläsion."
+  },
+  {
+    "id": "syringomyelie",
+    "term": "Syringomyelie",
+    "definition": "Bildung flüssigkeitsgefüllter Höhlen (Syrinx) im Rückenmark. Charakteristisch: dissoziierte Sensibilitätsstörung (Schmerz-/Temperaturverlust bei erhaltener Berührungsempfindung)."
+  },
+  {
+    "id": "tetraplegie",
+    "term": "Tetraplegie",
+    "definition": "Lähmung aller vier Extremitäten durch hohe Rückenmarksläsion (oberhalb C8). Auch Tetraparese bei inkompletter Lähmung."
+  },
+  {
+    "id": "thalamuslasion",
+    "term": "Thalamusläsion",
+    "definition": "Schädigung des Thalamus (zentrale Schaltstation für Sinneseindrücke und Motorik). Verursacht kontralaterale Sensibilitätsstörungen, Schmerzsyndrome, Bewegungsstörungen."
+  },
+  {
+    "id": "tic",
+    "term": "Tic",
+    "definition": "Unwillkürliche, rasche, wiederholte Bewegungen (motorische Tics) oder Lautäußerungen (vokale Tics). Multiple Tics über längere Zeit: Tourette-Syndrom."
+  },
+  {
+    "id": "tinnitus",
+    "term": "Tinnitus",
+    "definition": "Geräuschwahrnehmung ohne äußere Schallquelle (Ohrgeräusche). Nicht primär neurologisch, kann aber bei zerebralen oder vaskulären Störungen auftreten."
+  },
+  {
+    "id": "torticollis",
+    "term": "Torticollis",
+    "definition": "Fehlfixierung des Kopfes durch unwillkürliche Kontraktion der Nackenmuskulatur. Form einer fokalen Dystonie (Torticollis spasmodicus)."
+  },
+  {
+    "id": "tremor",
+    "term": "Tremor",
+    "definition": "Rhythmische, oszillierende Bewegung von Körperteilen. Ruhetremor (Parkinson), Haltetremor (essentieller Tremor), Intentionstremor (Kleinhirn) und andere Formen."
+  },
+  {
+    "id": "trigeminusneuralgie",
+    "term": "Trigeminusneuralgie",
+    "definition": "Anfallsartige, einschießende Schmerzattacken im Versorgungsgebiet des N. trigeminus. Oft ausgelöst durch Berührung bestimmter Triggerpunkte im Gesicht."
+  },
+  {
+    "id": "vegetativ",
+    "term": "Vegetativer Zustand",
+    "definition": "Schwere Bewusstseinsstörung mit erhaltenen autonomen Funktionen, Schlaf-Wach-Rhythmus, aber ohne nachweisbare bewusste Wahrnehmung und Kommunikation."
+  },
+  {
+    "id": "vertigo",
+    "term": "Vertigo",
+    "definition": "Drehschwindel mit Scheinbewegung der Umgebung. Peripher (Innenohr/Vestibularnerv) oder zentral (Hirnstamm/Kleinhirn). Je nach Ursache mit vegetativen Symptomen."
+  },
+  {
+    "id": "wallenberg",
+    "term": "Wallenberg-Syndrom",
+    "definition": "Laterales Medulla-oblongata-Syndrom durch Verschluss der A. cerebelli posterior inferior. Symptome: ipsilaterale Gesichtssensibilitätsstörung, kontralaterale Körpersensibilitätsstörung, Horner-Syndrom."
+  },
+  {
+    "id": "wernickeaphasie",
+    "term": "Wernicke-Aphasie",
+    "definition": "Sensorische/rezeptive Aphasie mit flüssiger Sprache, aber gestörtem Sprachverständnis und Wortwahl. Läsion im Wernicke-Zentrum (Temporallappen der dominanten Hemisphäre)."
+  },
+  {
+    "id": "zerebralparese",
+    "term": "Zerebralparese",
+    "definition": "Bewegungs- und Haltungsstörung durch frühkindliche Hirnschädigung. Spastische, dyskinetische, ataktische und gemischte Formen."
+  },
+  {
+    "id": "neurosarkoidose",
+    "term": "Neurosarkoidose",
+    "definition": "Manifestation der Sarkoidose im Nervensystem. Kann sowohl ZNS als auch PNS betreffen. Symptome abhängig von der Lokalisation: Hirnnervenparesen, Meningitis, Myelopathie, Neuropathie."
+  },
+  {
+    "id": "tia",
+    "term": "TIA (Transitorische ischämische Attacke)",
+    "definition": "Vorübergehende neurologische Symptome durch kurzzeitige fokale zerebrale Ischämie. Vollständige Rückbildung innerhalb von 24 Stunden, meist jedoch binnen 1 Stunde. Warnsignal für drohenden Schlaganfall."
+  },
+  {
+    "id": "demenz",
+    "term": "Demenz",
+    "definition": "Syndrom mit fortschreitendem Verlust kognitiver Fähigkeiten. Hauptformen: Alzheimer-Demenz, vaskuläre Demenz, Lewy-Körperchen-Demenz, frontotemporale Demenz. Symptome: Gedächtnisstörungen, Orientierungsprobleme, Persönlichkeitsveränderungen."
+  },
+  {
+    "id": "guillainbarre",
+    "term": "Guillain-Barré-Syndrom",
+    "definition": "Akute, immunvermittelte Polyradikuloneuritis. Aufsteigende Lähmungen, beginnend in den Beinen, bis hin zur Atemlähmung. Meist nach Infektionen. Gute Prognose bei adäquater Therapie."
+  },
+  {
+    "id": "msk",
+    "term": "MSK (Medulla-Spinalis-Kompression)",
+    "definition": "Kompression des Rückenmarks durch Tumor, Bandscheibenvorfall, Abszess oder Hämatom. Neurologischer Notfall mit drohender Querschnittslähmung. Symptome: Lähmungen, Sensibilitätsstörungen, Blasen-Mastdarm-Störungen."
+  },
+  {
+    "id": "parkinsoni",
+    "term": "Parkinson-Krankheit",
+    "definition": "Neurodegenerative Erkrankung mit Degeneration dopaminerger Neurone in der Substantia nigra. Kardinalsymptome: Bradykinese, Rigor, Ruhetremor, posturale Instabilität."
+  },
+  {
+    "id": "wernickeenzephalopathie",
+    "term": "Wernicke-Enzephalopathie",
+    "definition": "Akute neurologische Störung durch Thiaminmangel (Vitamin B1), meist bei Alkoholismus. Klassische Trias: Bewusstseinsstörung, Augenmuskelparesen, Ataxie. Unbehandelt Übergang in Korsakow-Syndrom."
+  },
+  {
+    "id": "lws",
+    "term": "LWS-Syndrom",
+    "definition": "Schmerzsyndrom der Lendenwirbelsäule, oft mit Ausstrahlung ins Bein (Lumboischialgie). Häufige Ursachen: Bandscheibenvorfall, Spinalkanalstenose, Facettensyndrom, Muskelblockaden."
+  }
+] 

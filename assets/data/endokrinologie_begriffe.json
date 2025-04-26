@@ -1,0 +1,157 @@
+[
+  {
+    "id": "diabetes_mellitus_typ1",
+    "term": "Diabetes mellitus Typ 1",
+    "definition": "Autoimmunerkrankung mit Zerstörung der insulinproduzierenden Beta-Zellen der Langerhans-Inseln. Folge: absoluter Insulinmangel. Manifestation meist im Kindes-/Jugendalter. Therapie: intensivierte Insulintherapie oder Insulinpumpe."
+  },
+  {
+    "id": "diabetes_mellitus_typ2",
+    "term": "Diabetes mellitus Typ 2",
+    "definition": "Metabolische Erkrankung mit Insulinresistenz und relativem Insulinmangel. Risikofaktoren: Adipositas, Bewegungsmangel, genetische Prädisposition. Therapie: Lebensstil, orale Antidiabetika, GLP-1-Analoga, Insulin."
+  },
+  {
+    "id": "diabetische_ketoazidose",
+    "term": "Diabetische Ketoazidose (DKA)",
+    "definition": "Akutkomplikation bei absolutem Insulinmangel. Charakterisiert durch Hyperglykämie, Ketonkörperbildung und metabolische Azidose. Symptome: Polyurie, Polydipsie, Übelkeit, Kussmaul-Atmung. Notfall mit hoher Mortalität."
+  },
+  {
+    "id": "hhs",
+    "term": "HHS (Hyperglykämisches hyperosmolares Syndrom)",
+    "definition": "Schwere Komplikation des Typ-2-Diabetes mit extremer Hyperglykämie ohne signifikante Ketoazidose. Gekennzeichnet durch Hyperosmolarität und Dehydratation. Höhere Mortalität als DKA."
+  },
+  {
+    "id": "hypoglykamie",
+    "term": "Hypoglykämie",
+    "definition": "Blutzuckerwert unter 70 mg/dl (3,9 mmol/l). Symptome: adrenerg (Schwitzen, Zittern, Tachykardie) und neuroglykopenisch (Konzentrationsstörungen, Bewusstseinstrübung). Therapie: schnell resorbierbare KH."
+  },
+  {
+    "id": "diabetische_polyneuropathie",
+    "term": "Diabetische Polyneuropathie",
+    "definition": "Häufigste diabetische Folgeerkrankung. Symmetrische, distal betonte Schädigung peripherer Nerven. Symptome: Missempfindungen, Schmerzen, Taubheitsgefühl. Führt zum diabetischen Fußsyndrom."
+  },
+  {
+    "id": "diabetische_nephropathie",
+    "term": "Diabetische Nephropathie",
+    "definition": "Glomerulosklerose bei langfristigem Diabetes. Stadieneinteilung nach Albuminurie. Führt unbehandelt zur terminalen Niereninsuffizienz. Therapeutische Ansätze: BZ-Einstellung, RAS-Blockade, SGLT2-Hemmer."
+  },
+  {
+    "id": "diabetische_retinopathie",
+    "term": "Diabetische Retinopathie",
+    "definition": "Mikrovaskuläre Komplikation an der Netzhaut. Einteilung: nicht-proliferativ und proliferativ. Häufigste Erblindungsursache im erwerbsfähigen Alter. Regelmäßige augenärztliche Kontrollen erforderlich."
+  },
+  {
+    "id": "diabetisches_fusssyndrom",
+    "term": "Diabetisches Fußsyndrom",
+    "definition": "Folge der diabetischen Polyneuropathie und/oder pAVK. Risiko für Ulzerationen und Infektionen. Klassifikation nach Wagner oder UT. Maßnahmen: Druckentlastung, Wundhygiene, Durchblutungsoptimierung, Infektkontrolle."
+  },
+  {
+    "id": "hypothyreose",
+    "term": "Hypothyreose",
+    "definition": "Schilddrüsenunterfunktion mit Mangel an Schilddrüsenhormonen. Häufigste Ursache: Hashimoto-Thyreoiditis. Symptome: Müdigkeit, Kälteempfindlichkeit, Obstipation, Bradykardie. Therapie: L-Thyroxin-Substitution."
+  },
+  {
+    "id": "hyperthyreose",
+    "term": "Hyperthyreose",
+    "definition": "Schilddrüsenüberfunktion mit Überschuss an Schilddrüsenhormonen. Häufigste Ursache: Morbus Basedow, autonomes Adenom. Symptome: Nervosität, Tachykardie, Gewichtsverlust, Wärmeintoleranz. Therapie: Thyreostatika, OP, Radiojod."
+  },
+  {
+    "id": "hashimoto_thyreoiditis",
+    "term": "Hashimoto-Thyreoiditis",
+    "definition": "Autoimmunerkrankung der Schilddrüse mit Zerstörung des Schilddrüsengewebes. Führt zur Hypothyreose. Diagnostik: erhöhte TPO- und Tg-Antikörper, erniedrigtes fT4, erhöhtes TSH. Therapie: L-Thyroxin."
+  },
+  {
+    "id": "morbus_basedow",
+    "term": "Morbus Basedow",
+    "definition": "Autoimmunerkrankung mit Bildung von TSH-Rezeptor-Antikörpern, die zu einer Schilddrüsenüberfunktion führen. Oft mit endokriner Orbitopathie. Therapie je nach Alter und Schwere: Thyreostatika, OP, Radiojod."
+  },
+  {
+    "id": "schilddruesenknoten",
+    "term": "Schilddrüsenknoten",
+    "definition": "Umschriebene Veränderungen im Schilddrüsengewebe. Häufig Zufallsbefund. Abklärung mittels Sonographie, Szintigraphie, ggf. Feinnadelpunktion. Malignomrisiko bei ca. 5-10%. Therapie je nach Dignität."
+  },
+  {
+    "id": "struma",
+    "term": "Struma",
+    "definition": "Vergrößerung der Schilddrüse. Einteilung nach WHO Grad 0-III. Ursachen: Jodmangel, Autoimmunerkrankungen, Knoten. Diagnostik: Palpation, Sonographie, Labor. Therapie: Jodid, L-Thyroxin, OP."
+  },
+  {
+    "id": "hyperparathyreoidismus",
+    "term": "Hyperparathyreoidismus",
+    "definition": "Überfunktion der Nebenschilddrüse mit erhöhter PTH-Sekretion. Primär (Adenom), sekundär (Niereninsuffizienz), tertiär. Folge: Hyperkalzämie, Osteoporose, Nierensteine. Therapie je nach Ursache, oft OP."
+  },
+  {
+    "id": "hypoparathyreoidismus",
+    "term": "Hypoparathyreoidismus",
+    "definition": "Unterfunktion der Nebenschilddrüse mit verminderter PTH-Sekretion. Häufigste Ursache: postoperativ nach Thyreoidektomie. Symptome: Tetanie, Parästhesien, Krampfanfälle. Therapie: Kalzium und Vitamin D."
+  },
+  {
+    "id": "morbus_addison",
+    "term": "Morbus Addison",
+    "definition": "Primäre Nebennierenrindeninsuffizienz mit Mangel an Kortisol und Aldosteron. Ursachen: Autoimmun, Tuberkulose, Metastasen. Symptome: Schwäche, Hypotonie, Hyperpigmentierung. Therapie: Gluko- und Mineralokortikoide."
+  },
+  {
+    "id": "conn_syndrom",
+    "term": "Conn-Syndrom (Primärer Hyperaldosteronismus)",
+    "definition": "Autonome Aldosteronproduktion, meist durch Nebennierenadenome. Führt zu Hypertonie und Hypokaliämie. Diagnostik: Aldosteron-Renin-Quotient, Bestätigungstests. Therapie: OP oder Mineralokortikoid-Antagonisten."
+  },
+  {
+    "id": "cushing_syndrom",
+    "term": "Cushing-Syndrom",
+    "definition": "Chronischer Kortisolexzess durch verschiedene Ursachen: ACTH-produzierender Hypophysentumor (M. Cushing), NN-Tumor, ektopes ACTH. Symptome: Vollmondgesicht, Stammfettsucht, Striae, Muskelschwäche, Osteoporose."
+  },
+  {
+    "id": "phaeochromozytom",
+    "term": "Phäochromozytom",
+    "definition": "Katecholamin-produzierender Tumor des Nebennierenmarks oder sympathischer Ganglien. Symptome: paroxysmale Hypertonie, Tachykardie, Schwitzen, Kopfschmerzen. Diagnostik: Metanephrine im Plasma/Urin. Therapie: OP."
+  },
+  {
+    "id": "akromegalie",
+    "term": "Akromegalie",
+    "definition": "Wachstumshormonexzess im Erwachsenenalter, meist durch Hypophysenadenom. Führt zu Vergrößerung von Akren, Viszeromegalie, metabolischen Störungen. Diagnostik: IGF-1, oraler Glukosetoleranztest. Therapie: OP, Medikamente, Radiatio."
+  },
+  {
+    "id": "prolaktinom",
+    "term": "Prolaktinom",
+    "definition": "Prolaktin-produzierender Hypophysentumor. Symptome: Galaktorrhoe, Amenorrhoe/Zyklusstörungen, Libidoverlust, Infertilität. Therapie: Dopaminagonisten (Cabergolin, Bromocriptin), selten OP."
+  },
+  {
+    "id": "hypophyseninsuffizienz",
+    "term": "Hypophyseninsuffizienz",
+    "definition": "Ausfall einer oder mehrerer hypophysärer Hormonachsen. Ursachen: Tumor, OP, Trauma, Strahlentherapie, Hypophysitis. Symptome je nach betroffener Achse. Therapie: Substitution der peripheren Hormone."
+  },
+  {
+    "id": "diabetes_insipidus",
+    "term": "Diabetes insipidus",
+    "definition": "Störung der Wasserregulation durch ADH-Mangel (zentral) oder ADH-Resistenz (nephrogen). Symptome: Polyurie, Polydipsie, Nykturie. Diagnostik: Durstversuch, MRT. Therapie: Desmopressin (zentral), Thiazide (nephrogen)."
+  },
+  {
+    "id": "siadh",
+    "term": "SIADH (Syndrom der inadäquaten ADH-Sekretion)",
+    "definition": "Unangemessen hohe ADH-Ausschüttung. Ursachen: Tumoren, ZNS-Erkrankungen, Medikamente. Führt zu Hyponatriämie, Wasserretention. Symptome: Kopfschmerzen, Übelkeit, Verwirrtheit. Therapie: Flüssigkeitsrestriktion, Tolvaptan."
+  },
+  {
+    "id": "insulinom",
+    "term": "Insulinom",
+    "definition": "Insulin-produzierender neuroendokriner Tumor des Pankreas. Führt zu Hypoglykämien, besonders nüchtern. Diagnostik: Nüchtern-Hypoglykämie mit inadäquat erhöhtem Insulin. Therapie: chirurgische Entfernung."
+  },
+  {
+    "id": "men_syndrome",
+    "term": "MEN-Syndrome (Multiple endokrine Neoplasien)",
+    "definition": "Hereditäre Syndrome mit Tumoren multipler endokriner Drüsen. MEN1: Nebenschilddrüsen, Pankreas, Hypophyse. MEN2: Medulläres Schilddrüsenkarzinom, Phäochromozytom, Hyperparathyreoidismus. Genetische Beratung wichtig."
+  },
+  {
+    "id": "hypogonadismus",
+    "term": "Hypogonadismus",
+    "definition": "Verminderte Sexualhormonproduktion. Primär (Gonaden) oder sekundär (Hypophyse). Symptome bei Männern: Libidoverlust, erektile Dysfunktion, Infertilität. Bei Frauen: Amenorrhoe, Hitzewallungen. Therapie: Hormonsubstitution."
+  },
+  {
+    "id": "hba1c",
+    "term": "HbA1c",
+    "definition": "Glykiertes Hämoglobin, Maß für die durchschnittliche Blutzuckereinstellung der letzten 8-12 Wochen. Wichtiger Parameter für die Therapiesteuerung bei Diabetes. Zielbereich individuell, meist 6,5-7,5%."
+  },
+  {
+    "id": "tsh",
+    "term": "TSH (Thyreoidea-stimulierendes Hormon)",
+    "definition": "Hypophysäres Hormon zur Steuerung der Schilddrüsenfunktion. Wichtigster Parameter zur Beurteilung der Schilddrüsenfunktion. Erhöht bei Hypothyreose, erniedrigt bei Hyperthyreose. Referenzbereich: ca. 0,4-4,0 mU/l."
+  }
+] 

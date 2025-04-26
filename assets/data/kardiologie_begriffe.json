@@ -1,0 +1,152 @@
+[
+  {
+    "id": "arrhythmie",
+    "term": "Arrhythmie",
+    "definition": "Störung des normalen Herzrhythmus. Kann bradykard (zu langsam), tachykard (zu schnell) oder irregulär sein. Ursachen: Herzerkrankungen, Elektrolytstörungen, Medikamente, Stress."
+  },
+  {
+    "id": "angina_pectoris",
+    "term": "Angina pectoris",
+    "definition": "Thoraxschmerz aufgrund unzureichender Sauerstoffversorgung des Herzmuskels (Myokardischämie). Typisch: retrosternale Schmerzen mit Ausstrahlung in linken Arm, Kiefer. Formen: stabile und instabile Angina."
+  },
+  {
+    "id": "nstemi",
+    "term": "NSTEMI",
+    "definition": "Nicht-ST-Hebungsinfarkt. Herzinfarkt ohne ST-Streckenhebung im EKG. Partieller Verschluss eines Herzkranzgefäßes mit Myokardnekrose. Diagnose durch Troponin-Anstieg."
+  },
+  {
+    "id": "stemi",
+    "term": "STEMI",
+    "definition": "ST-Hebungsinfarkt. Herzinfarkt mit ST-Streckenhebung im EKG. Kompletter Verschluss eines Herzkranzgefäßes. Kardiologischer Notfall, der sofortige Revaskularisation (PCI) erfordert."
+  },
+  {
+    "id": "ami",
+    "term": "AMI (Akuter Myokardinfarkt)",
+    "definition": "Plötzliche Unterbrechung der Blutversorgung eines Herzmuskelareals mit Nekrose. Symptome: starke Brustschmerzen, Dyspnoe, vegetative Symptome. Unterteilung in STEMI und NSTEMI."
+  },
+  {
+    "id": "aks",
+    "term": "AKS (Akutes Koronarsyndrom)",
+    "definition": "Sammelbegriff für akute ischämische Herzerkrankungen: instabile Angina pectoris, NSTEMI und STEMI. Gemeinsame Pathophysiologie: Plaqueruptur mit Thrombusbildung."
+  },
+  {
+    "id": "herzinsuffizienz",
+    "term": "Herzinsuffizienz",
+    "definition": "Unvermögen des Herzens, den Körper ausreichend mit Blut zu versorgen. Einteilung: links-/rechtsventrikulär, systolisch/diastolisch, akut/chronisch. NYHA-Klassifikation I-IV nach Symptomatik."
+  },
+  {
+    "id": "hfref",
+    "term": "HFrEF",
+    "definition": "Herzinsuffizienz mit reduzierter Ejektionsfraktion (EF <40%). Früher systolische Herzinsuffizienz genannt. Ursachen: KHK, Klappenvitien, Kardiomyopathien. Therapie: RAAS-Blocker, Betablocker, MRA, SGLT2-Hemmer."
+  },
+  {
+    "id": "hfpef",
+    "term": "HFpEF",
+    "definition": "Herzinsuffizienz mit erhaltener Ejektionsfraktion (EF >50%). Früher diastolische Herzinsuffizienz genannt. Häufig bei Hypertonie, Diabetes, Adipositas. Therapie: Grunderkrankungen, Symptomkontrolle."
+  },
+  {
+    "id": "vorhofflimmern",
+    "term": "Vorhofflimmern",
+    "definition": "Häufigste anhaltende Herzrhythmusstörung mit unkoordinierter Vorhofaktivität und unregelmäßiger Kammerüberleitung. Erhöhtes Schlaganfallrisiko. Klassifikation: paroxysmal, persistierend, permanent."
+  },
+  {
+    "id": "vht",
+    "term": "VHT (Vorhofthrombus)",
+    "definition": "Blutgerinnsel im Vorhof, meist bei Vorhofflimmern. Hauptlokalisation: linkes Herzohr. Embolisationsgefahr mit Schlaganfallrisiko. Prophylaxe/Therapie: Antikoagulation."
+  },
+  {
+    "id": "avblock",
+    "term": "AV-Block",
+    "definition": "Störung der Erregungsleitung zwischen Vorhöfen und Kammern. Einteilung in Grad I (verzögerte Überleitung), II (teilweise blockierte Überleitung) und III (komplette Blockade)."
+  },
+  {
+    "id": "bradykardie",
+    "term": "Bradykardie",
+    "definition": "Herzfrequenz unter 60/min. Ursachen: physiologisch (Sportler), Sinusknotendysfunktion, AV-Blockierungen, Medikamente (Betablocker). Symptome: Schwindel, Synkopen, Belastungsintoleranz."
+  },
+  {
+    "id": "tachykardie",
+    "term": "Tachykardie",
+    "definition": "Herzfrequenz über 100/min. Formen: Sinustachykardie, supraventrikuläre Tachykardie (SVT), ventrikuläre Tachykardie (VT). Ursachen: Fieber, Stress, Herzerkrankungen, Medikamente."
+  },
+  {
+    "id": "vt",
+    "term": "VT (Ventrikuläre Tachykardie)",
+    "definition": "Schneller Herzrhythmus (>100/min) ausgehend von den Herzkammern. Lebensbedrohlich, kann in Kammerflimmern übergehen. Ursachen: KHK, Kardiomyopathie, Elektrolitstörungen, QT-Verlängerung."
+  },
+  {
+    "id": "vf",
+    "term": "VF (Ventricular Fibrillation/Kammerflimmern)",
+    "definition": "Chaotische elektrische Aktivität der Herzkammern ohne effektive Kontraktion. Führt unbehandelt zum Kreislaufstillstand. Sofortige Defibrillation und CPR erforderlich."
+  },
+  {
+    "id": "koronare_herzkrankheit",
+    "term": "KHK (Koronare Herzkrankheit)",
+    "definition": "Verengung der Herzkranzgefäße durch Arteriosklerose. Führt zu Myokardischämie. Manifestationen: stabile Angina pectoris, AKS, plötzlicher Herztod, Herzinsuffizienz."
+  },
+  {
+    "id": "pci",
+    "term": "PCI (Perkutane Koronarintervention)",
+    "definition": "Kathetergestützte Behandlung verengter Koronararterien. Ablauf: Ballonerweiterung (PTCA) meist mit Stentimplantation. Zugangswege: radial oder femoral."
+  },
+  {
+    "id": "cabg",
+    "term": "CABG (Coronary Artery Bypass Graft)",
+    "definition": "Bypass-Operation zur Überbrückung von Koronarstenosen. Verwendung von Arterien (A. mammaria, A. radialis) oder Venen (V. saphena magna). Indikation bei komplexer KHK."
+  },
+  {
+    "id": "pulmonale_hypertonie",
+    "term": "Pulmonale Hypertonie",
+    "definition": "Erhöhter Blutdruck im Lungenkreislauf (mPAP >20 mmHg). Einteilung WHO-Gruppe 1-5. Symptome: Dyspnoe, Müdigkeit, Synkopen. Diagnose: Rechtsherzkatheter. Therapie abhängig von Ursache."
+  },
+  {
+    "id": "mitralklappeninsuffizienz",
+    "term": "Mitralklappeninsuffizienz",
+    "definition": "Schlussunfähigkeit der Mitralklappe mit Rückstrom von Blut in den linken Vorhof während der Systole. Ursachen: primär (Prolaps, rheumatisch) oder sekundär (Herzinsuffizienz)."
+  },
+  {
+    "id": "aortenklappenstenose",
+    "term": "Aortenklappenstenose",
+    "definition": "Verengung der Aortenklappe mit erhöhtem Ausflusswiderstand. Häufigste Klappenerkrankung. Ursachen: degenerativ (kalzifizierend), angeboren (bikuspide Klappe), rheumatisch. Leitsymptome: Dyspnoe, Angina, Synkope."
+  },
+  {
+    "id": "endokarditis",
+    "term": "Endokarditis",
+    "definition": "Entzündung der Herzinnenhaut, v.a. an Herzklappen. Meist bakteriell, selten pilzbedingt. Prädisponierend: Klappenerkrankungen, i.v. Drogenkonsum, Immunsuppression. Komplikationen: Klappendestruktion, Embolien."
+  },
+  {
+    "id": "perikarderguss",
+    "term": "Perikarderguss",
+    "definition": "Flüssigkeitsansammlung im Herzbeutel. Ursachen: Infektionen, Tumore, Urämie, Myokardinfarkt, autoimmun. Bei schneller Entstehung oder großem Volumen: Tamponade mit hämodynamischer Beeinträchtigung."
+  },
+  {
+    "id": "herztamponade",
+    "term": "Herztamponade",
+    "definition": "Lebensbedrohliche Kompression des Herzens durch Flüssigkeit im Herzbeutel. Klinische Trias: Hypotonie, gestaute Halsvenen, leise Herztöne. Sofortige Perikardpunktion notwendig."
+  },
+  {
+    "id": "dcm",
+    "term": "DCM (Dilatative Kardiomyopathie)",
+    "definition": "Erkrankung mit Erweiterung und eingeschränkter Pumpfunktion des linken oder beider Ventrikel. Ursachen: genetisch, toxisch (Alkohol), Myokarditis, idiopathisch. Folge: Herzinsuffizienz."
+  },
+  {
+    "id": "hcm",
+    "term": "HCM (Hypertrophe Kardiomyopathie)",
+    "definition": "Verdickung der Herzmuskulatur (v.a. Septum) ohne erkennbare Ursache. Oft genetisch bedingt. Kann zu Ausflussobstruktion, Herzrhythmusstörungen, plötzlichem Herztod führen."
+  },
+  {
+    "id": "nt_probnp",
+    "term": "NT-proBNP",
+    "definition": "Labormarker für myokardiale Belastung, diagnostischer Standard bei Herzinsuffizienz. Erhöht bei ventrikulärer Dehnung. Beeinflusst durch Alter, Nierenfunktion, Adipositas."
+  },
+  {
+    "id": "troponin",
+    "term": "Troponin",
+    "definition": "Strukturprotein der Herzmuskelzellen, hochsensitiver Marker für Myokardschädigung. Wichtig für Diagnose des Myokardinfarkts. Auch erhöht bei Myokarditis, Lungenembolie, Niereninsuffizienz."
+  },
+  {
+    "id": "tte",
+    "term": "TTE (Transthorakale Echokardiographie)",
+    "definition": "Ultraschalluntersuchung des Herzens durch die Brustwand. Standardmethode zur Beurteilung von Herzgröße, Pumpfunktion, Klappenfunktion, Perikard. Nicht-invasiv, keine Strahlenbelastung."
+  }
+] 

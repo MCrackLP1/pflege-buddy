@@ -1,0 +1,157 @@
+[
+  {
+    "id": "gerd",
+    "term": "GERD (Gastroösophageale Refluxkrankheit)",
+    "definition": "Chronischer Rückfluss von Magensäure in die Speiseröhre. Symptome: Sodbrennen, saures Aufstoßen, retrosternale Schmerzen. Komplikationen: Ösophagitis, Barrett-Ösophagus. Therapie: PPI, Lebensstiländerung."
+  },
+  {
+    "id": "ulcus_ventriculi",
+    "term": "Ulcus ventriculi",
+    "definition": "Geschwür der Magenschleimhaut. Ursachen: H. pylori, NSAR, Stress. Symptome: epigastrische Schmerzen, Übelkeit, Erbrechen. Diagnostik: Gastroskopie. Komplikationen: Blutung, Perforation."
+  },
+  {
+    "id": "ulcus_duodeni",
+    "term": "Ulcus duodeni",
+    "definition": "Geschwür im Zwölffingerdarm. Hauptursache: H. pylori. Typisch: nüchtern-/nachtbetonte Schmerzen. Komplikationen wie beim Magenulkus. Therapie: Eradikation, PPI, ggf. Ulkuschirurgie bei Komplikationen."
+  },
+  {
+    "id": "colitis_ulcerosa",
+    "term": "Colitis ulcerosa",
+    "definition": "Chronisch-entzündliche Darmerkrankung mit kontinuierlicher Entzündung der Kolonmukosa. Symptome: blutige Durchfälle, Tenesmen, Bauchschmerzen. Diagnostik: Koloskopie, Histologie. Therapie: 5-ASA, Steroide, Biologika."
+  },
+  {
+    "id": "morbus_crohn",
+    "term": "Morbus Crohn",
+    "definition": "Chronisch-entzündliche Darmerkrankung mit diskontinuierlicher, transmuraler Entzündung im gesamten GI-Trakt. Symptome: Bauchschmerzen, Durchfall, Gewichtsverlust. Komplikationen: Fisteln, Stenosen, Abszesse."
+  },
+  {
+    "id": "ced",
+    "term": "CED (Chronisch-entzündliche Darmerkrankungen)",
+    "definition": "Sammelbegriff für Morbus Crohn und Colitis ulcerosa. Chronisch-rezidivierende Autoimmunerkrankungen des Darms. Extraintestinale Manifestationen: Gelenke, Haut, Augen, Leber. Erhöhtes Darmkrebsrisiko."
+  },
+  {
+    "id": "reizdarmsyndrom",
+    "term": "Reizdarmsyndrom",
+    "definition": "Funktionelle Darmstörung ohne organische Ursache. Symptome: Bauchschmerzen, Blähungen, Stuhlunregelmäßigkeiten. Diagnose per Ausschluss (Rom-IV-Kriterien). Therapie: symptomatisch, Lifestyle-Änderungen."
+  },
+  {
+    "id": "divertikulose",
+    "term": "Divertikulose",
+    "definition": "Ausstülpungen der Darmwand, meist im Sigma. Häufig asymptomatisch. Risikofaktoren: Alter, ballaststoffarme Ernährung. Komplikation: Divertikulitis mit Schmerzen, Fieber, erhöhten Entzündungswerten."
+  },
+  {
+    "id": "divertikulitis",
+    "term": "Divertikulitis",
+    "definition": "Entzündung von Darmdivertikeln. Symptome: linksseitige Unterbauchschmerzen, Fieber, Stuhlveränderungen. Komplikationen: Abszess, Perforation, Peritonitis. Therapie: Antibiotika, Nahrungskarenz, ggf. OP."
+  },
+  {
+    "id": "gallensteine",
+    "term": "Gallensteine (Cholelithiasis)",
+    "definition": "Konkremente in der Gallenblase, meist aus Cholesterin. Oft asymptomatisch. Symptome bei Komplikationen: kolikartige Schmerzen im rechten Oberbauch, Übelkeit. Therapie: Cholezystektomie bei Symptomen."
+  },
+  {
+    "id": "cholezystitis",
+    "term": "Cholezystitis",
+    "definition": "Entzündung der Gallenblase, meist durch Gallensteine verursacht. Symptome: rechtsseitige Oberbauchschmerzen, Murphy-Zeichen, Fieber. Diagnostik: Sonographie, Labor. Therapie: Antibiotika, Cholezystektomie."
+  },
+  {
+    "id": "pankreatitis_akut",
+    "term": "Akute Pankreatitis",
+    "definition": "Akute Entzündung der Bauchspeicheldrüse. Ursachen: Gallensteine, Alkohol, Hyperlipidämie. Symptome: gürtelförmige Oberbauchschmerzen, Übelkeit, Erbrechen. Schweregrad-Marker: Ranson-Kriterien, APACHE-II."
+  },
+  {
+    "id": "pankreatitis_chronisch",
+    "term": "Chronische Pankreatitis",
+    "definition": "Langfristige Entzündung des Pankreas mit progredienter Organdestruktion. Hauptursache: Alkohol. Symptome: rezidivierende Schmerzen, exokrine/endokrine Insuffizienz. Komplikationen: Pseudozysten, Karzinomrisiko."
+  },
+  {
+    "id": "leberzirrhose",
+    "term": "Leberzirrhose",
+    "definition": "Irreversible Umwandlung des Lebergewebes durch Fibrose mit Knotenbildung. Ursachen: Alkohol, virale Hepatitis, NASH. Komplikationen: portale Hypertension, Aszites, Varizen, hepatische Enzephalopathie, HCC."
+  },
+  {
+    "id": "virale_hepatitis",
+    "term": "Virale Hepatitis",
+    "definition": "Leberentzündung durch Viren (HAV-HEV). Übertragung: fäkal-oral (A,E), Blut/sexuell (B,C,D). Symptome: Ikterus, Abgeschlagenheit, Transaminasenerhöhung. Chronifizierung möglich bei HBV, HCV, HDV."
+  },
+  {
+    "id": "hepatitis_alcoholica",
+    "term": "Alkoholische Hepatitis",
+    "definition": "Akute Leberschädigung durch Alkohol. Symptome: Ikterus, rechtsseitige Oberbauchschmerzen, Fieber. Schwere Form (Maddrey-Score >32) mit hoher Mortalität. Therapie: Alkoholabstinenz, Ernährung, ggf. Steroide."
+  },
+  {
+    "id": "nash",
+    "term": "NASH (Nicht-alkoholische Steatohepatitis)",
+    "definition": "Leberentzündung bei Fettleber ohne signifikanten Alkoholkonsum. Teil des NAFLD-Spektrums. Risikofaktoren: Adipositas, Diabetes, metabolisches Syndrom. Kann zu Zirrhose führen. Therapie: Gewichtsreduktion."
+  },
+  {
+    "id": "kolorektales_karzinom",
+    "term": "Kolorektales Karzinom",
+    "definition": "Bösartiger Tumor des Dick-/Enddarms. Dritthäufigstes Karzinom. Risikofaktoren: Alter, familiäre Belastung, CED, Adenome. Symptome oft spät: Blutauflagerungen, Änderung der Stuhlgewohnheiten, Anämie."
+  },
+  {
+    "id": "obstipation",
+    "term": "Obstipation",
+    "definition": "Verzögerte, erschwerte oder unvollständige Darmentleerung. Ursachen: primär (funktionell) oder sekundär (medikamentös, neurologisch, metabolisch). Therapie: Ballaststoffe, ausreichend Flüssigkeit, Bewegung, Laxanzien."
+  },
+  {
+    "id": "chronische_diarrhoe",
+    "term": "Chronische Diarrhoe",
+    "definition": "Anhaltend (>4 Wochen) flüssiger Stuhl >3x täglich. Ursachen: funktionell (IBS), entzündlich (CED), osmotisch, sekretorisch, malabsorptiv. Diagnostik: Anamnese, Labor, Stuhldiagnostik, Endoskopie."
+  },
+  {
+    "id": "ileus",
+    "term": "Ileus",
+    "definition": "Darmverschluss mit ausbleibender Stuhl-/Windpassage. Typen: mechanisch (Obstruktion), paralytisch (Darmatonie). Symptome: Bauchschmerzen, Erbrechen, aufgetriebenes Abdomen. Therapische Notfall mit OP-Indikation."
+  },
+  {
+    "id": "sigmadivertikulitis",
+    "term": "Sigmadivertikulitis",
+    "definition": "Entzündung von Divertikeln im Sigma (häufigste Lokalisation). Symptome: linksseitige Unterbauchschmerzen, Fieber, veränderte Stuhlgewohnheiten. Klassifikation nach Hansen/Stock. Therapie je nach Schweregrad."
+  },
+  {
+    "id": "gastritis",
+    "term": "Gastritis",
+    "definition": "Entzündung der Magenschleimhaut. Typen: Typ A (autoimmun), Typ B (H. pylori), Typ C (chemisch-toxisch). Symptome: Oberbauchschmerzen, Übelkeit, Völlegefühl. Diagnostik: Gastroskopie mit Biopsie."
+  },
+  {
+    "id": "barrett_oesophagus",
+    "term": "Barrett-Ösophagus",
+    "definition": "Metaplasie des Plattenepithels in Zylinderepithel im distalen Ösophagus. Folge chronischer Refluxkrankheit. Präkanzerose mit erhöhtem Risiko für Adenokarzinom. Regelmäßige endoskopische Überwachung nötig."
+  },
+  {
+    "id": "achalasie",
+    "term": "Achalasie",
+    "definition": "Motilitätsstörung der Speiseröhre mit unzureichender Relaxation des unteren Ösophagussphinkters. Symptome: Dysphagie, retrosternale Schmerzen, Regurgitation. Therapie: Pneumatische Dilatation, POEM, Myotomie."
+  },
+  {
+    "id": "zollinger_ellison",
+    "term": "Zollinger-Ellison-Syndrom",
+    "definition": "Gastrin-produzierender neuroendokriner Tumor (Gastrinom), meist im Pankreas/Duodenum. Führt zu exzessiver Säureproduktion mit therapierefraktären Ulzera. Therapie: PPI, Tumorresektion."
+  },
+  {
+    "id": "peg",
+    "term": "PEG (Perkutane endoskopische Gastrostomie)",
+    "definition": "Endoskopisch platzierte Ernährungssonde durch die Bauchdecke in den Magen. Indikationen: langfristige enterale Ernährung bei Schluckstörungen, neurologischen Erkrankungen, Tumoren im Kopf-Hals-Bereich."
+  },
+  {
+    "id": "eus",
+    "term": "EUS (Endosonographie)",
+    "definition": "Kombination aus Endoskopie und Ultraschall. Ermöglicht hochauflösende Darstellung von Wandschichten des GI-Trakts und angrenzenden Strukturen. Wichtig für Staging von GI-Tumoren und Pankreasdiagnostik."
+  },
+  {
+    "id": "ercp",
+    "term": "ERCP (Endoskopische retrograde Cholangiopankreatikographie)",
+    "definition": "Endoskopische Untersuchung der Gallenwege und des Pankreasgangs mit Kontrastmittel. Therapeutische Option: Steenentfernung, Stenteinlage, Papillotomie. Komplikation: Post-ERCP-Pankreatitis."
+  },
+  {
+    "id": "gastroskopie",
+    "term": "Gastroskopie",
+    "definition": "Endoskopische Untersuchung von Speiseröhre, Magen und Duodenum. Indikationen: Dysphagie, Oberbauchschmerzen, Anämieabklärung, Tumorsuche. Ermöglicht Biopsien und therapeutische Eingriffe."
+  },
+  {
+    "id": "koloskopie",
+    "term": "Koloskopie",
+    "definition": "Endoskopische Untersuchung des Dickdarms bis zum terminalen Ileum. Goldstandard zur Darmkrebsvorsorge. Ermöglicht Entfernung von Polypen und Biopsien. Vorbereitung: Darmreinigung essentiell."
+  }
+] 

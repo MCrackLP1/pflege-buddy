@@ -1,0 +1,152 @@
+[
+  {
+    "id": "copd",
+    "term": "COPD",
+    "definition": "Chronisch obstruktive Lungenerkrankung mit Verengung der Atemwege. Hauptursache: Rauchen. Symptome: Dyspnoe, chronischer Husten, Auswurf. Spirometrie: FEV1/FVC <70%. Stadieneinteilung nach GOLD."
+  },
+  {
+    "id": "asthma",
+    "term": "Asthma bronchiale",
+    "definition": "Chronisch-entzündliche Atemwegserkrankung mit reversibler Bronchialobstruktion. Symptome: anfallsartige Atemnot, Husten, Giemen. Auslöser: Allergene, Anstrengung, Infekte, Kälte. Therapie: Inhalativa (SABA, ICS)."
+  },
+  {
+    "id": "pneumonie",
+    "term": "Pneumonie",
+    "definition": "Entzündung des Lungenparenchyms, meist durch Bakterien, Viren oder Pilze. Einteilung: ambulant/nosokomial, typisch/atypisch. Symptome: Fieber, Husten, Auswurf, Dyspnoe. Diagnostik: Röntgen-Thorax, Labor."
+  },
+  {
+    "id": "le",
+    "term": "Lungenembolie",
+    "definition": "Akuter Verschluss einer Lungenarterie, meist durch Thromben aus Bein-/Beckenvenen. Risiko: Immobilität, OP, Tumoren, Gerinnungsstörungen. Symptome: Dyspnoe, Thoraxschmerz, Tachykardie. Diagnostik: D-Dimere, CT-Angio."
+  },
+  {
+    "id": "tuberkulose",
+    "term": "Tuberkulose",
+    "definition": "Infektionskrankheit durch Mycobacterium tuberculosis. Übertragung aerogen (Tröpfcheninfektion). Manifestation: primär pulmonal, selten extrapulmonal. Diagnostik: THT, IGRA, Sputum. Therapie: Kombination mehrerer Antibiotika."
+  },
+  {
+    "id": "ple",
+    "term": "Pleuraerguss",
+    "definition": "Pathologische Flüssigkeitsansammlung im Pleuraspalt. Einteilung: Transsudat (Herzinsuffizienz, Leberzirrhose) vs. Exsudat (Entzündung, Tumor). Diagnostik: Sonographie, Punktat. Therapie: Punktion, ggf. Drainage."
+  },
+  {
+    "id": "pneumothorax",
+    "term": "Pneumothorax",
+    "definition": "Luftansammlung im Pleuraspalt mit Kollaps der Lunge. Einteilung: spontan (primär/sekundär), traumatisch, iatrogen. Symptome: plötzlicher Thoraxschmerz, Dyspnoe. Therapie: Beobachtung bis Thoraxdrainage."
+  },
+  {
+    "id": "bronchiektasen",
+    "term": "Bronchiektasen",
+    "definition": "Irreversible Erweiterung der Bronchien durch chronische Entzündung. Ursachen: rezidivierende Infekte, Mukoviszidose, Immundefekte. Symptome: chronischer Husten mit viel Auswurf, Hämoptoe, Infektneigung."
+  },
+  {
+    "id": "interstitielle_lungenerkrankung",
+    "term": "Interstitielle Lungenerkrankung",
+    "definition": "Heterogene Gruppe chronischer Lungenerkrankungen mit Entzündung und Fibrose des Lungengerüsts. Über 200 verschiedene Entitäten. Symptome: trockener Husten, Belastungsdyspnoe. Diagnostik: HRCT, ggf. Lungenbiopsie."
+  },
+  {
+    "id": "ipf",
+    "term": "IPF (Idiopathische pulmonale Fibrose)",
+    "definition": "Sonderform der interstitiellen Lungenerkrankung unklarer Genese mit progressiver Fibrosierung. Betrifft meist ältere Männer. Prognose schlecht (3-5 Jahre). Therapie: antifibrotische Medikamente, Transplantation."
+  },
+  {
+    "id": "sarkoidose",
+    "term": "Sarkoidose",
+    "definition": "Multisystemerkrankung mit Bildung nicht-verkäsender Granulome. Betrifft v.a. Lunge und Lymphknoten. Stadieneinteilung 0-IV nach Röntgenbild. Diagnostik: ACE, sIL-2R, Biopsie. Therapie: Kortikoide bei Symptomen."
+  },
+  {
+    "id": "lc",
+    "term": "Lungenkarzinom",
+    "definition": "Bösartiger Tumor der Lunge. Hauptursache: Rauchen. Histologie: kleinzellig vs. nicht-kleinzellig (Adeno-, Plattenepithel-, großzelliges Karzinom). Symptome: Husten, Hämoptysen, B-Symptomatik. Staging: TNM-Klassifikation."
+  },
+  {
+    "id": "schlafapnoe",
+    "term": "Schlafapnoe-Syndrom",
+    "definition": "Schlafbezogene Atmungsstörung mit wiederholten Atemaussetzern. Formen: obstruktiv (OSAS) oder zentral (ZSAS). Risikofaktoren: Übergewicht, männliches Geschlecht, Alter. Folgen: Tagesmüdigkeit, kardiovaskuläre Erkrankungen."
+  },
+  {
+    "id": "ards",
+    "term": "ARDS (Acute Respiratory Distress Syndrome)",
+    "definition": "Lebensbedrohliches Lungenversagen mit diffuser Schädigung der alveolo-kapillären Membran. Ursachen: Sepsis, Pneumonie, Aspiration, Trauma. Kennzeichen: therapierefraktäre Hypoxämie, beidseitige Infiltrate."
+  },
+  {
+    "id": "atemwegsinfekt",
+    "term": "Akuter Atemwegsinfekt",
+    "definition": "Infektiöse Erkrankung der oberen/unteren Atemwege. Meist viral (Rhinoviren, Influenza). Symptome: Husten, Schnupfen, Halsschmerzen, Fieber. Selbstlimitierend, Therapie meist symptomatisch."
+  },
+  {
+    "id": "lungentransplantation",
+    "term": "Lungentransplantation",
+    "definition": "Chirurgischer Ersatz einer oder beider Lungen bei terminalem Lungenversagen. Indikationen: COPD, IPF, CF, PAH. Komplikationen: Abstoßung, Infektionen. Lebenslange Immunsuppression erforderlich."
+  },
+  {
+    "id": "bronchoskopie",
+    "term": "Bronchoskopie",
+    "definition": "Endoskopische Untersuchung der Atemwege bis in die Subsegmentbronchien. Indikationen: Diagnostik (Biopsie, Lavage) und Therapie (Fremdkörperentfernung, Stentimplantation). Durchführung: flexibel oder starr."
+  },
+  {
+    "id": "spirometrie",
+    "term": "Spirometrie",
+    "definition": "Lungenfunktionstest zur Messung von Atemvolumina und -flüssen. Parameter: VC, FEV1, FVC, Tiffeneau-Index. Unterscheidet obstruktive und restriktive Ventilationsstörungen. Basisdiagnostik bei Lungenerkrankungen."
+  },
+  {
+    "id": "bgb",
+    "term": "BGA (Blutgasanalyse)",
+    "definition": "Messung von Gaspartialdrücken (pO2, pCO2) und Säure-Base-Haushalt (pH, HCO3-) im Blut. Abnahme arteriell, kapillär oder venös. Wichtig bei akuter/chronischer respiratorischer Insuffizienz."
+  },
+  {
+    "id": "tracheotomie",
+    "term": "Tracheotomie",
+    "definition": "Chirurgische Anlage eines Zugangs zur Luftröhre. Indikationen: Langzeitbeatmung, obere Atemwegsobstruktion, Aspirationsschutz. Kann temporär oder permanent sein. Komplikationen: Blutung, Infektion, Stenose."
+  },
+  {
+    "id": "niv",
+    "term": "NIV (Nicht-invasive Ventilation)",
+    "definition": "Beatmungsform ohne Intubation via Maske. Indikationen: COPD/Asthma-Exazerbation, kardiogenes Lungenödem, Immunsuppression. Verringert Intubationsrate und Mortalität. Modi: CPAP, BiPAP."
+  },
+  {
+    "id": "cf",
+    "term": "CF (Cystische Fibrose/Mukoviszidose)",
+    "definition": "Autosomal-rezessive Erbkrankheit mit Störung des Chloridkanals CFTR. Folge: zäher Schleim in Lunge, Pankreas, Leber. Symptome: chronischer Husten, rezidivierende Infekte, Gedeihstörung, Pankreasinsuffizienz."
+  },
+  {
+    "id": "thoraxdrainage",
+    "term": "Thoraxdrainage",
+    "definition": "Einbringen eines Katheters in den Pleuraspalt zur Ableitung von Luft oder Flüssigkeit. Indikationen: Pneumothorax, Hämatothorax, Pleuraerguss. Komplikationen: Fehlplatzierung, Infektion, Organverletzung."
+  },
+  {
+    "id": "pulsoximetrie",
+    "term": "Pulsoximetrie",
+    "definition": "Nicht-invasive Messung der Sauerstoffsättigung im Blut. Normwert: 94-99%. Einsatz im Monitoring bei Lungenerkrankungen, Anästhesie, Intensivmedizin. Limitationen: Durchblutungsstörungen, Anämie, CO-Vergiftung."
+  },
+  {
+    "id": "lungenemphysem",
+    "term": "Lungenemphysem",
+    "definition": "Irreversible Überblähung der Lunge durch Zerstörung von Alveolarwänden. Meist Teil der COPD. Folgen: vergrößerter Totraum, verminderte Gasaustauschfläche. Symptome: Dyspnoe, Fassthorax, hyperresonanter Klopfschall."
+  },
+  {
+    "id": "hltx",
+    "term": "HLTX (Herz-Lungen-Transplantation)",
+    "definition": "Simultane Transplantation von Herz und Lunge. Indikationen: kombiniertes Herz- und Lungenversagen, schwere PAH mit Rechtsherzversagen. Selteneres Verfahren als isolierte Lungentransplantation."
+  },
+  {
+    "id": "ecmo",
+    "term": "ECMO (Extrakorporale Membranoxygenierung)",
+    "definition": "Verfahren zur temporären Übernahme der Lungen- und/oder Herzfunktion. Indikation: schwerstes Lungenversagen (vv-ECMO) oder kombiniertes kardiopulmonales Versagen (va-ECMO). Komplikationen: Blutungen, Infektionen, Embolien."
+  },
+  {
+    "id": "sauerstofftherapie",
+    "term": "Sauerstofftherapie",
+    "definition": "Gabe von Sauerstoff zur Behandlung oder Vorbeugung von Hypoxämie. Indikationen: akut (Pneumonie, LE) oder chronisch (fortgeschrittene COPD, ILD). Applikation: Nasensonde, Maske, High-Flow. Langzeit-O2-Therapie bei pO2 <55 mmHg."
+  },
+  {
+    "id": "pap",
+    "term": "PAP (Pulmonary Alveolar Proteinosis)",
+    "definition": "Seltene Lungenerkrankung mit Ansammlung von Surfactant-ähnlichem Material in den Alveolen. Ursache: GM-CSF-Autoantikörper oder Mutationen. Therapie: Ganzlungenlavage, GM-CSF-Therapie."
+  },
+  {
+    "id": "dilatative_bronchitis",
+    "term": "Dilatative Bronchitis",
+    "definition": "Chronische Entzündung der Bronchien mit Erweiterung und Wandverdickung. Oft im Rahmen von COPD oder Bronchiektasen. Symptome: produktiver Husten, wiederkehrende Infekte. Therapie: Antibiotika, Sekretmobilisation."
+  }
+] 

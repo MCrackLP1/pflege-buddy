@@ -1,0 +1,237 @@
+[
+  {
+    "id": "aa",
+    "term": "AA",
+    "definition": "Arrhytma absoluta"
+  },
+  {
+    "id": "aaa",
+    "term": "AAA",
+    "definition": "abdominelles Aortenaneurysma"
+  },
+  {
+    "id": "abg",
+    "term": "ABG",
+    "definition": "arterielle Blutgase"
+  },
+  {
+    "id": "abs",
+    "term": "ABS",
+    "definition": "akutes Bauchsyndrom"
+  },
+  {
+    "id": "acls",
+    "term": "ACLS",
+    "definition": "Advanced Cardiac Life Support"
+  },
+  {
+    "id": "acth",
+    "term": "ACTH",
+    "definition": "adrenocorticotropes Hormon"
+  },
+  {
+    "id": "adh",
+    "term": "ADH",
+    "definition": "antidiuretisches Hormon"
+  },
+  {
+    "id": "ae",
+    "term": "AE",
+    "definition": "Aortenersatz"
+  },
+  {
+    "id": "af",
+    "term": "AF",
+    "definition": "Atemfrequenz"
+  },
+  {
+    "id": "afib",
+    "term": "AFib",
+    "definition": "Vorhofflimmern (Atrial Fibrillation)"
+  },
+  {
+    "id": "ahf",
+    "term": "AHF",
+    "definition": "akute Herzinsuffizienz (Acute Heart Failure)"
+  },
+  {
+    "id": "aki",
+    "term": "AKI",
+    "definition": "akute Nierenschädigung (Acute Kidney Injury)"
+  },
+  {
+    "id": "als",
+    "term": "ALS",
+    "definition": "Advanced Life Support oder Amyotrophe Lateralsklerose"
+  },
+  {
+    "id": "ami",
+    "term": "AMI",
+    "definition": "akuter Myokardinfarkt"
+  },
+  {
+    "id": "ards",
+    "term": "ARDS",
+    "definition": "akutes Atemnotsyndrom (Acute Respiratory Distress Syndrome)"
+  },
+  {
+    "id": "avk",
+    "term": "AVK",
+    "definition": "arterielle Verschlusskrankheit"
+  },
+  {
+    "id": "bga",
+    "term": "BGA",
+    "definition": "Blutgasanalyse"
+  },
+  {
+    "id": "bls",
+    "term": "BLS",
+    "definition": "Basic Life Support"
+  },
+  {
+    "id": "bp",
+    "term": "BP",
+    "definition": "Blutdruck (Blood Pressure)"
+  },
+  {
+    "id": "bpm",
+    "term": "BPM",
+    "definition": "Schläge pro Minute (Beats Per Minute)"
+  },
+  {
+    "id": "bz",
+    "term": "BZ",
+    "definition": "Blutzucker"
+  },
+  {
+    "id": "cad",
+    "term": "CAD",
+    "definition": "koronare Herzerkrankung (Coronary Artery Disease)"
+  },
+  {
+    "id": "chf",
+    "term": "CHF",
+    "definition": "chronische Herzinsuffizienz (Chronic Heart Failure)"
+  },
+  {
+    "id": "copd",
+    "term": "COPD",
+    "definition": "chronisch obstruktive Lungenerkrankung"
+  },
+  {
+    "id": "cpap",
+    "term": "CPAP",
+    "definition": "kontinuierlicher positiver Atemwegsdruck"
+  },
+  {
+    "id": "cpr",
+    "term": "CPR",
+    "definition": "kardiopulmonale Reanimation"
+  },
+  {
+    "id": "crp",
+    "term": "CRP",
+    "definition": "C-reaktives Protein"
+  },
+  {
+    "id": "ct",
+    "term": "CT",
+    "definition": "Computertomographie"
+  },
+  {
+    "id": "cvk",
+    "term": "CVK",
+    "definition": "zentraler Venenkatheter"
+  },
+  {
+    "id": "dka",
+    "term": "DKA",
+    "definition": "diabetische Ketoazidose"
+  },
+  {
+    "id": "dm",
+    "term": "DM",
+    "definition": "Diabetes mellitus"
+  },
+  {
+    "id": "dnr",
+    "term": "DNR",
+    "definition": "Keine Wiederbelebung (Do Not Resuscitate)"
+  },
+  {
+    "id": "dvt",
+    "term": "DVT",
+    "definition": "tiefe Venenthrombose (Deep Vein Thrombosis)"
+  },
+  {
+    "id": "ekg",
+    "term": "EKG",
+    "definition": "Elektrokardiogramm"
+  },
+  {
+    "id": "etco2",
+    "term": "ETCO2",
+    "definition": "end-tidales CO2"
+  },
+  {
+    "id": "fev1",
+    "term": "FEV1",
+    "definition": "Einsekundenkapazität"
+  },
+  {
+    "id": "gcs",
+    "term": "GCS",
+    "definition": "Glasgow-Koma-Skala"
+  },
+  {
+    "id": "gfr",
+    "term": "GFR",
+    "definition": "glomeruläre Filtrationsrate"
+  },
+  {
+    "id": "hf",
+    "term": "HF",
+    "definition": "Herzfrequenz"
+  },
+  {
+    "id": "hfref",
+    "term": "HFrEF",
+    "definition": "Herzinsuffizienz mit reduzierter Ejektionsfraktion"
+  },
+  {
+    "id": "hfpef",
+    "term": "HFpEF",
+    "definition": "Herzinsuffizienz mit erhaltener Ejektionsfraktion"
+  },
+  {
+    "id": "hkt",
+    "term": "HKT",
+    "definition": "Hämatokrit"
+  },
+  {
+    "id": "ht",
+    "term": "HT",
+    "definition": "Hypertonie"
+  },
+  {
+    "id": "icu",
+    "term": "ICU",
+    "definition": "Intensivstation (Intensive Care Unit)"
+  },
+  {
+    "id": "ins",
+    "term": "INS",
+    "definition": "Insulintherapie"
+  },
+  {
+    "id": "icp",
+    "term": "ICP",
+    "definition": "intrakranieller Druck (Intracranial Pressure)"
+  },
+  {
+    "id": "iv",
+    "term": "IV",
+    "definition": "intravenös"
+  }
+]
