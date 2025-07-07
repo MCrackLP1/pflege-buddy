@@ -17,7 +17,7 @@ export interface MedicalTerm {
  */
 export function isValidMedicalTerm(term: unknown): term is MedicalTerm {
   if (typeof term !== 'object' || term === null) return false;
-  
+
   const medicalTerm = term as MedicalTerm;
   return (
     typeof medicalTerm.id === 'string' &&
@@ -35,4 +35,4 @@ export function isValidMedicalTerm(term: unknown): term is MedicalTerm {
  */
 export function formatMedicalTerm(term: MedicalTerm): string {
   return `${term.term}: ${term.definition}`;
-} 
+}

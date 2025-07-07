@@ -21,7 +21,7 @@ export interface WikipediaArticle {
   title: string;
   extract: string;
   pageid: number;
-  url: string; 
+  url: string;
   thumbnail?: string;
 }
 
@@ -40,10 +40,10 @@ export const searchWikipedia = async (
   try {
     // Bestimme die korrekte Domain basierend auf der Sprache
     const domain = `${language}.wikipedia.org`;
-    
+
     // Erstelle die URL für die Suche
     const url = new URL(`https://${domain}/w/api.php`);
-    
+
     // Füge die Parameter hinzu
     url.searchParams.append('action', 'query');
     url.searchParams.append('list', 'search');
@@ -51,29 +51,29 @@ export const searchWikipedia = async (
     url.searchParams.append('format', 'json');
     url.searchParams.append('srlimit', limit.toString());
     url.searchParams.append('origin', '*'); // Für CORS
-    
+
     // Führe die Anfrage aus
     const response = await fetch(url.toString());
-    
+
     if (!response.ok) {
       throw new Error(`HTTP Fehler! Status: ${response.status}`);
     }
-    
+
     const data = await response.json();
-    
+
     // Überprüfe, ob Suchergebnisse vorhanden sind
     if (!data.query || !data.query.search || data.query.search.length === 0) {
       return [];
     }
-    
+
     // Transformiere die Ergebnisse in unser Format
     return data.query.search.map((item: any) => ({
       title: item.title,
       snippet: item.snippet.replace(/<[^>]+>/g, ''), // HTML-Tags entfernen
-      pageid: item.pageid
+      pageid: item.pageid,
     }));
   } catch (error) {
-    console.error('Fehler bei der Wikipedia-Suche:', error);
+    console.error('Error in Wikipedia search:', error);
     throw error;
   }
 };
@@ -91,10 +91,10 @@ export const getWikipediaArticle = async (
   try {
     // Bestimme die korrekte Domain basierend auf der Sprache
     const domain = `${language}.wikipedia.org`;
-    
+
     // Erstelle die URL für die Artikelabfrage
     const url = new URL(`https://${domain}/w/api.php`);
-    
+
     // Füge die Parameter hinzu
     url.searchParams.append('action', 'query');
     url.searchParams.append('prop', 'extracts|info|pageimages');
@@ -105,33 +105,35 @@ export const getWikipediaArticle = async (
     url.searchParams.append('pithumbsize', '300'); // Thumbnail-Größe
     url.searchParams.append('format', 'json');
     url.searchParams.append('origin', '*'); // Für CORS
-    
+
     // Führe die Anfrage aus
     const response = await fetch(url.toString());
-    
+
     if (!response.ok) {
       throw new Error(`HTTP Fehler! Status: ${response.status}`);
     }
-    
+
     const data = await response.json();
-    
+
     // Überprüfe, ob die Seite existiert
     if (!data.query || !data.query.pages || !data.query.pages[pageid]) {
-      throw new Error('Artikel nicht gefunden');
+      throw new Error('Article not found');
     }
-    
+
     const page = data.query.pages[pageid];
-    
+
     // Transformiere in unser Format
     return {
       title: page.title,
-      extract: page.extract || 'Keine Beschreibung verfügbar',
+      extract: page.extract || 'No description available',
       pageid: page.pageid,
-      url: page.fullurl || `https://${domain}/wiki/${encodeURIComponent(page.title.replace(/ /g, '_'))}`,
-      thumbnail: page.thumbnail ? page.thumbnail.source : undefined
+      url:
+        page.fullurl ||
+        `https://${domain}/wiki/${encodeURIComponent(page.title.replace(/ /g, '_'))}`,
+      thumbnail: page.thumbnail ? page.thumbnail.source : undefined,
     };
   } catch (error) {
-    console.error('Fehler beim Abrufen des Wikipedia-Artikels:', error);
+    console.error('Error fetching Wikipedia article:', error);
     throw error;
   }
 };
@@ -154,14 +156,14 @@ export const searchMedicalWikipedia = async (
     en: ['disease', 'medicine', 'symptom', 'therapy', 'nursing'],
     es: ['enfermedad', 'medicina', 'síntoma', 'terapia', 'enfermería'],
     fr: ['maladie', 'médecine', 'symptôme', 'thérapie', 'soins infirmiers'],
-    it: ['malattia', 'medicina', 'sintomo', 'terapia', 'assistenza infermieristica']
+    it: ['malattia', 'medicina', 'sintomo', 'terapia', 'assistenza infermieristica'],
   };
-  
+
   // Wähle den Qualifikator basierend auf der Sprache
   const qualifiers = medicalQualifiers[language];
-  
+
   // Erweitere den Suchbegriff mit dem ersten Qualifikator
   const enhancedSearchTerm = `${searchTerm} ${qualifiers[0]}`;
-  
+
   return searchWikipedia(enhancedSearchTerm, language, limit);
-}; 
+};

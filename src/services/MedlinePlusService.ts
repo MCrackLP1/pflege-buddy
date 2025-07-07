@@ -40,7 +40,7 @@ export interface MedlinePlusResponse {
  * @returns Promise mit den gefundenen Informationen
  */
 export const getMedicalInfoByICD = async (
-  icdCode: string, 
+  icdCode: string,
   language: Language = 'en'
 ): Promise<MedlinePlusResponse> => {
   // Wenn Mock-Daten verwendet werden sollen
@@ -52,16 +52,16 @@ export const getMedicalInfoByICD = async (
     if (mockData) {
       return mockData;
     }
-    
+
     // Fallback-Antwort, wenn keine Daten für diesen Code vorhanden sind
     return {
       feed: {
         title: `Keine Ergebnisse für ICD-Code ${icdCode}`,
-        entry: []
-      }
+        entry: [],
+      },
     };
-  } 
-  
+  }
+
   // Echter API-Aufruf mit fetch
   try {
     const url = new URL(BASE_URL);
@@ -70,11 +70,11 @@ export const getMedicalInfoByICD = async (
     url.searchParams.append('lang', language === 'de' ? 'en' : language); // Da MedlinePlus kein Deutsch unterstützt
 
     const response = await fetch(url.toString());
-    
+
     if (!response.ok) {
       throw new Error(`HTTP Fehler! Status: ${response.status}`);
     }
-    
+
     return await response.json();
   } catch (error) {
     console.error('Fehler beim Abrufen von MedlinePlus-Daten:', error);
@@ -101,29 +101,29 @@ export const searchMedicalInfo = async (
     if (mockData) {
       return mockData;
     }
-    
+
     // Fallback-Antwort, wenn keine Daten für diesen Suchbegriff vorhanden sind
     return {
       feed: {
         title: `Keine Ergebnisse für "${searchTerm}"`,
-        entry: []
-      }
+        entry: [],
+      },
     };
   }
-  
+
   // Echter API-Aufruf mit fetch
   try {
     const url = new URL(BASE_URL);
     url.searchParams.append('mainSearchCriteria', `text^${searchTerm}`);
     url.searchParams.append('knowledgeResponseType', 'application/json');
     url.searchParams.append('lang', language === 'de' ? 'en' : language); // Da MedlinePlus kein Deutsch unterstützt
-    
+
     const response = await fetch(url.toString());
-    
+
     if (!response.ok) {
       throw new Error(`HTTP Fehler! Status: ${response.status}`);
     }
-    
+
     return await response.json();
   } catch (error) {
     console.error('Fehler beim Suchen in MedlinePlus:', error);
@@ -150,32 +150,32 @@ export const getMedicationInfo = async (
     if (mockData) {
       return mockData;
     }
-    
+
     // Fallback-Antwort, wenn keine Daten für dieses Medikament vorhanden sind
     return {
       feed: {
         title: `Keine Ergebnisse für Medikament "${medication}"`,
-        entry: []
-      }
+        entry: [],
+      },
     };
   }
-  
+
   // Echter API-Aufruf mit fetch
   try {
     const url = new URL(BASE_URL);
     url.searchParams.append('mainSearchCriteria', `rxcui^${medication}`);
     url.searchParams.append('knowledgeResponseType', 'application/json');
     url.searchParams.append('lang', language === 'de' ? 'en' : language); // Da MedlinePlus kein Deutsch unterstützt
-    
+
     const response = await fetch(url.toString());
-    
+
     if (!response.ok) {
       throw new Error(`HTTP Fehler! Status: ${response.status}`);
     }
-    
+
     return await response.json();
   } catch (error) {
     console.error('Fehler beim Abrufen von Medikamenteninformationen:', error);
     throw error;
   }
-}; 
+};

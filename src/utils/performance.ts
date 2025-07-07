@@ -7,95 +7,84 @@ import { InteractionManager } from 'react-native';
 import { memo } from 'react';
 
 /**
- * Führt einen Task aus, nachdem alle Interaktionen und Animationen abgeschlossen sind
- * Verbessert die Wahrnehmungsgeschwindigkeit der App
+ * Führt eine Aufgabe aus, nachdem die Interaktionen abgeschlossen sind
+ * Verbessert die App-Performance, indem UI-Blockierungen vermieden werden
+ * @param task Die auszuführende Funktion
  */
-export const runAfterInteractions = (task: () => any): ReturnType<typeof InteractionManager.runAfterInteractions> => {
-  return InteractionManager.runAfterInteractions(() => {
-    return task();
-  });
+export const runAfterInteractions = <T>(
+  task: () => T
+): ReturnType<typeof InteractionManager.runAfterInteractions> => {
+  return InteractionManager.runAfterInteractions(task);
 };
 
 /**
- * Function Memoizer um redundante Berechnungen zu vermeiden
- * 
+ * Memoizing-Funktion für verbesserte Performance
+ * Speichert die Ergebnisse von Funktionsaufrufen mit identischen Argumenten
  * @param func Die zu memoizierende Funktion
- * @returns Das memoizierte Ergebnis
  */
-export function memoize<T extends (...args: any[]) => any>(func: T): T {
+export function memoize<T extends (...args: unknown[]) => unknown>(func: T): T {
   const cache = new Map();
-  
-  return ((...args: any[]) => {
+
+  return ((...args: unknown[]) => {
     const key = JSON.stringify(args);
-    
+
     if (cache.has(key)) {
       return cache.get(key);
     }
-    
+
     const result = func(...args);
     cache.set(key, result);
-    
     return result;
   }) as T;
 }
 
 /**
- * Optimiert eine Komponente für die Performance mittels React.memo
- * 
+ * Optimiert eine React-Komponente durch Memoization
+ * Verhindert unnötige Rerenders für bessere Performance
  * @param Component Die zu optimierende Komponente
- * @returns Die memoizierte Komponente
  */
-export const optimizeComponent = <T extends React.ComponentType<any>>(Component: T): T => {
+export const optimizeComponent = <T extends React.ComponentType<unknown>>(Component: T): T => {
   return memo(Component) as unknown as T;
 };
 
 /**
- * Verzögert die Ausführung eines Tasks um einen bestimmten Zeitraum
- * Nützlich, wenn nicht kritische Aufgaben verschoben werden sollen
- * 
+ * Führt eine Aufgabe verzögert aus, um UI-Thread zu entlasten
  * @param task Die auszuführende Funktion
- * @param delay Verzögerung in Millisekunden
+ * @param delay Die Verzögerungszeit in Millisekunden
  */
 export const deferTask = (task: () => void, delay: number = 300): void => {
   setTimeout(task, delay);
 };
 
-/**
- * Cache für bereits berechnete Werte
- */
-const computeCache = new Map<string, any>();
+// Cache für aufwändige Berechnungen
+const computeCache = new Map<string, unknown>();
 
 /**
- * Speichert berechnete Werte zwischen, um Wiederholungen zu vermeiden
- * 
+ * Speichert Berechnungsergebnisse im Cache mit optionalem Verfallszeitraum
  * @param key Ein eindeutiger Schlüssel für die Berechnung
  * @param compute Die Berechnungsfunktion
- * @param expireAfter Optional, Zeit in ms nach der der Cache-Eintrag verfällt
+ * @param expireAfter Optionale Verfallszeit in Millisekunden
  */
-export const cachedComputation = <T>(
-  key: string,
-  compute: () => T,
-  expireAfter?: number
-): T => {
+export const cachedComputation = <T>(key: string, compute: () => T, expireAfter?: number): T => {
   if (computeCache.has(key)) {
-    return computeCache.get(key);
+    return computeCache.get(key) as T;
   }
-  
+
   const result = compute();
   computeCache.set(key, result);
-  
+
   if (expireAfter) {
     setTimeout(() => {
       computeCache.delete(key);
     }, expireAfter);
   }
-  
+
   return result;
 };
 
 /**
- * Bereinigt den Cache
+ * Löscht alle gespeicherten Berechnungen aus dem Cache
  */
 export const clearComputeCache = (): void => {
   computeCache.clear();
-}; 
+};

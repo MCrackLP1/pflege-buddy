@@ -32,26 +32,26 @@ export const searchICD10 = async (query: string): Promise<Disease[]> => {
     }
 
     console.log(`Durchsuche ICD-10-GM Datenbank nach "${query}"...`);
-    
+
     // Filtern der ICD-10-GM Daten basierend auf der Suchanfrage
     const lowerCaseQuery = query.toLowerCase();
-    const results = (ICD10GMData as Disease[]).filter(item => 
-      item.code.toLowerCase().includes(lowerCaseQuery) ||
-      item.name.toLowerCase().includes(lowerCaseQuery) ||
-      item.fachgebiet.toLowerCase().includes(lowerCaseQuery)
+    const results = (ICD10GMData as Disease[]).filter(
+      item =>
+        item.code.toLowerCase().includes(lowerCaseQuery) ||
+        item.name.toLowerCase().includes(lowerCaseQuery) ||
+        item.fachgebiet.toLowerCase().includes(lowerCaseQuery)
     );
-    
+
     // Suchergebnisse begrenzen, um Performance zu optimieren
     const limitedResults = results.slice(0, 100);
-    
+
     // Ergebnisse im Cache speichern
     await cacheICDResults(query, limitedResults);
-    
+
     return limitedResults;
-    
   } catch (error) {
     console.error('Fehler bei der ICD-10 Suche:', error);
-    
+
     // Fallback zu leeren Ergebnissen bei Fehler
     return [];
   }
@@ -64,7 +64,7 @@ const cacheICDResults = async (query: string, results: Disease[]): Promise<void>
   try {
     const cacheData = {
       timestamp: Date.now(),
-      results
+      results,
     };
     await AsyncStorage.setItem(ICD_CACHE_KEY + query.toLowerCase(), JSON.stringify(cacheData));
   } catch (error) {
@@ -81,7 +81,7 @@ const getCachedICDResults = async (query: string): Promise<Disease[] | null> => 
     if (cachedData) {
       const parsedData = JSON.parse(cachedData);
       const now = Date.now();
-      
+
       // Prüfen ob der Cache noch gültig ist
       if (now - parsedData.timestamp < ICD_CACHE_EXPIRY) {
         return parsedData.results;
@@ -92,4 +92,4 @@ const getCachedICDResults = async (query: string): Promise<Disease[] | null> => 
     console.error('Fehler beim Abrufen der gecachten ICD-Daten:', error);
     return null;
   }
-}; 
+};

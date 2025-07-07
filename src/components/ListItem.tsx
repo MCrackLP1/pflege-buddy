@@ -25,40 +25,42 @@ type ListItemProps = {
 
 /**
  * Standardisierte ListItem-Komponente für einheitliches Design
- * 
+ *
  * @param props Komponenteneigenschaften
  * @returns JSX.Element
  */
-const ListItem: React.FC<ListItemProps> = ({ 
-  title, 
-  subtitle, 
-  onPress, 
+const ListItem: React.FC<ListItemProps> = ({
+  title,
+  subtitle,
+  onPress,
   iconName,
   iconColor,
   rightContent,
-  style
+  style,
 }) => {
   const { theme, fontSizeScale, baseFontSize } = useSettings();
   const styles = getDynamicStyles(theme, baseFontSize * fontSizeScale);
-  
+
   const defaultIconColor = theme === 'dark' ? '#32b8ca' : '#32b8ca';
-  
+
   const renderContent = () => (
-    <View style={{ 
-      flexDirection: 'row', 
-      alignItems: 'center',
-      width: '100%',
-    }}>
+    <View
+      style={{
+        flexDirection: 'row',
+        alignItems: 'center',
+        width: '100%',
+      }}
+    >
       {iconName && (
-        <Icon 
-          name={iconName} 
-          size={28} 
-          color={iconColor || defaultIconColor} 
-          style={{ marginRight: standardSpacing.m }} 
+        <Icon
+          name={iconName}
+          size={30}
+          color={iconColor || defaultIconColor}
+          style={{ marginRight: standardSpacing.l }}
         />
       )}
       <View style={{ flex: 1 }}>
-        <Text style={styles.itemTitle}>{title}</Text>
+        <Text style={[styles.itemTitle, { marginBottom: standardSpacing.xs }]}>{title}</Text>
         {subtitle && <Text style={styles.itemSubtitle}>{subtitle}</Text>}
       </View>
       {rightContent && rightContent}
@@ -67,21 +69,13 @@ const ListItem: React.FC<ListItemProps> = ({
 
   if (onPress) {
     return (
-      <TouchableOpacity 
-        style={[styles.card, style]} 
-        onPress={onPress}
-        activeOpacity={0.7}
-      >
+      <TouchableOpacity style={[styles.card, style]} onPress={onPress} activeOpacity={0.7}>
         {renderContent()}
       </TouchableOpacity>
     );
   }
 
-  return (
-    <View style={[styles.card, style]}>
-      {renderContent()}
-    </View>
-  );
+  return <View style={[styles.card, style]}>{renderContent()}</View>;
 };
 
-export default ListItem; 
+export default ListItem;

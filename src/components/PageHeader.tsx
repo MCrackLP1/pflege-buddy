@@ -27,11 +27,11 @@ type PageHeaderProps = {
  * @param props Component properties
  * @returns JSX.Element
  */
-const PageHeader: React.FC<PageHeaderProps> = ({ 
-  title, 
+const PageHeader: React.FC<PageHeaderProps> = ({
+  title,
   subtitle,
   withBackground = true,
-  showBackButton = false
+  showBackButton = false,
 }) => {
   const { theme, fontSizeScale, baseFontSize } = useSettings();
   const styles = getDynamicStyles(theme, baseFontSize * fontSizeScale);
@@ -39,17 +39,26 @@ const PageHeader: React.FC<PageHeaderProps> = ({
   const navigation = useNavigation();
 
   return (
-    <View style={[
-      styles.headerContainer, 
-      { 
-        paddingTop: Math.max(insets.top + 10, 20),
-        backgroundColor: withBackground ? (theme === 'dark' ? '#1e1e1e' : '#ffffff') : 'transparent',
-        flexDirection: 'row',
-        alignItems: 'center',
-      }
-    ]}>
+    <View
+      style={[
+        styles.headerContainer,
+        {
+          paddingTop: Math.max(insets.top + 10, 20),
+          backgroundColor: withBackground
+            ? theme === 'dark'
+              ? '#1e1e1e'
+              : '#ffffff'
+            : 'transparent',
+          flexDirection: 'row',
+          alignItems: 'center',
+        },
+      ]}
+    >
       {showBackButton && (
-        <TouchableOpacity onPress={() => navigation.goBack()} style={{ marginRight: 12, padding: 4 }}>
+        <TouchableOpacity
+          onPress={() => navigation.goBack()}
+          style={{ marginRight: 12, padding: 4 }}
+        >
           <Icon name="arrow-back" size={26} color={theme === 'dark' ? '#e1e1e1' : '#333'} />
         </TouchableOpacity>
       )}
@@ -61,4 +70,4 @@ const PageHeader: React.FC<PageHeaderProps> = ({
   );
 };
 
-export default PageHeader; 
+export default PageHeader;

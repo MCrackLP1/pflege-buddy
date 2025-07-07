@@ -11,6 +11,7 @@ import {
   ViewStyle,
   TextStyle,
 } from 'react-native';
+import { useTranslation } from 'react-i18next';
 import { MedicalTerm } from '../utils/medTermUtils';
 import { useMedicalTermStore } from '../store/medicalTermStore';
 
@@ -110,46 +111,45 @@ const styles = StyleSheet.create<Styles>({
   },
 });
 
-const MedicalTermSearch: React.FC<MedicalTermSearchProps> = ({
-  onTermSelect,
-}) => {
+const MedicalTermSearch: React.FC<MedicalTermSearchProps> = ({ onTermSelect }) => {
   const [searchQuery, setSearchQuery] = useState('');
-  
+  const { t } = useTranslation();
+
   // Zustand Store
-  const {
-    searchResults,
-    isLoading,
-    error,
-    searchTerms,
-    loadMedicalTerms
-  } = useMedicalTermStore();
+  const { searchResults, isLoading, error, searchTerms, loadMedicalTerms } = useMedicalTermStore();
 
   // Lade medizinische Begriffe beim ersten Rendern
   useEffect(() => {
     loadMedicalTerms();
   }, [loadMedicalTerms]);
 
-  const handleSearch = useCallback(async (query: string) => {
-    setSearchQuery(query);
-    await searchTerms(query);
-  }, [searchTerms]);
+  const handleSearch = useCallback(
+    async (query: string) => {
+      setSearchQuery(query);
+      await searchTerms(query);
+    },
+    [searchTerms]
+  );
 
-  const handleTermPress = useCallback((term: SearchResultItem) => {
-    onTermSelect(term);
-  }, [onTermSelect]);
+  const handleTermPress = useCallback(
+    (term: SearchResultItem) => {
+      onTermSelect(term);
+    },
+    [onTermSelect]
+  );
 
-  const renderItem: ListRenderItem<SearchResultItem> = useCallback(({ item }) => (
-    <TouchableOpacity
-      style={styles.resultItem}
-      onPress={() => handleTermPress(item)}
-    >
-      <View style={styles.resultHeader}>
-        <Text style={styles.resultTerm}>{item.term}</Text>
-        <Text style={styles.resultCategory}>{item.category}</Text>
-      </View>
-      <Text style={styles.resultDefinition}>{item.definition}</Text>
-    </TouchableOpacity>
-  ), [handleTermPress]);
+  const renderItem: ListRenderItem<SearchResultItem> = useCallback(
+    ({ item }) => (
+      <TouchableOpacity style={styles.resultItem} onPress={() => handleTermPress(item)}>
+        <View style={styles.resultHeader}>
+          <Text style={styles.resultTerm}>{item.term}</Text>
+          <Text style={styles.resultCategory}>{item.category}</Text>
+        </View>
+        <Text style={styles.resultDefinition}>{item.definition}</Text>
+      </TouchableOpacity>
+    ),
+    [handleTermPress]
+  );
 
   return (
     <View style={styles.container}>
@@ -157,24 +157,19 @@ const MedicalTermSearch: React.FC<MedicalTermSearchProps> = ({
         <Text style={styles.searchIcon}>🔍</Text>
         <TextInput
           style={styles.searchInput}
-          placeholder="Medizinischen Begriff suchen..."
+          placeholder={t('medical_term_search_placeholder')}
           value={searchQuery}
           onChangeText={handleSearch}
         />
         {searchQuery.length > 0 && (
-          <TouchableOpacity
-            style={styles.clearButton}
-            onPress={() => handleSearch('')}
-          >
+          <TouchableOpacity style={styles.clearButton} onPress={() => handleSearch('')}>
             <Text>✕</Text>
           </TouchableOpacity>
         )}
       </View>
-      
-      {error && (
-        <Text style={styles.errorText}>{error}</Text>
-      )}
-      
+
+      {error && <Text style={styles.errorText}>{error}</Text>}
+
       {isLoading ? (
         <View style={styles.loadingContainer}>
           <ActivityIndicator size="large" color="#0000ff" />
@@ -184,13 +179,13 @@ const MedicalTermSearch: React.FC<MedicalTermSearchProps> = ({
           style={styles.resultsList}
           data={searchResults}
           renderItem={renderItem}
-          keyExtractor={(item) => item.id}
+          keyExtractor={item => item.id}
         />
       ) : searchQuery.length >= 2 ? (
-        <Text style={styles.noResults}>Keine Ergebnisse gefunden</Text>
+        <Text style={styles.noResults}>{t('no_results_found')}</Text>
       ) : null}
     </View>
   );
 };
 
-export default MedicalTermSearch; 
+export default MedicalTermSearch;

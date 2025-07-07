@@ -1,14 +1,8 @@
 import React, { useState } from 'react';
-import {
-  View,
-  Text,
-  ScrollView,
-  StyleSheet,
-  TouchableOpacity,
-  Platform,
-} from 'react-native';
+import { View, Text, ScrollView, StyleSheet, TouchableOpacity, Platform } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Clipboard from '@react-native-clipboard/clipboard';
+import { useTranslation } from 'react-i18next';
 
 // Import Hooks
 import { useSettings } from '../context/SettingsContext';
@@ -17,7 +11,7 @@ import CustomModalPicker from './CustomModalPicker';
 
 interface WoundAssessmentOption {
   id: string;
-  label: string;
+  label?: string;
   isRiskFactor?: boolean;
   icon?: string;
   description?: string;
@@ -26,58 +20,59 @@ interface WoundAssessmentOption {
 const WoundAssessment: React.FC = () => {
   const { theme, fontSizeScale, baseFontSize } = useSettings();
   const styles = getDynamicStyles(theme, baseFontSize * fontSizeScale);
-  
-  // Assessment options
+  const { t } = useTranslation();
+
+  // Assessment options (jetzt nur noch IDs, Texte kommen aus i18n)
   const woundEdgeOptions: WoundAssessmentOption[] = [
-    { id: 'healthy', label: 'Gesund', icon: 'leaf-outline', description: 'Unauffälliger, gesunder Wundrand' },
-    { id: 'reddened', label: 'Gerötet', icon: 'color-filter-outline', description: 'Rötung als Entzündungszeichen' , isRiskFactor: true },
-    { id: 'undermined', label: 'Unterminiert', icon: 'remove-circle-outline', description: 'Unterminierung des Wundrandes', isRiskFactor: true },
-    { id: 'macerated', label: 'Mazeriert', icon: 'water-outline', description: 'Aufgeweichter, weißlicher Wundrand', isRiskFactor: true },
+    { id: 'healthy', icon: 'leaf-outline', isRiskFactor: false },
+    { id: 'reddened', icon: 'color-filter-outline', isRiskFactor: true },
+    { id: 'undermined', icon: 'remove-circle-outline', isRiskFactor: true },
+    { id: 'macerated', icon: 'water-outline', isRiskFactor: true },
   ];
 
   const woundBaseOptions: WoundAssessmentOption[] = [
-    { id: 'necrosis', label: 'Nekrose', icon: 'skull-outline', description: 'Abgestorbenes Gewebe', isRiskFactor: true },
-    { id: 'fibrin', label: 'Fibrinbelag', icon: 'layers-outline', description: 'Gelblich-weißer Belag', isRiskFactor: true },
-    { id: 'granulation', label: 'Granulation', icon: 'flower-outline', description: 'Rötlich, gut durchblutet' },
-    { id: 'epithelialization', label: 'Epithelisierung', icon: 'color-wand-outline', description: 'Neubildung der Haut' },
+    { id: 'necrosis', icon: 'skull-outline', isRiskFactor: true },
+    { id: 'fibrin', icon: 'layers-outline', isRiskFactor: true },
+    { id: 'granulation', icon: 'flower-outline', isRiskFactor: false },
+    { id: 'epithelialization', icon: 'color-wand-outline', isRiskFactor: false },
   ];
 
   const exudateAmountOptions: WoundAssessmentOption[] = [
-    { id: 'none', label: 'Kein', icon: 'remove-outline', description: 'Kein Exsudat sichtbar' },
-    { id: 'little', label: 'Wenig', icon: 'water-outline', description: 'Geringe Flüssigkeitsmenge' },
-    { id: 'medium', label: 'Mittel', icon: 'water-outline', description: 'Mäßige Flüssigkeitsmenge' },
-    { id: 'much', label: 'Viel', icon: 'water-outline', description: 'Starke Exsudation', isRiskFactor: true },
+    { id: 'none', icon: 'remove-outline', isRiskFactor: false },
+    { id: 'little', icon: 'water-outline', isRiskFactor: false },
+    { id: 'medium', icon: 'water-outline', isRiskFactor: false },
+    { id: 'much', icon: 'water-outline', isRiskFactor: true },
   ];
 
   const exudateTypeOptions: WoundAssessmentOption[] = [
-    { id: 'clear', label: 'Klar', icon: 'water-outline', description: 'Klares, seröses Exsudat' },
-    { id: 'purulent', label: 'Eitrig', icon: 'alert-circle-outline', description: 'Gelblich, trüb, eitrig', isRiskFactor: true },
-    { id: 'bloody', label: 'Blutig', icon: 'blood-outline', description: 'Rötlich, blutiges Exsudat', isRiskFactor: true },
+    { id: 'clear', icon: 'water-outline', isRiskFactor: false },
+    { id: 'purulent', icon: 'alert-circle-outline', isRiskFactor: true },
+    { id: 'bloody', icon: 'blood-outline', isRiskFactor: true },
   ];
 
   const odorOptions: WoundAssessmentOption[] = [
-    { id: 'none', label: 'Kein Geruch', icon: 'close-outline', description: 'Kein auffälliger Geruch' },
-    { id: 'light', label: 'Leichter Geruch', icon: 'cloud-outline', description: 'Leicht wahrnehmbar' },
-    { id: 'strong', label: 'Starker Geruch', icon: 'warning-outline', description: 'Deutlich wahrnehmbar', isRiskFactor: true },
+    { id: 'none', icon: 'close-outline', isRiskFactor: false },
+    { id: 'light', icon: 'cloud-outline', isRiskFactor: false },
+    { id: 'strong', icon: 'warning-outline', isRiskFactor: true },
   ];
 
   const painOptions: WoundAssessmentOption[] = [
-    { id: 'none', label: 'Kein Schmerz', icon: 'happy-outline', description: 'Keine Schmerzen' },
-    { id: 'light', label: 'Leichter Schmerz', icon: 'alert-outline', description: 'Leichte Schmerzen' },
-    { id: 'strong', label: 'Starker Schmerz', icon: 'sad-outline', description: 'Starke Schmerzen', isRiskFactor: true },
+    { id: 'none', icon: 'happy-outline', isRiskFactor: false },
+    { id: 'light', icon: 'alert-outline', isRiskFactor: false },
+    { id: 'strong', icon: 'sad-outline', isRiskFactor: true },
   ];
 
   const woundSurroundingOptions: WoundAssessmentOption[] = [
-    { id: 'healthy', label: 'Gesund', icon: 'leaf-outline', description: 'Unauffällige Umgebung' },
-    { id: 'reddened', label: 'Rötung', icon: 'color-filter-outline', description: 'Rötung der Umgebung', isRiskFactor: true },
-    { id: 'edema', label: 'Ödem', icon: 'water-outline', description: 'Schwellung/Ödem', isRiskFactor: true },
-    { id: 'maceration', label: 'Mazeration', icon: 'water-outline', description: 'Aufgeweichte Umgebung', isRiskFactor: true },
+    { id: 'healthy', icon: 'leaf-outline', isRiskFactor: false },
+    { id: 'reddened', icon: 'color-filter-outline', isRiskFactor: true },
+    { id: 'edema', icon: 'water-outline', isRiskFactor: true },
+    { id: 'maceration', icon: 'water-outline', isRiskFactor: true },
   ];
 
   const healingProgressOptions: WoundAssessmentOption[] = [
-    { id: 'improvement', label: 'Verbesserung', icon: 'trending-up-outline', description: 'Heilung schreitet voran' },
-    { id: 'stagnation', label: 'Stagnation', icon: 'pause-outline', description: 'Keine Veränderung' },
-    { id: 'deterioration', label: 'Verschlechterung', icon: 'trending-down-outline', description: 'Zustand verschlechtert sich', isRiskFactor: true },
+    { id: 'improvement', icon: 'trending-up-outline', isRiskFactor: false },
+    { id: 'stagnation', icon: 'pause-outline', isRiskFactor: true },
+    { id: 'deterioration', icon: 'trending-down-outline', isRiskFactor: true },
   ];
 
   // State for selected values
@@ -89,7 +84,7 @@ const WoundAssessment: React.FC = () => {
   const [pain, setPain] = useState(painOptions[0].id);
   const [woundSurrounding, setWoundSurrounding] = useState(woundSurroundingOptions[0].id);
   const [healingProgress, setHealingProgress] = useState(healingProgressOptions[0].id);
-  
+
   const [showResult, setShowResult] = useState(false);
   const [showForm, setShowForm] = useState(true);
 
@@ -104,13 +99,13 @@ const WoundAssessment: React.FC = () => {
   // Function to get option label from ID
   const getLabelById = (options: WoundAssessmentOption[], id: string): string => {
     const option = options.find(option => option.id === id);
-    return option ? option.label : '';
+    return option && option.label ? option.label : '';
   };
 
   // Function to calculate risk score and generate result
   const calculateRiskAndGenerate = () => {
     setShowResult(true);
-    
+
     // Optionally hide form
     if (showForm) {
       setShowForm(false);
@@ -119,13 +114,23 @@ const WoundAssessment: React.FC = () => {
 
   // Generate result text
   const generateResultText = (): string => {
-    return `Die Wunde zeigt einen ${getLabelById(woundEdgeOptions, woundEdge).toLowerCase()} Wundrand, der Wundgrund ist von ${getLabelById(woundBaseOptions, woundBase).toLowerCase()} geprägt. Es ist ${getLabelById(exudateAmountOptions, exudateAmount).toLowerCase()} ${getLabelById(exudateTypeOptions, exudateType).toLowerCase()}es Exsudat vorhanden. Es besteht ${getLabelById(odorOptions, odor).toLowerCase()} und ${getLabelById(painOptions, pain).toLowerCase()}. Die Wundumgebung ist ${getLabelById(woundSurroundingOptions, woundSurrounding).toLowerCase()} und der Heilungsverlauf zeigt eine ${getLabelById(healingProgressOptions, healingProgress).toLowerCase()}.`;
+    // Verwende den übersetzten Text mit Interpolation
+    return t('wound_assessment.result_text', {
+      woundEdge: t(`wound_assessment.options.wound_edge.${woundEdge}.label`).toLowerCase(),
+      woundBase: t(`wound_assessment.options.wound_base.${woundBase}.label`).toLowerCase(),
+      exudateAmount: t(`wound_assessment.options.exudate_amount.${exudateAmount}.label`).toLowerCase(),
+      exudateType: t(`wound_assessment.options.exudate_type.${exudateType}.label`).toLowerCase(),
+      odor: t(`wound_assessment.options.odor.${odor}.label`).toLowerCase(),
+      pain: t(`wound_assessment.options.pain.${pain}.label`).toLowerCase(),
+      woundSurrounding: t(`wound_assessment.options.wound_surrounding.${woundSurrounding}.label`).toLowerCase(),
+      healingProgress: t(`wound_assessment.options.healing_progress.${healingProgress}.label`).toLowerCase(),
+    });
   };
 
   // Calculate risk points
   const calculateRiskPoints = (): number => {
     let points = 0;
-    
+
     // Check each parameter for risk factors
     const selectedOptions = [
       woundEdgeOptions.find(o => o.id === woundEdge),
@@ -137,38 +142,38 @@ const WoundAssessment: React.FC = () => {
       woundSurroundingOptions.find(o => o.id === woundSurrounding),
       healingProgressOptions.find(o => o.id === healingProgress),
     ];
-    
+
     // Count risk factors
     selectedOptions.forEach(option => {
       if (option && option.isRiskFactor) {
         points++;
       }
     });
-    
+
     return points;
   };
 
   // Get risk level and color based on points
   const getRiskLevel = (): { level: string; color: string; text: string } => {
     const points = calculateRiskPoints();
-    
+
     if (points <= 2) {
-      return { 
-        level: 'Grün', 
-        color: theme === 'dark' ? '#4caf50' : '#2e7d32', 
-        text: 'Normale Heilung' 
+      return {
+        level: t('wound_assessment.risk_levels.green.level'),
+        color: theme === 'dark' ? '#4caf50' : '#2e7d32',
+        text: t('wound_assessment.risk_levels.green.text'),
       };
     } else if (points <= 4) {
-      return { 
-        level: 'Orange', 
-        color: theme === 'dark' ? '#ff9800' : '#ef6c00', 
-        text: 'Beobachtung empfohlen' 
+      return {
+        level: t('wound_assessment.risk_levels.orange.level'),
+        color: theme === 'dark' ? '#ff9800' : '#ef6c00',
+        text: t('wound_assessment.risk_levels.orange.text'),
       };
     } else {
-      return { 
-        level: 'Rot', 
-        color: theme === 'dark' ? '#f44336' : '#c62828', 
-        text: 'Arztkontakt dringend empfohlen' 
+      return {
+        level: t('wound_assessment.risk_levels.red.level'),
+        color: theme === 'dark' ? '#f44336' : '#c62828',
+        text: t('wound_assessment.risk_levels.red.text'),
       };
     }
   };
@@ -176,61 +181,63 @@ const WoundAssessment: React.FC = () => {
   // Get risk explanation
   const getRiskExplanation = (): string => {
     const riskFactors: string[] = [];
-    
+
+    // Füge Risiko-Faktoren mit übersetzten Suffixen hinzu
     if (woundEdgeOptions.find(o => o.id === woundEdge)?.isRiskFactor) {
-      riskFactors.push(getLabelById(woundEdgeOptions, woundEdge) + 'er Wundrand');
+      riskFactors.push(t(`wound_assessment.options.wound_edge.${woundEdge}.label`) + t('wound_assessment.risk_explanation_wound_edge_suffix'));
     }
-    
+
     if (woundBaseOptions.find(o => o.id === woundBase)?.isRiskFactor) {
-      riskFactors.push(getLabelById(woundBaseOptions, woundBase) + ' am Wundgrund');
+      riskFactors.push(t(`wound_assessment.options.wound_base.${woundBase}.label`) + t('wound_assessment.risk_explanation_wound_base_suffix'));
     }
-    
+
     if (exudateAmountOptions.find(o => o.id === exudateAmount)?.isRiskFactor) {
-      riskFactors.push(getLabelById(exudateAmountOptions, exudateAmount) + ' Exsudat');
+      riskFactors.push(t(`wound_assessment.options.exudate_amount.${exudateAmount}.label`) + t('wound_assessment.risk_explanation_exudate_amount_suffix'));
     }
-    
+
     if (exudateTypeOptions.find(o => o.id === exudateType)?.isRiskFactor) {
-      riskFactors.push(getLabelById(exudateTypeOptions, exudateType) + 'es Exsudat');
+      riskFactors.push(t(`wound_assessment.options.exudate_type.${exudateType}.label`) + t('wound_assessment.risk_explanation_exudate_type_suffix'));
     }
-    
+
     if (odorOptions.find(o => o.id === odor)?.isRiskFactor) {
-      riskFactors.push(getLabelById(odorOptions, odor));
+      riskFactors.push(t(`wound_assessment.options.odor.${odor}.label`));
     }
-    
+
     if (painOptions.find(o => o.id === pain)?.isRiskFactor) {
-      riskFactors.push(getLabelById(painOptions, pain));
+      riskFactors.push(t(`wound_assessment.options.pain.${pain}.label`));
     }
-    
+
     if (woundSurroundingOptions.find(o => o.id === woundSurrounding)?.isRiskFactor) {
-      riskFactors.push(getLabelById(woundSurroundingOptions, woundSurrounding) + ' der Wundumgebung');
+      riskFactors.push(
+        t(`wound_assessment.options.wound_surrounding.${woundSurrounding}.label`) + t('wound_assessment.risk_explanation_wound_surrounding_suffix')
+      );
     }
-    
+
     if (healingProgressOptions.find(o => o.id === healingProgress)?.isRiskFactor) {
-      riskFactors.push(getLabelById(healingProgressOptions, healingProgress) + ' des Heilungsverlaufs');
+      riskFactors.push(
+        t(`wound_assessment.options.healing_progress.${healingProgress}.label`) + t('wound_assessment.risk_explanation_healing_progress_suffix')
+      );
     }
-    
+
     if (riskFactors.length > 0) {
-      return 'Begründung: ' + riskFactors.join(', ');
+      return t('wound_assessment.risk_explanation_prefix') + riskFactors.join(', ');
     } else {
-      return 'Begründung: Arztkontakt empfohlen aufgrund der Gesamtsituation.';
+      return t('wound_assessment.risk_explanation_fallback');
     }
   };
 
-  // Custom picker component mit Modal für Darkmode
-  const CustomPicker = ({ selectedValue, onValueChange, items, label }) => (
-    <CustomModalPicker
-      label={label}
-      items={items}
-      selectedValue={selectedValue}
-      onValueChange={onValueChange}
-      theme={theme}
-      fontSize={baseFontSize * fontSizeScale}
-    />
-  );
-  
+  // Hilfsfunktion für Picker-Items mit Übersetzung
+  const getPickerItems = (options: WoundAssessmentOption[], optionType: string) =>
+    options.map(opt => ({
+      id: opt.id,
+      icon: opt.icon,
+      label: t(`wound_assessment.options.${optionType}.${opt.id}.label`),
+      description: t(`wound_assessment.options.${optionType}.${opt.id}.description`),
+    }));
+
   const bgColor = theme === 'dark' ? styles.card.backgroundColor : styles.card.backgroundColor;
   const borderColor = theme === 'dark' ? '#444' : '#ccc';
-  
+
   // Funktion zum Kopieren des Fließtexts
   const handleCopyResultText = () => {
     Clipboard.setString(generateResultText());
@@ -240,161 +247,164 @@ const WoundAssessment: React.FC = () => {
 
   return (
     <ScrollView style={[styles.container, localStyles.container]}>
-      <View style={[
-        styles.card, 
-        { marginTop: 16 }
-      ]}>
-        <Text style={[styles.headerTitle, localStyles.title]}>Wundbeurteilung</Text>
-      
+      <View style={[styles.card, { marginTop: 16 }]}>
+        <Text style={[styles.headerTitle, localStyles.title]}>{t('wound_assessment.title')}</Text>
+
         {showForm && (
           <View style={localStyles.formContainer}>
-            <CustomPicker
-              label="Wundrand"
+            <CustomModalPicker
+              label={t('wound_edge')}
+              items={getPickerItems(woundEdgeOptions, 'wound_edge')}
               selectedValue={woundEdge}
-              onValueChange={(itemValue) => setWoundEdge(itemValue)}
-              items={woundEdgeOptions}
+              onValueChange={itemValue => setWoundEdge(itemValue)}
+              theme={theme}
+              fontSize={baseFontSize * fontSizeScale}
             />
-            
-            <CustomPicker
-              label="Wundgrund"
+
+            <CustomModalPicker
+              label={t('wound_base')}
+              items={getPickerItems(woundBaseOptions, 'wound_base')}
               selectedValue={woundBase}
-              onValueChange={(itemValue) => setWoundBase(itemValue)}
-              items={woundBaseOptions}
+              onValueChange={itemValue => setWoundBase(itemValue)}
+              theme={theme}
+              fontSize={baseFontSize * fontSizeScale}
             />
-            
-            <CustomPicker
-              label="Exsudatmenge"
+
+            <CustomModalPicker
+              label={t('exudate_amount')}
+              items={getPickerItems(exudateAmountOptions, 'exudate_amount')}
               selectedValue={exudateAmount}
-              onValueChange={(itemValue) => setExudateAmount(itemValue)}
-              items={exudateAmountOptions}
+              onValueChange={itemValue => setExudateAmount(itemValue)}
+              theme={theme}
+              fontSize={baseFontSize * fontSizeScale}
             />
-            
-            <CustomPicker
-              label="Exsudatart"
+
+            <CustomModalPicker
+              label={t('exudate_type')}
+              items={getPickerItems(exudateTypeOptions, 'exudate_type')}
               selectedValue={exudateType}
-              onValueChange={(itemValue) => setExudateType(itemValue)}
-              items={exudateTypeOptions}
+              onValueChange={itemValue => setExudateType(itemValue)}
+              theme={theme}
+              fontSize={baseFontSize * fontSizeScale}
             />
-            
-            <CustomPicker
-              label="Geruch"
+
+            <CustomModalPicker
+              label={t('odor')}
+              items={getPickerItems(odorOptions, 'odor')}
               selectedValue={odor}
-              onValueChange={(itemValue) => setOdor(itemValue)}
-              items={odorOptions}
+              onValueChange={itemValue => setOdor(itemValue)}
+              theme={theme}
+              fontSize={baseFontSize * fontSizeScale}
             />
-            
-            <CustomPicker
-              label="Schmerz"
+
+            <CustomModalPicker
+              label={t('pain')}
+              items={getPickerItems(painOptions, 'pain')}
               selectedValue={pain}
-              onValueChange={(itemValue) => setPain(itemValue)}
-              items={painOptions}
+              onValueChange={itemValue => setPain(itemValue)}
+              theme={theme}
+              fontSize={baseFontSize * fontSizeScale}
             />
-            
-            <CustomPicker
-              label="Wundumgebung"
+
+            <CustomModalPicker
+              label={t('wound_assessment.fields.wound_surrounding')}
+              items={getPickerItems(woundSurroundingOptions, 'wound_surrounding')}
               selectedValue={woundSurrounding}
-              onValueChange={(itemValue) => setWoundSurrounding(itemValue)}
-              items={woundSurroundingOptions}
+              onValueChange={itemValue => setWoundSurrounding(itemValue)}
+              theme={theme}
+              fontSize={baseFontSize * fontSizeScale}
             />
-            
-            <CustomPicker
-              label="Heilungsverlauf"
+
+            <CustomModalPicker
+              label={t('wound_assessment.fields.healing_progress')}
+              items={getPickerItems(healingProgressOptions, 'healing_progress')}
               selectedValue={healingProgress}
-              onValueChange={(itemValue) => setHealingProgress(itemValue)}
-              items={healingProgressOptions}
+              onValueChange={itemValue => setHealingProgress(itemValue)}
+              theme={theme}
+              fontSize={baseFontSize * fontSizeScale}
             />
           </View>
         )}
-        
+
         {!showResult ? (
-          <TouchableOpacity 
-            style={[
-              styles.button, 
-              localStyles.button, 
-              { backgroundColor: '#32b8ca' }
-            ]} 
+          <TouchableOpacity
+            style={[styles.button, localStyles.button, { backgroundColor: '#32b8ca' }]}
             onPress={calculateRiskAndGenerate}
           >
-            <Text style={styles.buttonText}>Beurteilung anzeigen</Text>
+            <Text style={styles.buttonText}>{t('wound_assessment.show_assessment_button')}</Text>
           </TouchableOpacity>
         ) : (
           <View style={localStyles.resultContainer}>
-            <TouchableOpacity 
+            <TouchableOpacity
               style={[
                 localStyles.formToggle,
                 {
-                  borderColor: borderColor
-                }
-              ]} 
+                  borderColor: borderColor,
+                },
+              ]}
               onPress={toggleForm}
             >
-              <Icon 
-                name={showForm ? 'chevron-up-outline' : 'chevron-down-outline'} 
-                size={22} 
-                color={theme === 'dark' ? '#e1e1e1' : '#333333'} 
+              <Icon
+                name={showForm ? 'chevron-up-outline' : 'chevron-down-outline'}
+                size={22}
+                color={theme === 'dark' ? '#e1e1e1' : '#333333'}
               />
               <Text style={[styles.itemTitle, localStyles.toggleText]}>
-                {showForm ? 'Formular einklappen' : 'Formular ausklappen'}
+                {showForm ? t('collapse_form') : t('expand_form')}
               </Text>
             </TouchableOpacity>
-            
-            <View style={[
-              localStyles.resultTextContainer,
-              {
-                backgroundColor: theme === 'dark' ? 'rgba(255, 255, 255, 0.05)' : 'rgba(0, 0, 0, 0.05)'
-              }
-            ]}>
+
+            <View
+              style={[
+                localStyles.resultTextContainer,
+                {
+                  backgroundColor:
+                    theme === 'dark' ? 'rgba(255, 255, 255, 0.05)' : 'rgba(0, 0, 0, 0.05)',
+                },
+              ]}
+            >
               <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 8 }}>
-                <Text 
-                  style={[styles.itemTitle, localStyles.resultTitle]}
-                  selectable={true}
-                >
-                  Wundbeurteilung
+                <Text style={[styles.itemTitle, localStyles.resultTitle]} selectable={true}>
+                  {t('wound_assessment.title')}
                 </Text>
-                <TouchableOpacity onPress={handleCopyResultText} style={{ marginLeft: 8, padding: 4 }}>
-                  <Icon name={copied ? 'checkmark-done-outline' : 'copy-outline'} size={22} color={copied ? '#4caf50' : (theme === 'dark' ? '#e1e1e1' : '#333')} />
+                <TouchableOpacity
+                  onPress={handleCopyResultText}
+                  style={{ marginLeft: 8, padding: 4 }}
+                >
+                  <Icon
+                    name={copied ? 'checkmark-done-outline' : 'copy-outline'}
+                    size={22}
+                    color={copied ? '#4caf50' : theme === 'dark' ? '#e1e1e1' : '#333'}
+                  />
                 </TouchableOpacity>
                 {copied && (
-                  <Text style={{ marginLeft: 6, color: '#4caf50', fontSize: 13 }}>Kopiert!</Text>
+                  <Text style={{ marginLeft: 6, color: '#4caf50', fontSize: 13 }}>{t('copied')}</Text>
                 )}
               </View>
-              <Text 
-                style={[styles.itemSubtitle, localStyles.resultText]}
-                selectable={true}
-              >
+              <Text style={[styles.itemSubtitle, localStyles.resultText]} selectable={true}>
                 {generateResultText()}
               </Text>
             </View>
-            
+
             <View style={localStyles.riskContainer}>
-              <View style={[
-                localStyles.riskIndicator, 
-                { backgroundColor: getRiskLevel().color }
-              ]}>
+              <View style={[localStyles.riskIndicator, { backgroundColor: getRiskLevel().color }]}>
                 <Text style={localStyles.riskLevel}>{getRiskLevel().level}</Text>
                 <Text style={localStyles.riskText}>{getRiskLevel().text}</Text>
               </View>
-              
-              <Text 
-                style={[styles.itemSubtitle, localStyles.riskExplanation]}
-                selectable={true}
-              >
+
+              <Text style={[styles.itemSubtitle, localStyles.riskExplanation]} selectable={true}>
                 {getRiskExplanation()}
               </Text>
             </View>
-            
-            <TouchableOpacity 
-              style={[
-                styles.button, 
-                localStyles.resetButton, 
-                { backgroundColor: '#32b8ca' }
-              ]} 
+
+            <TouchableOpacity
+              style={[styles.button, localStyles.resetButton, { backgroundColor: '#32b8ca' }]}
               onPress={() => {
                 setShowResult(false);
                 setShowForm(true);
               }}
             >
-              <Text style={styles.buttonText}>Neue Beurteilung</Text>
+              <Text style={styles.buttonText}>{t('wound_assessment.new_assessment_button')}</Text>
             </TouchableOpacity>
           </View>
         )}
@@ -428,7 +438,7 @@ const localStyles = StyleSheet.create({
       },
       android: {
         borderWidth: 1,
-      }
+      },
     }),
   },
   picker: {
@@ -498,4 +508,4 @@ const localStyles = StyleSheet.create({
   },
 });
 
-export default WoundAssessment; 
+export default WoundAssessment;

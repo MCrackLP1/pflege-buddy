@@ -5,7 +5,7 @@ declare module 'react-native-keep-awake' {
   // Statische Methoden als eigenständige Exporte
   export function activate(): void;
   export function deactivate(): void;
-  
+
   // Default export als React-Komponente
   import * as React from 'react';
   const KeepAwake: React.ComponentType<{}> & {
@@ -13,4 +13,4 @@ declare module 'react-native-keep-awake' {
     deactivate: typeof deactivate;
   };
   export default KeepAwake;
-} 
+}

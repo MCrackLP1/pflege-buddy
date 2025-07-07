@@ -55,7 +55,12 @@ const CustomModalPicker: React.FC<CustomModalPickerProps> = ({
       >
         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
           {selectedItem?.icon && (
-            <Icon name={selectedItem.icon} size={20} color={accentColor} style={{ marginRight: 8 }} />
+            <Icon
+              name={selectedItem.icon}
+              size={20}
+              color={accentColor}
+              style={{ marginRight: 8 }}
+            />
           )}
           <Text style={[styles.inputText, !selectedLabel && styles.placeholder]}>
             {selectedLabel || 'Bitte auswählen...'}
@@ -76,10 +81,7 @@ const CustomModalPicker: React.FC<CustomModalPickerProps> = ({
               keyExtractor={item => item.id}
               renderItem={({ item }) => (
                 <TouchableOpacity
-                  style={[
-                    styles.option,
-                    item.id === selectedValue && styles.selectedOption,
-                  ]}
+                  style={[styles.option, item.id === selectedValue && styles.selectedOption]}
                   onPress={() => {
                     onValueChange(item.id);
                     setModalVisible(false);
@@ -87,7 +89,14 @@ const CustomModalPicker: React.FC<CustomModalPickerProps> = ({
                 >
                   <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                     {item.icon && (
-                      <Icon name={item.icon} size={22} color={item.id === selectedValue ? accentColor : (isDark ? '#e1e1e1' : '#222')} style={{ marginRight: 10 }} />
+                      <Icon
+                        name={item.icon}
+                        size={22}
+                        color={
+                          item.id === selectedValue ? accentColor : isDark ? '#e1e1e1' : '#222'
+                        }
+                        style={{ marginRight: 10 }}
+                      />
                     )}
                     <View style={{ flex: 1 }}>
                       <Text
@@ -103,7 +112,12 @@ const CustomModalPicker: React.FC<CustomModalPickerProps> = ({
                       )}
                     </View>
                     {item.id === selectedValue && (
-                      <Icon name="checkmark" size={22} color={accentColor} style={{ marginLeft: 8 }} />
+                      <Icon
+                        name="checkmark"
+                        size={22}
+                        color={accentColor}
+                        style={{ marginLeft: 8 }}
+                      />
                     )}
                   </View>
                 </TouchableOpacity>
@@ -111,10 +125,7 @@ const CustomModalPicker: React.FC<CustomModalPickerProps> = ({
               ItemSeparatorComponent={() => <View style={styles.separator} />}
               style={{ maxHeight: 320 }}
             />
-            <TouchableOpacity
-              style={styles.cancelButton}
-              onPress={() => setModalVisible(false)}
-            >
+            <TouchableOpacity style={styles.cancelButton} onPress={() => setModalVisible(false)}>
               <Text style={styles.cancelButtonText}>Abbrechen</Text>
             </TouchableOpacity>
           </View>
@@ -127,7 +138,7 @@ const CustomModalPicker: React.FC<CustomModalPickerProps> = ({
 const getStyles = (fontSize: number, isDark: boolean) => {
   const { width, height } = Dimensions.get('window');
   const accentColor = '#32b8ca';
-  
+
   return StyleSheet.create({
     container: {
       marginBottom: 12,
@@ -221,4 +232,4 @@ const getStyles = (fontSize: number, isDark: boolean) => {
   });
 };
 
-export default CustomModalPicker; 
+export default CustomModalPicker;

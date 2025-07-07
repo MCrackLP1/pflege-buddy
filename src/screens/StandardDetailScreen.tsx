@@ -4,12 +4,9 @@
  */
 
 import React from 'react';
-import { 
-  View, 
-  Text, 
-  ScrollView 
-} from 'react-native';
+import { View, Text, ScrollView } from 'react-native';
 import { RouteProp } from '@react-navigation/native';
+import { useTranslation } from 'react-i18next';
 
 // Import types
 import { RootStackParamList } from '../types/types';
@@ -29,15 +26,22 @@ type StandardDetailScreenProps = {
 
 const StandardDetailScreen: React.FC<StandardDetailScreenProps> = ({ route }) => {
   const { standardId } = route.params;
-  const standard = nursingStandardsData.find(s => s.id === standardId);
-  
   const { theme, fontSizeScale, baseFontSize } = useSettings();
   const styles = getDynamicStyles(theme, baseFontSize * fontSizeScale);
+  const { t } = useTranslation();
 
-  if (!standard) {
+  // Alle Texte aus i18n laden
+  const title = t(`standards.${standardId}.title`);
+  const goal = t(`standards.${standardId}.goal`);
+  const strukturkriterien = t(`standards.${standardId}.structure_criteria`, { returnObjects: true }) as string[];
+  const prozesskriterien = t(`standards.${standardId}.process_criteria`, { returnObjects: true }) as string[];
+  const ergebniskriterien = t(`standards.${standardId}.result_criteria`, { returnObjects: true }) as string[];
+  const details = t(`standards.${standardId}.details`);
+
+  if (!title || title === `standards.${standardId}.title`) {
     return (
       <View style={styles.container}>
-        <Text style={styles.errorText}>Standard nicht gefunden!</Text>
+        <Text style={styles.errorText}>{t('standard_not_found')}</Text>
       </View>
     );
   }
@@ -46,72 +50,55 @@ const StandardDetailScreen: React.FC<StandardDetailScreenProps> = ({ route }) =>
     <View style={styles.container}>
       <ScrollView>
         <View style={{ padding: 16 }}>
-          <Text style={[styles.itemTitle, { 
-            fontSize: baseFontSize * fontSizeScale * 1.4, 
-            marginBottom: 16 
-          }]}>
-            {standard.title}
+          <Text style={[styles.itemTitle, { fontSize: baseFontSize * fontSizeScale * 1.4, marginBottom: 16 }]}>
+            {title}
           </Text>
-          
           {/* Ziel */}
           <View style={[styles.card, { marginBottom: 16 }]}>
-            <Text style={[styles.itemTitle, { marginBottom: 8 }]}>Zielsetzung:</Text>
-            <Text style={styles.itemSubtitle}>{standard.ziel}</Text>
+            <Text style={[styles.itemTitle, { marginBottom: 8 }]}>{t('goal')}</Text>
+            <Text style={styles.itemSubtitle}>{goal}</Text>
           </View>
-          
           {/* Strukturkriterien */}
-          {standard.strukturkriterien && standard.strukturkriterien.length > 0 && (
+          {strukturkriterien && strukturkriterien.length > 0 && (
             <View style={[styles.card, { marginBottom: 16 }]}>
-              <Text style={[styles.itemTitle, { marginBottom: 12 }]}>Strukturkriterien:</Text>
-              {standard.strukturkriterien.map((item, index) => (
-                <View key={`struktur-${index}`} style={{ 
-                  flexDirection: 'row', 
-                  marginBottom: index < standard.strukturkriterien!.length - 1 ? 8 : 0 
-                }}>
+              <Text style={[styles.itemTitle, { marginBottom: 12 }]}>{t('structure_criteria')}</Text>
+              {strukturkriterien.map((item, index) => (
+                <View key={`struktur-${index}`} style={{ flexDirection: 'row', marginBottom: index < strukturkriterien.length - 1 ? 8 : 0 }}>
                   <Text style={[styles.itemSubtitle, { marginRight: 4 }]}>•</Text>
                   <Text style={[styles.itemSubtitle, { flex: 1 }]}>{item}</Text>
                 </View>
               ))}
             </View>
           )}
-          
           {/* Prozesskriterien */}
-          {standard.prozesskriterien && standard.prozesskriterien.length > 0 && (
+          {prozesskriterien && prozesskriterien.length > 0 && (
             <View style={[styles.card, { marginBottom: 16 }]}>
-              <Text style={[styles.itemTitle, { marginBottom: 12 }]}>Prozesskriterien:</Text>
-              {standard.prozesskriterien.map((item, index) => (
-                <View key={`prozess-${index}`} style={{ 
-                  flexDirection: 'row', 
-                  marginBottom: index < standard.prozesskriterien!.length - 1 ? 8 : 0 
-                }}>
+              <Text style={[styles.itemTitle, { marginBottom: 12 }]}>{t('process_criteria')}</Text>
+              {prozesskriterien.map((item, index) => (
+                <View key={`prozess-${index}`} style={{ flexDirection: 'row', marginBottom: index < prozesskriterien.length - 1 ? 8 : 0 }}>
                   <Text style={[styles.itemSubtitle, { marginRight: 4 }]}>•</Text>
                   <Text style={[styles.itemSubtitle, { flex: 1 }]}>{item}</Text>
                 </View>
               ))}
             </View>
           )}
-          
           {/* Ergebniskriterien */}
-          {standard.ergebniskriterien && standard.ergebniskriterien.length > 0 && (
+          {ergebniskriterien && ergebniskriterien.length > 0 && (
             <View style={[styles.card, { marginBottom: 16 }]}>
-              <Text style={[styles.itemTitle, { marginBottom: 12 }]}>Ergebniskriterien:</Text>
-              {standard.ergebniskriterien.map((item, index) => (
-                <View key={`ergebnis-${index}`} style={{ 
-                  flexDirection: 'row', 
-                  marginBottom: index < standard.ergebniskriterien!.length - 1 ? 8 : 0 
-                }}>
+              <Text style={[styles.itemTitle, { marginBottom: 12 }]}>{t('result_criteria')}</Text>
+              {ergebniskriterien.map((item, index) => (
+                <View key={`ergebnis-${index}`} style={{ flexDirection: 'row', marginBottom: index < ergebniskriterien.length - 1 ? 8 : 0 }}>
                   <Text style={[styles.itemSubtitle, { marginRight: 4 }]}>•</Text>
                   <Text style={[styles.itemSubtitle, { flex: 1 }]}>{item}</Text>
                 </View>
               ))}
             </View>
           )}
-          
-          {/* Details (Fallback für alte Inhalte) */}
-          {standard.details && (
+          {/* Details (optional) */}
+          {details && details !== `standards.${standardId}.details` && (
             <View style={[styles.card, { marginBottom: 16 }]}>
-              <Text style={[styles.itemTitle, { marginBottom: 8 }]}>Weitere Details:</Text>
-              <Text style={styles.itemSubtitle}>{standard.details}</Text>
+              <Text style={[styles.itemTitle, { marginBottom: 8 }]}>{t('more_details')}</Text>
+              <Text style={styles.itemSubtitle}>{details}</Text>
             </View>
           )}
         </View>
@@ -120,4 +107,4 @@ const StandardDetailScreen: React.FC<StandardDetailScreenProps> = ({ route }) =>
   );
 };
 
-export default StandardDetailScreen; 
+export default StandardDetailScreen;

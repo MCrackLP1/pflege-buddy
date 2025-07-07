@@ -7,10 +7,7 @@ import { Platform, ToastAndroid } from 'react-native';
  */
 export const showToast = (message: string, isError: boolean = false): void => {
   if (Platform.OS === 'android') {
-    ToastAndroid.show(
-      message,
-      isError ? ToastAndroid.LONG : ToastAndroid.SHORT
-    );
+    ToastAndroid.show(message, isError ? ToastAndroid.LONG : ToastAndroid.SHORT);
   }
   // iOS: Hier könnte man später eine Alert-Implementierung hinzufügen
-}; 
+};

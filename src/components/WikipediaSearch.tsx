@@ -4,13 +4,13 @@
  */
 
 import React, { useState, useEffect, useCallback } from 'react';
-import { 
-  View, 
-  Text, 
-  TextInput, 
-  TouchableOpacity, 
-  FlatList, 
-  StyleSheet, 
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  FlatList,
+  StyleSheet,
   ActivityIndicator,
   Linking,
   Image,
@@ -19,42 +19,42 @@ import {
   Modal,
   ScrollView,
   useColorScheme,
-  StatusBar
+  StatusBar,
 } from 'react-native';
-import { 
+import {
   searchWikipedia,
   searchMedicalWikipedia,
   getWikipediaArticle,
   WikipediaLanguage,
   WikipediaSearchResult,
-  WikipediaArticle
+  WikipediaArticle,
 } from '../services/WikipediaService';
 import { useRoute, RouteProp } from '@react-navigation/native';
 import { RootStackParamList } from '../types/types';
+import Icon from 'react-native-vector-icons/Ionicons';
+import { useSettings } from '../context/SettingsContext';
+import { useTranslation } from 'react-i18next';
 
 type MedizinSearchRouteProp = RouteProp<RootStackParamList, 'MedizinSearch'>;
 
 const MedizinSearch: React.FC = () => {
   const route = useRoute<MedizinSearchRouteProp>();
   const initialSearch = route.params?.initialSearch || '';
+  const { theme, fontSizeScale } = useSettings();
+  const { t } = useTranslation();
   
+  const isDark = theme === 'dark';
+  const baseFontSize = 16;
+  const fontSize = baseFontSize * fontSizeScale;
+
   const [searchQuery, setSearchQuery] = useState(initialSearch);
   const [isLoading, setIsLoading] = useState(false);
   const [results, setResults] = useState<WikipediaSearchResult[]>([]);
   const [error, setError] = useState<string | null>(null);
-  const [language, setLanguage] = useState<WikipediaLanguage>('de');
+  const [language] = useState<WikipediaLanguage>('de'); // Sprache fest auf Deutsch gesetzt
   const [selectedArticle, setSelectedArticle] = useState<WikipediaArticle | null>(null);
   const [isArticleModalVisible, setIsArticleModalVisible] = useState(false);
-  const [debounceTimeout, setDebounceTimeout] = useState<NodeJS.Timeout | null>(null);
-  
-  // System-Theme verwenden
-  const colorScheme = useColorScheme();
-  const isDark = colorScheme === 'dark';
-  
-  // Standard-Schriftgröße für mobile Anwendungen
-  const baseFontSize = 16;
-  const fontSizeScale = 1.0;
-  const fontSize = baseFontSize * fontSizeScale;
+  const [debounceTimeout, setDebounceTimeout] = useState<ReturnType<typeof setTimeout> | null>(null);
 
   // Führe die Suche automatisch mit dem initialen Suchbegriff aus
   useEffect(() => {
@@ -64,23 +64,26 @@ const MedizinSearch: React.FC = () => {
   }, [initialSearch]);
 
   // Debounced Search Function
-  const debouncedSearch = useCallback((query: string) => {
-    if (debounceTimeout) {
-      clearTimeout(debounceTimeout);
-    }
+  const debouncedSearch = useCallback(
+    (query: string) => {
+      if (debounceTimeout) {
+        clearTimeout(debounceTimeout);
+      }
 
-    if (!query.trim()) {
-      setResults([]);
-      setError(null);
-      return;
-    }
+      if (!query.trim()) {
+        setResults([]);
+        setError(null);
+        return;
+      }
 
-    const timeoutId = setTimeout(() => {
-      performSearch(query);
-    }, 500); // 500ms Verzögerung
+      const timeoutId = setTimeout(() => {
+        performSearch(query);
+      }, 500); // 500ms Verzögerung
 
-    setDebounceTimeout(timeoutId);
-  }, [language]);
+      setDebounceTimeout(timeoutId);
+    },
+    [language]
+  );
 
   useEffect(() => {
     // Bereinige Timeout beim Unmounten
@@ -104,11 +107,11 @@ const MedizinSearch: React.FC = () => {
     setIsLoading(true);
     setError(null);
     setResults([]);
-    
+
     try {
       // Immer die medizinische Suche verwenden
       const searchResults = await searchMedicalWikipedia(query.trim(), language);
-      
+
       if (searchResults.length > 0) {
         setResults(searchResults);
       } else {
@@ -125,7 +128,7 @@ const MedizinSearch: React.FC = () => {
   const viewArticleDetails = async (pageid: number) => {
     setIsLoading(true);
     setError(null);
-    
+
     try {
       const article = await getWikipediaArticle(pageid, language);
       setSelectedArticle(article);
@@ -143,8 +146,8 @@ const MedizinSearch: React.FC = () => {
       if (supported) {
         Linking.openURL(url);
       } else {
-        console.log("Kann den Link nicht öffnen: " + url);
-        setError("Kann den Link nicht öffnen");
+        console.log('Kann den Link nicht öffnen: ' + url);
+        setError('Kann den Link nicht öffnen');
       }
     });
   };
@@ -154,123 +157,148 @@ const MedizinSearch: React.FC = () => {
     setSelectedArticle(null);
   };
 
-  const cycleLanguage = () => {
-    const languageOrder: WikipediaLanguage[] = ['de', 'en', 'es', 'fr', 'it'];
-    const currentIndex = languageOrder.indexOf(language);
-    const nextIndex = (currentIndex + 1) % languageOrder.length;
-    setLanguage(languageOrder[nextIndex]);
-  };
-
-  const getLanguageName = (code: WikipediaLanguage): string => {
-    const names: Record<WikipediaLanguage, string> = {
-      de: 'Deutsch',
-      en: 'Englisch',
-      es: 'Spanisch',
-      fr: 'Französisch',
-      it: 'Italienisch'
-    };
-    return names[code];
-  };
-
-  const colors = isDark 
-    ? {
-        background: '#121212',
-        card: '#1e1e1e',
-        text: '#e1e1e1',
-        subText: '#b0b0b0',
-        border: '#333333',
-        input: '#2a2a2a',
-        button: '#0066cc',
-        buttonText: '#ffffff',
-        accent: '#bb86fc',
-        error: '#cf6679',
-      }
-    : {
-        background: '#f5f5f5',
-        card: '#ffffff',
-        text: '#333333',
-        subText: '#666666',
-        border: '#dddddd',
-        input: '#ffffff',
-        button: '#0066cc',
-        buttonText: '#ffffff',
-        accent: '#0066cc',
-        error: '#e53935',
-      };
-
   return (
-    <View style={[styles.container, { backgroundColor: colors.background }]}>
-      <StatusBar
-        barStyle={isDark ? 'light-content' : 'dark-content'}
-        backgroundColor={colors.background}
-      />
-      <View style={[styles.header, { backgroundColor: colors.card, borderBottomColor: colors.border }]}>
-        <Text style={[styles.title, { color: colors.text, fontSize: fontSize * 1.2 }]}>Medizinsuche</Text>
-        
-        <TouchableOpacity 
-          style={[styles.languageButton, { backgroundColor: colors.card, borderColor: colors.border }]} 
-          onPress={cycleLanguage}
+    <View style={[styles.container, { backgroundColor: isDark ? '#121212' : '#f5f5f5' }]}>
+      <View style={[styles.searchContainer, { backgroundColor: isDark ? '#121212' : '#f5f5f5' }]}>
+        <View
+          style={[
+            styles.searchInputContainer,
+            { 
+              backgroundColor: isDark ? '#252525' : '#f0f0f0',
+            },
+          ]}
         >
-          <Text style={[styles.languageButtonText, { color: colors.accent, fontSize: fontSize * 0.9 }]}>
-            Sprache: {getLanguageName(language)}
-          </Text>
-        </TouchableOpacity>
+          <Icon 
+            name="search" 
+            size={22} 
+            color={isDark ? '#03dac6' : '#00acc1'} 
+            style={{ marginRight: 8 }}
+          />
+          <TextInput
+            style={[
+              styles.searchInput,
+              { 
+                color: isDark ? '#ffffff' : '#000000',
+                fontSize,
+              }
+            ]}
+            placeholder="Suchbegriff eingeben..."
+            placeholderTextColor={isDark ? '#888888' : '#999999'}
+            value={searchQuery}
+            onChangeText={setSearchQuery}
+          />
+          {searchQuery.length > 0 && (
+            <TouchableOpacity onPress={() => setSearchQuery('')}>
+              <Icon 
+                name="close-circle" 
+                size={20} 
+                color={isDark ? '#aaaaaa' : '#777777'} 
+              />
+            </TouchableOpacity>
+          )}
+        </View>
       </View>
-      
-      <View style={[styles.searchContainer, { backgroundColor: colors.card, borderBottomColor: colors.border }]}>
-        <TextInput
-          style={[styles.searchInput, { 
-            backgroundColor: colors.input, 
-            borderColor: colors.border,
-            color: colors.text,
-            fontSize: fontSize 
-          }]}
-          placeholder="Suchbegriff eingeben..."
-          placeholderTextColor={colors.subText}
-          value={searchQuery}
-          onChangeText={setSearchQuery}
-          returnKeyType="search"
-          clearButtonMode="while-editing"
-        />
-      </View>
-      
-      {error && <Text style={[styles.errorText, { color: colors.error, fontSize: fontSize }]}>{error}</Text>}
-      
+
+      {error && (
+        <Text style={[styles.errorText, { color: isDark ? '#cf6679' : '#e53935', fontSize }]}>
+          {error}
+        </Text>
+      )}
+
       {isLoading ? (
-        <View style={[styles.centered, { backgroundColor: colors.background }]}>
-          <ActivityIndicator size="large" color={colors.accent} />
-          <Text style={[styles.loadingText, { color: colors.text, fontSize: fontSize }]}>Informationen werden geladen...</Text>
+        <View style={[styles.centered, { backgroundColor: isDark ? '#121212' : '#f5f5f5' }]}>
+          <ActivityIndicator size="large" color={isDark ? '#03dac6' : '#00acc1'} />
+          <Text style={[styles.loadingText, { color: isDark ? '#e1e1e1' : '#333333', fontSize }]}>
+            Informationen werden geladen...
+          </Text>
         </View>
       ) : (
-        <View style={{ flex: 1, backgroundColor: colors.background }}>
+        <View style={{ flex: 1, backgroundColor: isDark ? '#121212' : '#f5f5f5' }}>
           <FlatList
             data={results}
-            keyExtractor={(item) => item.pageid.toString()}
-            style={{ flex: 1, backgroundColor: colors.background }}
-            contentContainerStyle={{ paddingBottom: 20, backgroundColor: colors.background }}
+            keyExtractor={item => item.pageid.toString()}
+            style={{ flex: 1, backgroundColor: isDark ? '#121212' : '#f5f5f5' }}
+            contentContainerStyle={{ 
+              padding: 16, 
+              paddingBottom: 20, 
+              backgroundColor: isDark ? '#121212' : '#f5f5f5' 
+            }}
             renderItem={({ item }) => (
-              <TouchableOpacity 
-                style={[styles.resultItem, { backgroundColor: colors.card, shadowColor: isDark ? '#000000' : '#000000' }]}
+              <TouchableOpacity
+                style={[
+                  styles.resultItem,
+                  { 
+                    backgroundColor: isDark ? '#1e1e1e' : '#ffffff',
+                    borderLeftColor: isDark ? '#03dac6' : '#00acc1',
+                    shadowOpacity: isDark ? 0.3 : 0.1,
+                  }
+                ]}
                 onPress={() => viewArticleDetails(item.pageid)}
               >
-                <Text style={[styles.resultTitle, { color: colors.text, fontSize: fontSize * 1.1 }]}>{item.title}</Text>
-                <Text style={[styles.resultSnippet, { color: colors.subText, fontSize: fontSize * 0.9 }]} numberOfLines={3}>
-                  {item.snippet}
+                <Text
+                  style={[
+                    styles.resultTitle, 
+                    { color: isDark ? '#ffffff' : '#333333', fontSize: fontSize * 1.1 }
+                  ]}
+                >
+                  {item.title}
                 </Text>
-                <Text style={[styles.viewMoreText, { color: colors.accent, fontSize: fontSize * 0.9 }]}>Mehr anzeigen</Text>
+                <Text
+                  style={[
+                    styles.resultSnippet, 
+                    { color: isDark ? '#b0b0b0' : '#666666', fontSize: fontSize * 0.9 }
+                  ]}
+                  numberOfLines={3}
+                >
+                  {item.snippet.replace(/<[^>]*>/g, '')}
+                </Text>
+                <Text
+                  style={[
+                    styles.resultMoreLink,
+                    { color: isDark ? '#03dac6' : '#00acc1', fontSize: fontSize * 0.9 }
+                  ]}
+                >
+                  Mehr anzeigen
+                </Text>
               </TouchableOpacity>
             )}
             ListEmptyComponent={
               !error && !isLoading && searchQuery.trim() ? (
-                <View style={[styles.centered, { backgroundColor: colors.background }]}>
-                  <Text style={[styles.emptyText, { color: colors.subText, fontSize: fontSize }]}>
-                    Keine Ergebnisse gefunden.
+                <View style={[styles.centered, { 
+                  backgroundColor: isDark ? '#121212' : '#f5f5f5', 
+                  padding: 40 
+                }]}>
+                  <Icon 
+                    name="search-outline" 
+                    size={50} 
+                    color={isDark ? '#666666' : '#999999'} 
+                    style={{ marginBottom: 16, opacity: 0.7 }}
+                  />
+                  <Text style={[{ 
+                    color: isDark ? '#b0b0b0' : '#666666',
+                    fontSize,
+                    textAlign: 'center'
+                  }]}>
+                    {t('no_results_found')}
                   </Text>
                 </View>
               ) : searchQuery.trim() === '' ? (
-                <View style={[styles.centered, { backgroundColor: colors.background }]}>
-                  <Text style={[styles.emptyText, { color: colors.subText, fontSize: fontSize }]}>
-                    Geben Sie einen Suchbegriff ein, um Informationen zu finden.
+                <View style={[styles.centered, { 
+                  backgroundColor: isDark ? '#121212' : '#f5f5f5', 
+                  padding: 40 
+                }]}>
+                  <Icon 
+                    name="search-outline" 
+                    size={50} 
+                    color={isDark ? '#666666' : '#999999'} 
+                    style={{ marginBottom: 16, opacity: 0.7 }}
+                  />
+                  <Text style={[{
+                    color: isDark ? '#b0b0b0' : '#666666',
+                    fontSize,
+                    textAlign: 'center'
+                  }]}>
+                    {t('enter_search_term')}
                   </Text>
                 </View>
               ) : null
@@ -278,7 +306,7 @@ const MedizinSearch: React.FC = () => {
           />
         </View>
       )}
-      
+
       <Modal
         visible={isArticleModalVisible}
         animationType="slide"
@@ -287,55 +315,102 @@ const MedizinSearch: React.FC = () => {
         statusBarTranslucent={false}
       >
         {selectedArticle ? (
-          <View style={[styles.modalContainer, { backgroundColor: colors.background }]}>
-            <View style={[styles.modalHeader, { backgroundColor: colors.card, borderBottomColor: colors.border }]}>
-              <TouchableOpacity 
-                style={styles.closeButton}
-                onPress={closeArticleModal}
-              >
-                <Text style={[styles.closeButtonText, { color: colors.accent, fontSize: fontSize }]}>Schließen</Text>
+          <View style={[{
+            flex: 1,
+            backgroundColor: isDark ? '#121212' : '#f5f5f5'
+          }]}>
+            <View
+              style={[
+                styles.modalHeader,
+                {
+                  backgroundColor: isDark ? '#1e1e1e' : '#ffffff',
+                  borderBottomColor: isDark ? '#333333' : '#dddddd',
+                }
+              ]}
+            >
+              <TouchableOpacity onPress={closeArticleModal} style={{ padding: 8 }}>
+                <Icon name="arrow-back" size={24} color={isDark ? '#03dac6' : '#00acc1'} />
               </TouchableOpacity>
-              <Text style={[styles.modalTitle, { color: colors.text, fontSize: fontSize * 1.1 }]} numberOfLines={1}>
+              <Text
+                style={[
+                  styles.modalTitle, 
+                  { 
+                    color: isDark ? '#ffffff' : '#333333', 
+                    fontSize: fontSize * 1.1,
+                  }
+                ]}
+                numberOfLines={1}
+              >
                 {selectedArticle.title}
               </Text>
-              <TouchableOpacity 
-                style={styles.openBrowserButton}
+              <TouchableOpacity
                 onPress={() => openArticleInBrowser(selectedArticle.url)}
+                style={{ padding: 8 }}
               >
-                <Text style={[styles.openBrowserText, { color: colors.accent, fontSize: fontSize }]}>Im Browser</Text>
+                <Icon name="open-outline" size={24} color={isDark ? '#03dac6' : '#00acc1'} />
               </TouchableOpacity>
             </View>
-            
-            <ScrollView style={[styles.modalContent, { backgroundColor: colors.background }]}>
+
+            <ScrollView style={{ 
+              flex: 1, 
+              backgroundColor: isDark ? '#121212' : '#f5f5f5',
+              padding: 16 
+            }}>
               {selectedArticle.thumbnail && (
-                <Image 
-                  source={{ uri: selectedArticle.thumbnail }} 
-                  style={styles.articleImage}
-                  resizeMode="contain"
-                />
+                <View style={[
+                  styles.thumbnailContainer,
+                  {
+                    backgroundColor: isDark ? '#1e1e1e' : '#ffffff',
+                    shadowOpacity: isDark ? 0.3 : 0.1,
+                  }
+                ]}>
+                  <Image
+                    source={{ uri: selectedArticle.thumbnail }}
+                    style={{ width: '100%', height: 200, borderRadius: 8 }}
+                    resizeMode="contain"
+                  />
+                </View>
               )}
-              <Text style={[styles.articleTitle, { color: colors.text, fontSize: fontSize * 1.3 }]}>
-                {selectedArticle.title}
-              </Text>
-              <Text style={[styles.articleText, { color: colors.text, fontSize: fontSize, lineHeight: fontSize * 1.5 }]}>
-                {selectedArticle.extract}
-              </Text>
-              <TouchableOpacity 
-                style={[styles.readMoreButton, { 
-                  backgroundColor: isDark ? '#1a3a5a' : '#e6f0ff', 
-                  borderColor: colors.accent 
-                }]}
+              
+              <View style={[
+                styles.articleContainer,
+                {
+                  backgroundColor: isDark ? '#1e1e1e' : '#ffffff',
+                  borderLeftColor: isDark ? '#03dac6' : '#00acc1',
+                  shadowOpacity: isDark ? 0.3 : 0.1,
+                }
+              ]}>
+                <Text style={[
+                  styles.articleTitle,
+                  { color: isDark ? '#ffffff' : '#333333', fontSize: fontSize * 1.3 }
+                ]}>
+                  {selectedArticle.title}
+                </Text>
+                <Text style={[
+                  styles.articleText,
+                  { color: isDark ? '#b0b0b0' : '#666666', fontSize }
+                ]}>
+                  {selectedArticle.extract}
+                </Text>
+              </View>
+              
+              <TouchableOpacity
+                style={[
+                  styles.browserButton,
+                  { backgroundColor: isDark ? '#03dac6' : '#00acc1' }
+                ]}
                 onPress={() => openArticleInBrowser(selectedArticle.url)}
               >
-                <Text style={[styles.readMoreText, { color: colors.accent, fontSize: fontSize }]}>
-                  Vollständigen Artikel lesen
+                <Icon name="earth" size={20} color="#ffffff" style={{ marginRight: 8 }} />
+                <Text style={styles.browserButtonText}>
+                  Im Browser öffnen
                 </Text>
               </TouchableOpacity>
             </ScrollView>
           </View>
         ) : (
-          <View style={[styles.centered, { backgroundColor: colors.background }]}>
-            <ActivityIndicator size="large" color={colors.accent} />
+          <View style={[styles.centered, { backgroundColor: isDark ? '#121212' : '#f5f5f5' }]}>
+            <ActivityIndicator size="large" color={isDark ? '#03dac6' : '#00acc1'} />
           </View>
         )}
       </Modal>
@@ -343,154 +418,117 @@ const MedizinSearch: React.FC = () => {
   );
 };
 
-const { width } = Dimensions.get('window');
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  header: {
-    paddingVertical: 8,
-    paddingHorizontal: 16,
-    borderBottomWidth: 1,
-  },
-  title: {
-    fontWeight: 'bold',
-    textAlign: 'center',
-    marginBottom: 12,
-  },
-  toggleContainer: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    marginBottom: 10,
-  },
-  searchTypeButton: {
-    paddingVertical: 8,
-    paddingHorizontal: 12,
-    borderRadius: 20,
-    marginHorizontal: 4,
-    borderWidth: 1,
-  },
-  searchTypeText: {
-    fontWeight: '500',
-  },
   searchContainer: {
     padding: 16,
-    borderBottomWidth: 1,
+  },
+  searchInputContainer: {
+    borderRadius: 16,
+    borderWidth: 0,
+    paddingHorizontal: 12,
+    flexDirection: 'row',
+    alignItems: 'center',
+    height: 48,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 2,
   },
   searchInput: {
-    height: 46,
-    borderWidth: 1,
-    borderRadius: 8,
-    paddingHorizontal: 15,
-  },
-  resultItem: {
-    padding: 16,
-    borderRadius: 8,
-    margin: 8,
-    elevation: 2,
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.2,
-    shadowRadius: 1.41,
-  },
-  resultTitle: {
-    fontWeight: 'bold',
-    marginBottom: 8,
-  },
-  resultSnippet: {
-    marginBottom: 10,
-    lineHeight: 20,
-  },
-  viewMoreText: {
-    fontWeight: '500',
+    flex: 1,
+    height: 48,
+    paddingVertical: 8,
   },
   centered: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    paddingVertical: 30,
-    paddingHorizontal: 20,
   },
   loadingText: {
-    marginTop: 10,
+    marginTop: 16,
     textAlign: 'center',
-  },
-  emptyText: {
-    textAlign: 'center',
-    marginBottom: 20,
   },
   errorText: {
-    marginVertical: 16,
+    padding: 16,
     textAlign: 'center',
-    paddingHorizontal: 20,
   },
-  languageButton: {
-    alignSelf: 'center',
-    paddingVertical: 6,
-    paddingHorizontal: 12,
+  resultItem: {
+    marginBottom: 12,
+    padding: 16,
     borderRadius: 16,
-    borderWidth: 1,
+    borderLeftWidth: 5,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowRadius: 3,
+    elevation: 2,
   },
-  languageButtonText: {
-    fontWeight: '500',
+  resultTitle: {
+    fontWeight: 'bold',
+    marginBottom: 8
   },
-  modalContainer: {
-    flex: 1,
+  resultSnippet: {
+    marginBottom: 8,
+    lineHeight: 22
+  },
+  resultMoreLink: {
+    textAlign: 'right'
   },
   modalHeader: {
     flexDirection: 'row',
-    alignItems: 'center',
     justifyContent: 'space-between',
-    paddingVertical: 12,
-    paddingHorizontal: 16,
+    alignItems: 'center',
+    padding: 16,
     borderBottomWidth: 1,
   },
   modalTitle: {
-    fontWeight: 'bold',
     flex: 1,
     textAlign: 'center',
+    fontWeight: 'bold',
+    marginHorizontal: 16
   },
-  closeButton: {
-    paddingHorizontal: 10,
-    paddingVertical: 6,
-  },
-  closeButtonText: {
-  },
-  openBrowserButton: {
-    paddingHorizontal: 10,
-    paddingVertical: 6,
-  },
-  openBrowserText: {
-  },
-  modalContent: {
-    flex: 1,
+  thumbnailContainer: {
+    alignItems: 'center',
+    marginVertical: 16,
+    borderRadius: 16,
     padding: 16,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowRadius: 3,
+    elevation: 2,
   },
-  articleImage: {
-    width: '100%',
-    height: 200,
+  articleContainer: {
+    borderRadius: 16,
+    padding: 16,
     marginBottom: 16,
-    borderRadius: 8,
-    backgroundColor: '#f0f0f0',
+    borderLeftWidth: 5,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowRadius: 3,
+    elevation: 2,
   },
   articleTitle: {
     fontWeight: 'bold',
-    marginBottom: 12,
+    marginBottom: 16
   },
   articleText: {
-    marginBottom: 20,
+    lineHeight: 24
   },
-  readMoreButton: {
-    paddingVertical: 12,
-    paddingHorizontal: 16,
-    borderRadius: 8,
-    borderWidth: 1,
+  browserButton: {
+    padding: 16,
+    borderRadius: 16,
     alignItems: 'center',
-    marginBottom: 30,
+    marginBottom: 32,
+    flexDirection: 'row',
+    justifyContent: 'center'
   },
-  readMoreText: {
-    fontWeight: '500',
-  },
+  browserButtonText: {
+    color: '#ffffff', 
+    fontWeight: 'bold'
+  }
 });
 
-export default MedizinSearch; 
+export default MedizinSearch;

@@ -37,9 +37,6 @@
 # Vector Icons
 -keep class com.oblador.vectoricons.** { *; }
 
-# Geolocation Service
--keep class com.agontuk.RNFusedLocation.** { *; }
-
 # AsyncStorage
 -keep class com.reactnativecommunity.asyncstorage.** { *; }
 

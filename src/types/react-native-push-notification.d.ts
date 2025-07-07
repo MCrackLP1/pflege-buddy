@@ -58,7 +58,7 @@ declare module 'react-native-push-notification' {
   }
 
   export interface ConfigureOptions {
-    onRegister?: (token: { os: string, token: string }) => void;
+    onRegister?: (token: { os: string; token: string }) => void;
     onNotification?: (notification: any) => void;
     onAction?: (notification: any) => void;
     onRegistrationError?: (error: any) => void;
@@ -80,12 +80,16 @@ declare module 'react-native-push-notification' {
     static cancelAllLocalNotifications(): void;
     static setApplicationIconBadgeNumber(badgeCount: number): void;
     static getApplicationIconBadgeNumber(callback: (badgeCount: number) => void): void;
-    static checkPermissions(callback: (permissions: { alert: boolean, badge: boolean, sound: boolean }) => void): void;
-    static requestPermissions(permissions?: Array<string> | { alert?: boolean, badge?: boolean, sound?: boolean }): Promise<{ alert: boolean, badge: boolean, sound: boolean }>;
+    static checkPermissions(
+      callback: (permissions: { alert: boolean; badge: boolean; sound: boolean }) => void
+    ): void;
+    static requestPermissions(
+      permissions?: Array<string> | { alert?: boolean; badge?: boolean; sound?: boolean }
+    ): Promise<{ alert: boolean; badge: boolean; sound: boolean }>;
     static abandonPermissions(): void;
     static getInitialNotification(): Promise<any>;
     static clearAllNotifications(): void;
     static removeAllDeliveredNotifications(): void;
     static removeDeliveredNotifications(identifiers: Array<string>): void;
   }
-} 
+}

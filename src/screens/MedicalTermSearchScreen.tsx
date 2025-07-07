@@ -16,28 +16,26 @@ const MedicalTermSearchScreen: React.FC = () => {
   const route = useRoute<MedicalTermSearchScreenRouteProp>();
   const navigation = useNavigation<MedicalTermSearchScreenNavigationProp>();
   const { theme } = useSettings();
-  
+
   const initialQuery = route.params?.initialQuery || '';
-  
+
   const handleTermSelect = (term: MedicalTerm & { category: string }) => {
     // Show details in an alert for now, but could navigate to a detail screen
-    Alert.alert(
-      term.term,
-      `${term.definition}\n\nKategorie: ${term.category}`,
-      [
-        { text: 'Schließen', style: 'cancel' }
-      ]
-    );
+            Alert.alert(term.term, `${term.definition}\n\n${t('category_medical_term')} ${term.category}`, [
+              { text: t('close'), style: 'cancel' },
+    ]);
   };
-  
+
   return (
-    <SafeAreaView style={[styles.container, {
-      backgroundColor: theme === 'dark' ? '#121212' : '#f5f5f5'
-    }]}>
-      <MedicalTermSearch 
-        initialQuery={initialQuery}
-        onSelect={handleTermSelect}
-      />
+    <SafeAreaView
+      style={[
+        styles.container,
+        {
+          backgroundColor: theme === 'dark' ? '#121212' : '#f5f5f5',
+        },
+      ]}
+    >
+      <MedicalTermSearch initialQuery={initialQuery} onSelect={handleTermSelect} />
     </SafeAreaView>
   );
 };
@@ -48,4 +46,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default MedicalTermSearchScreen; 
+export default MedicalTermSearchScreen;

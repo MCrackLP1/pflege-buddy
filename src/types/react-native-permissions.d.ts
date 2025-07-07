@@ -2,29 +2,26 @@
  * Type declarations for react-native-permissions
  */
 declare module 'react-native-permissions' {
-  export type Permission =
-    | 'android.permission.ACCESS_BACKGROUND_LOCATION'
-    | 'android.permission.ACCESS_COARSE_LOCATION'
-    | 'android.permission.ACCESS_FINE_LOCATION'
-    | 'ios.permission.LOCATION_ALWAYS'
-    | 'ios.permission.LOCATION_WHEN_IN_USE';
+  export type Permission = 
+    // Location permissions removed, add other non-location permissions here if used
+    // e.g. | 'android.permission.CAMERA' 
+    //      | 'ios.permission.MICROPHONE'
+    string; // Using string as a fallback if no other permissions are explicitly defined
 
-  export type PermissionStatus =
-    | 'unavailable'
-    | 'denied'
-    | 'limited'
-    | 'granted'
-    | 'blocked';
+  export type PermissionStatus = 'unavailable' | 'denied' | 'limited' | 'granted' | 'blocked';
 
   export const PERMISSIONS: {
     ANDROID: {
-      ACCESS_BACKGROUND_LOCATION: 'android.permission.ACCESS_BACKGROUND_LOCATION';
-      ACCESS_COARSE_LOCATION: 'android.permission.ACCESS_COARSE_LOCATION';
-      ACCESS_FINE_LOCATION: 'android.permission.ACCESS_FINE_LOCATION';
+      // Location permissions removed
+      // Add other non-location android permissions here if used
+      // e.g. CAMERA: 'android.permission.CAMERA';
+      [key: string]: string; // Allow other permissions
     };
     IOS: {
-      LOCATION_ALWAYS: 'ios.permission.LOCATION_ALWAYS';
-      LOCATION_WHEN_IN_USE: 'ios.permission.LOCATION_WHEN_IN_USE';
+      // Location permissions removed
+      // Add other non-location iOS permissions here if used
+      // e.g. MICROPHONE: 'ios.permission.MICROPHONE';
+      [key: string]: string; // Allow other permissions
     };
   };
 
@@ -37,6 +34,8 @@ declare module 'react-native-permissions' {
 
   export function check(permission: Permission): Promise<PermissionStatus>;
   export function request(permission: Permission): Promise<PermissionStatus>;
-  export function requestMultiple(permissions: Permission[]): Promise<Record<Permission, PermissionStatus>>;
+  export function requestMultiple(
+    permissions: Permission[]
+  ): Promise<Record<Permission, PermissionStatus>>;
   export function openSettings(): Promise<void>;
-} 
+}

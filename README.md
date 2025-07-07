@@ -9,6 +9,7 @@ Eine React Native Anwendung für die Pflegeverwaltung.
 - [Datenstrukturen](#datenstrukturen)
 - [API-Endpunkte](#api-endpunkte)
 - [Entwicklung](#entwicklung)
+- [Splash Screen Video](#splash-screen-video)
 - [Tests](#tests)
 - [Deployment](#deployment)
 
@@ -145,6 +146,16 @@ npm run ios
 - Prettier für Code-Formatierung
 - TypeScript für statische Typisierung
 - Jest für Tests
+
+## Splash Screen Video
+
+Die App zeigt beim Start ein Video als Splash Screen an. Um das Standardvideo zu ersetzen:
+
+1. Erstellen Sie ein MP4-Video mit dem Namen `splash.mp4`
+2. Kopieren Sie das Video in den Ordner `assets/videos/`
+3. Bauen Sie die App neu
+
+Das Video sollte kurz sein (3-5 Sekunden) und ein Format haben, das von mobilen Geräten gut verarbeitet werden kann (empfohlen: H.264-Codec, Auflösung 720p oder weniger).
 
 ## Tests
 

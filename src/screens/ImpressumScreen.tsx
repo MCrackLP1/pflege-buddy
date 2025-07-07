@@ -4,11 +4,8 @@
  */
 
 import React from 'react';
-import { 
-  View, 
-  Text, 
-  ScrollView 
-} from 'react-native';
+import { View, Text, ScrollView } from 'react-native';
+import { useTranslation } from 'react-i18next';
 
 // Import hooks
 import { useSettings } from '../context/SettingsContext';
@@ -19,20 +16,26 @@ import { getDynamicStyles } from '../utils/styleUtils';
 const ImpressumScreen: React.FC = () => {
   const { theme, fontSizeScale, baseFontSize } = useSettings();
   const styles = getDynamicStyles(theme, baseFontSize * fontSizeScale);
+  const { t } = useTranslation();
 
   return (
     <View style={styles.container}>
       <ScrollView>
         <View style={{ padding: 16 }}>
-          <Text style={[styles.itemTitle, { 
-            fontSize: baseFontSize * fontSizeScale * 1.4, 
-            marginBottom: 16 
-          }]}>
-            Impressum
+          <Text
+            style={[
+              styles.itemTitle,
+              {
+                fontSize: baseFontSize * fontSizeScale * 1.4,
+                marginBottom: 16,
+              },
+            ]}
+          >
+            {t('imprint')}
           </Text>
-          
+
           <View style={styles.card}>
-            <Text style={[styles.itemTitle, { marginBottom: 8 }]}>Angaben gemäß § 5 TMG:</Text>
+            <Text style={[styles.itemTitle, { marginBottom: 8 }]}>{t('imprint_info')}</Text>
             <Text style={styles.itemSubtitle}>
               Mark Tietz{'\n'}
               Königplatz 3{'\n'}
@@ -40,21 +43,19 @@ const ImpressumScreen: React.FC = () => {
               Deutschland
             </Text>
           </View>
-          
+
           <View style={[styles.card, { marginTop: 16 }]}>
-            <Text style={[styles.itemTitle, { marginBottom: 8 }]}>Kontakt:</Text>
+            <Text style={[styles.itemTitle, { marginBottom: 8 }]}>{t('contact')}</Text>
             <Text style={styles.itemSubtitle}>
               Telefon: +49 1741632129{'\n'}
               E-Mail: deinpflegebuddy@gmail.com
             </Text>
           </View>
-          
+
           <View style={[styles.card, { marginTop: 16 }]}>
-            <Text style={[styles.itemTitle, { marginBottom: 8 }]}>Hinweis zur PflegeBuddy:</Text>
+            <Text style={[styles.itemTitle, { marginBottom: 8 }]}>{t('note_pflegebuddy')}</Text>
             <Text style={styles.itemSubtitle}>
-              Die PflegeBuddy dient als Hilfestellung und Nachschlagewerk für medizinisches Fachpersonal. Sie ersetzt keine professionelle medizinische Beratung, Diagnose oder Behandlung. Im Notfall wenden Sie sich bitte an einen Arzt oder den Rettungsdienst (112).{'\n\n'}
-              Die bereitgestellten Inhalte, insbesondere zu Krankheiten, Notfallmaßnahmen und ICD-10-Codes, wurden sorgfältig zusammengestellt, erheben jedoch keinen Anspruch auf Vollständigkeit oder Fehlerfreiheit. Die Nutzung der App erfolgt auf eigene Verantwortung.{'\n\n'}
-              Für medizinische Entscheidungen sollte stets auf offizielle Richtlinien und aktuelle Fachliteratur zurückgegriffen werden.
+              {t('imprint_note')}
             </Text>
           </View>
         </View>
@@ -63,4 +64,4 @@ const ImpressumScreen: React.FC = () => {
   );
 };
 
-export default ImpressumScreen; 
+export default ImpressumScreen;

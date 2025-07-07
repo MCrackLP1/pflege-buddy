@@ -26,10 +26,10 @@ export interface Disease {
  * @description
  * Enthält alle möglichen Notfalltypen in der App
  */
-export type EmergencyId = 
-  | 'atemnot' 
-  | 'brustschmerz' 
-  | 'hypoglykaemie' 
+export type EmergencyId =
+  | 'atemnot'
+  | 'brustschmerz'
+  | 'hypoglykaemie'
   | 'sturz'
   | 'fieber_sepsis'
   | 'blutung'
@@ -56,11 +56,11 @@ export type EmergencyId =
  * @property {string} [icon] - Optional: Icon-Name
  * @property {'ionicons' | 'material' | 'fa5'} [iconType] - Optional: Icon-Typ
  */
-export interface EmergencyStep { 
-  readonly id: string; 
-  readonly text: string; 
-  readonly icon?: string; 
-  readonly iconType?: 'ionicons' | 'material' | 'fa5'; 
+export interface EmergencyStep {
+  readonly id: string;
+  readonly text: string;
+  readonly icon?: string;
+  readonly iconType?: 'ionicons' | 'material' | 'fa5';
 }
 
 /**
@@ -71,11 +71,11 @@ export interface EmergencyStep {
  * @property {string} icon - Icon für die Checkliste
  * @property {readonly EmergencyStep[]} steps - Schritte der Checkliste
  */
-export interface EmergencyChecklistData { 
-  readonly id: EmergencyId; 
-  readonly title: string; 
-  readonly icon: string; 
-  readonly steps: readonly EmergencyStep[]; 
+export interface EmergencyChecklistData {
+  readonly id: EmergencyId;
+  readonly title: string;
+  readonly icon: string;
+  readonly steps: readonly EmergencyStep[];
 }
 
 /**
@@ -91,8 +91,8 @@ export interface EmergencyChecklistData {
  */
 export interface NursingStandard {
   readonly id: string;
-  readonly title: string;
-  readonly ziel: string;
+  readonly title?: string;
+  readonly ziel?: string;
   readonly strukturkriterien?: readonly string[];
   readonly prozesskriterien?: readonly string[];
   readonly ergebniskriterien?: readonly string[];
@@ -104,12 +104,32 @@ export interface NursingStandard {
  * @interface LexikonEntry
  * @property {string} id - Eindeutige ID des Eintrags
  * @property {string} term - Der Begriff
- * @property {string} definition - Definition des Begriffs
+ * @property {string} definition - Kurze Definition des Begriffs
+ * @property {string} [description] - Optional: Ausführliche Beschreibung
+ * @property {string} [category] - Optional: Kategorie (z.B. "Medizintechnik", "Diagnostik")
+ * @property {string[]} [indications] - Optional: Indikationen/Anwendungsgebiete
+ * @property {string[]} [contraindications] - Optional: Kontraindikationen
+ * @property {string[]} [nursingConsiderations] - Optional: Pflegehinweise
+ * @property {string[]} [complications] - Optional: Mögliche Komplikationen
+ * @property {string[]} [materials] - Optional: Benötigte Materialien
+ * @property {string} [procedure] - Optional: Durchführung/Ablauf
+ * @property {string[]} [monitoring] - Optional: Überwachungsparameter
+ * @property {string[]} [keyPoints] - Optional: Wichtige Punkte zu beachten
  */
 export interface LexikonEntry {
   readonly id: string;
   readonly term: string;
   readonly definition: string;
+  readonly description?: string;
+  readonly category?: string;
+  readonly indications?: readonly string[];
+  readonly contraindications?: readonly string[];
+  readonly nursingConsiderations?: readonly string[];
+  readonly complications?: readonly string[];
+  readonly materials?: readonly string[];
+  readonly procedure?: string;
+  readonly monitoring?: readonly string[];
+  readonly keyPoints?: readonly string[];
 }
 
 // Navigation-Typen
@@ -118,7 +138,7 @@ export type FachgebietDetailParams = {
 };
 
 export type EmergencyChecklistParams = {
-  emergencyId?: EmergencyId; 
+  emergencyId?: EmergencyId;
 };
 
 export type StandardDetailParams = {
@@ -138,37 +158,22 @@ export type MedicalTermSearchParams = {
 };
 
 export type BottomTabParamList = {
-  WelcomeTab: { screen?: string; params?: any } | undefined;
-  HomeTab: { screen?: string; params?: any } | undefined;
-  WissenTab: { screen?: string; params?: any } | undefined;
-  ToolsTab: { screen?: string; params?: any } | undefined;
-  EinstellungenTab: { screen?: string; params?: any } | undefined;
+  HomeStack: undefined;
+  WissenStack: undefined;
+  ToolsStack: undefined;
+  EinstellungenStack: undefined;
 };
 
 // Das NavigationParams-Interface erlaubt flexible Parameter für alle Screens
 export interface NavigationParams {
   screen?: string;
   params?: any;
-}
-
-// Arbeitszeiterfassung
-export interface WorkLocation {
-  id: string;
-  name: string;
-  address: string;
-  latitude: number;
-  longitude: number;
-  radius: number; // Radius für Geofencing in Metern
-}
-
-export interface WorkTime {
-  id: string;
-  locationId: string;
-  startTime: string; // ISO-String
-  endTime: string | null; // ISO-String, null wenn noch aktiv
-  breakDuration: number; // in Minuten
-  isComplete: boolean;
-  notes?: string;
+  WissenListen: undefined;
+  LexikonListen: undefined;
+  LexikonDetail: LexikonDetailParams;
+  MedicationSearch: undefined;
+  LaborparameterScreen: undefined;
+  LaborparameterDetail: undefined;
 }
 
 // RootStackParamList enthält alle Routen für die App
@@ -177,18 +182,21 @@ export type RootStackParamList = {
   Welcome: undefined;
   Home: undefined;
   EmergencyChecklist: EmergencyChecklistParams;
-  
+  Chat: undefined;
+
   // Wissen-Stack
   WissenLanding: undefined;
   WissenListen: undefined;
   LexikonListen: undefined;
   LexikonDetail: LexikonDetailParams;
   MedicationSearch: undefined;
-  
+  LaborparameterScreen: undefined;
+  LaborparameterDetail: undefined;
+
   // Standards-Stack
   StandardsLanding: undefined;
   StandardDetail: StandardDetailParams;
-  
+
   // Tools-Stack
   ToolsLanding: undefined;
   WoundAssessment: undefined;
@@ -196,30 +204,22 @@ export type RootStackParamList = {
   Contacts: undefined;
   NutritionCalculator: undefined;
   MedicationCalculator: undefined;
-  WorkTimeTracker: undefined;
   Documentation: undefined;
-  WorkLocationMap: {
-    initialLocation?: {latitude: number, longitude: number};
-    editLocationId?: string;
-  };
-  
+  InteractiveCasesLanding: undefined;
+  DecisionTreeSimulation: { simulationId: string };
+  SkillTrainerSimulation: { simulationId: string };
+  Statistics: undefined;
+
   // Einstellungen-Stack
   EinstellungenLanding: undefined;
   Impressum: undefined;
   Datenschutz: undefined;
   MedicalTermsAdmin: undefined;
-  LocationTest: undefined;
-  
+
   // Gemeinsame Screens
   MedizinSearch: MedizinSearchParams;
   MedicalTermSearch: MedicalTermSearchParams;
-  
-  // Tab-Navigation
-  HomeTab: NavigationParams | undefined;
-  WissenTab: NavigationParams | undefined;
-  ToolsTab: NavigationParams | undefined;
-  EinstellungenTab: NavigationParams | undefined;
-  
+
   // Quellen-Stack
   Quellen?: undefined;
   Sources?: undefined;
@@ -241,7 +241,7 @@ export interface SettingsContextProps {
   fontSizeScale: number;
   increaseFontSize: () => void;
   decreaseFontSize: () => void;
-  baseFontSize: number; 
+  baseFontSize: number;
 }
 
 /**
@@ -255,4 +255,30 @@ export interface DisclaimerContextProps {
   disclaimerAccepted: boolean;
   setDisclaimerAccepted: (accepted: boolean) => void;
   acceptedAt?: string | null;
-} 
+  syncWithGoogle: (googleUser: any) => Promise<void>;
+  isSyncing?: boolean;
+  lastSyncAt?: string | null;
+}
+
+// Simulation Progress Types
+export interface SimulationProgress {
+  simulationId: string;
+  simulationType: 'decision_tree' | 'skill_trainer';
+  isCompleted: boolean;
+  completedAt?: Date;
+  score?: number; // Für skill_trainer: Anzahl richtig beantworteter Fragen
+  totalQuestions?: number; // Für skill_trainer: Gesamtanzahl Fragen
+  completedNodes?: string[]; // Für decision_tree: Besuchte Knoten
+  bestPath?: boolean; // Für decision_tree: Ob der optimale Pfad genommen wurde
+  attempts: number;
+  lastAttemptAt: Date;
+}
+
+export interface SimulationStatistics {
+  totalSimulations: number;
+  completedSimulations: number;
+  completionRate: number;
+  totalAttempts: number;
+  averageScore: number;
+  lastActivity: Date;
+}

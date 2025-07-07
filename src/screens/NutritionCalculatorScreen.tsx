@@ -4,19 +4,20 @@
  */
 
 import React, { useState, useEffect } from 'react';
-import { 
-  View, 
-  Text, 
+import {
+  View,
+  Text,
   TextInput,
   TouchableOpacity,
   ScrollView,
   StyleSheet,
-  Platform
+  Platform,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { useTranslation } from 'react-i18next';
 
 // Import Typen
 import { RootStackParamList } from '../types/types';
@@ -53,52 +54,53 @@ interface CalculationResults {
   };
 }
 
-// Aktivitätslevel mit Beschreibungen und Faktoren
-const ACTIVITY_LEVELS = [
-  { 
-    id: 'sedentary' as ActivityLevel, 
-    label: 'Sitzend/Inaktiv', 
-    description: 'Wenig oder keine körperliche Aktivität', 
-    factor: 1.2 
+// Aktivitätslevel mit Beschreibungen und Faktoren als Funktion für Übersetzungen
+const getActivityLevels = (t: any) => [
+  {
+    id: 'sedentary' as ActivityLevel,
+    label: t('sedentary_inactive'),
+    description: t('sedentary_description'),
+    factor: 1.2,
   },
-  { 
-    id: 'light' as ActivityLevel, 
-    label: 'Leicht aktiv', 
-    description: '1-3x pro Woche leichte Aktivität', 
-    factor: 1.375 
+  {
+    id: 'light' as ActivityLevel,
+    label: t('light_active'),
+    description: t('light_active_description'),
+    factor: 1.375,
   },
-  { 
-    id: 'moderate' as ActivityLevel, 
-    label: 'Mäßig aktiv', 
-    description: '3-5x pro Woche moderate Aktivität', 
-    factor: 1.55 
+  {
+    id: 'moderate' as ActivityLevel,
+    label: t('moderately_active'),
+    description: t('moderately_active_description'),
+    factor: 1.55,
   },
-  { 
-    id: 'active' as ActivityLevel, 
-    label: 'Sehr aktiv', 
-    description: '6-7x pro Woche intensive Aktivität', 
-    factor: 1.725 
+  {
+    id: 'active' as ActivityLevel,
+    label: t('very_active'),
+    description: t('very_active_description'),
+    factor: 1.725,
   },
-  { 
-    id: 'veryActive' as ActivityLevel, 
-    label: 'Extrem aktiv', 
-    description: 'Tägliches intensives Training oder körperliche Arbeit', 
-    factor: 1.9 
-  }
+  {
+    id: 'veryActive' as ActivityLevel,
+    label: t('extremely_active'),
+    description: t('extremely_active_description'),
+    factor: 1.9,
+  },
 ];
 
 /**
  * NutritionCalculatorScreen Component
- * 
+ *
  * A screen component that calculates nutritional requirements based on user input
  * including BMI, daily caloric needs, and macronutrient distribution.
- * 
+ *
  * @component
  * @returns {React.FC} NutritionCalculatorScreen component
  */
 const NutritionCalculatorScreen: React.FC = () => {
   const navigation = useNavigation<NutritionCalculatorNavigationProp>();
   const { theme, fontSizeScale, baseFontSize } = useSettings();
+  const { t } = useTranslation();
   const styles = getDynamicStyles(theme, baseFontSize * fontSizeScale);
   const insets = useSafeAreaInsets();
 
@@ -108,11 +110,11 @@ const NutritionCalculatorScreen: React.FC = () => {
     weight: '',
     age: '',
     gender: 'male',
-    activityLevel: 'moderate'
+    activityLevel: 'moderate',
   });
 
   const [results, setResults] = useState<CalculationResults | null>(null);
-  const [errors, setErrors] = useState<{[key: string]: string}>({});
+  const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [showErrors, setShowErrors] = useState(false);
 
   // Berechnung bei Änderung der Eingabewerte
@@ -127,21 +129,21 @@ const NutritionCalculatorScreen: React.FC = () => {
 
   // Formularvalidierung
   const isFormValid = () => {
-    const newErrors: {[key: string]: string} = {};
+    const newErrors: { [key: string]: string } = {};
     let isValid = true;
 
     if (!userData.height || isNaN(Number(userData.height)) || Number(userData.height) <= 0) {
-      newErrors.height = 'Bitte geben Sie eine gültige Größe ein.';
+      newErrors.height = t('enter_valid_height');
       isValid = false;
     }
 
     if (!userData.weight || isNaN(Number(userData.weight)) || Number(userData.weight) <= 0) {
-      newErrors.weight = 'Bitte geben Sie ein gültiges Gewicht ein.';
+      newErrors.weight = t('enter_valid_weight');
       isValid = false;
     }
 
     if (!userData.age || isNaN(Number(userData.age)) || Number(userData.age) <= 0) {
-      newErrors.age = 'Bitte geben Sie ein gültiges Alter ein.';
+      newErrors.age = t('enter_valid_age');
       isValid = false;
     }
 
@@ -153,13 +155,13 @@ const NutritionCalculatorScreen: React.FC = () => {
   const handleInputChange = (field: keyof UserData, value: string) => {
     setUserData(prev => ({
       ...prev,
-      [field]: value
+      [field]: value,
     }));
   };
 
   /**
    * Calculates nutritional results including BMI, daily caloric needs, and macronutrient distribution
-   * 
+   *
    * @private
    * @function calculateResults
    * @returns {void}
@@ -168,28 +170,31 @@ const NutritionCalculatorScreen: React.FC = () => {
     const height = Number(userData.height) / 100; // cm zu m umrechnen
     const weight = Number(userData.weight);
     const age = Number(userData.age);
-    const activityFactor = ACTIVITY_LEVELS.find(level => level.id === userData.activityLevel)?.factor || 1.55;
+    // Get activity levels with translations
+    const ACTIVITY_LEVELS = getActivityLevels(t);
+    const activityFactor =
+      ACTIVITY_LEVELS.find(level => level.id === userData.activityLevel)?.factor || 1.55;
 
     // BMI berechnen
     const bmi = weight / (height * height);
 
     // BMI-Kategorie bestimmen
     let bmiCategory = '';
-    if (bmi < 16) bmiCategory = 'Starkes Untergewicht';
-    else if (bmi < 17) bmiCategory = 'Mäßiges Untergewicht';
-    else if (bmi < 18.5) bmiCategory = 'Leichtes Untergewicht';
-    else if (bmi < 25) bmiCategory = 'Normalgewicht';
-    else if (bmi < 30) bmiCategory = 'Präadipositas (Übergewicht)';
-    else if (bmi < 35) bmiCategory = 'Adipositas Grad I';
-    else if (bmi < 40) bmiCategory = 'Adipositas Grad II';
-    else bmiCategory = 'Adipositas Grad III';
+    if (bmi < 16) bmiCategory = t('severe_underweight');
+    else if (bmi < 17) bmiCategory = t('moderate_underweight');
+    else if (bmi < 18.5) bmiCategory = t('mild_underweight');
+    else if (bmi < 25) bmiCategory = t('normal_weight');
+    else if (bmi < 30) bmiCategory = t('pre_obesity');
+    else if (bmi < 35) bmiCategory = t('obesity_class_1');
+    else if (bmi < 40) bmiCategory = t('obesity_class_2');
+    else bmiCategory = t('obesity_class_3');
 
     // Grundumsatz berechnen (Harris-Benedict-Formel)
     let bmr = 0;
     if (userData.gender === 'male') {
-      bmr = 66.47 + (13.7 * weight) + (5 * (height * 100)) - (6.8 * age);
+      bmr = 66.47 + 13.7 * weight + 5 * (height * 100) - 6.8 * age;
     } else {
-      bmr = 655.1 + (9.6 * weight) + (1.8 * (height * 100)) - (4.7 * age);
+      bmr = 655.1 + 9.6 * weight + 1.8 * (height * 100) - 4.7 * age;
     }
 
     // Gesamtenergiebedarf berechnen
@@ -197,8 +202,8 @@ const NutritionCalculatorScreen: React.FC = () => {
 
     // Makronährstoffe berechnen (standardmäßige Verteilung)
     const proteinPercentage = 20; // 20% Protein
-    const fatPercentage = 30;     // 30% Fett
-    const carbsPercentage = 50;   // 50% Kohlenhydrate
+    const fatPercentage = 30; // 30% Fett
+    const carbsPercentage = 50; // 50% Kohlenhydrate
 
     const proteinCalories = dailyCalories * (proteinPercentage / 100);
     const fatCalories = dailyCalories * (fatPercentage / 100);
@@ -206,31 +211,39 @@ const NutritionCalculatorScreen: React.FC = () => {
 
     // Umrechnung in Gramm
     const proteinGrams = Math.round(proteinCalories / 4); // 1g Protein = 4 kcal
-    const fatGrams = Math.round(fatCalories / 9);         // 1g Fett = 9 kcal
-    const carbsGrams = Math.round(carbsCalories / 4);     // 1g KH = 4 kcal
+    const fatGrams = Math.round(fatCalories / 9); // 1g Fett = 9 kcal
+    const carbsGrams = Math.round(carbsCalories / 4); // 1g KH = 4 kcal
 
     setResults({
       bmi: Math.round(bmi * 10) / 10, // Auf eine Nachkommastelle runden
       bmiCategory,
       dailyCalories,
       macros: {
-        protein: { grams: proteinGrams, calories: Math.round(proteinCalories), percentage: proteinPercentage },
-        carbs: { grams: carbsGrams, calories: Math.round(carbsCalories), percentage: carbsPercentage },
-        fat: { grams: fatGrams, calories: Math.round(fatCalories), percentage: fatPercentage }
-      }
+        protein: {
+          grams: proteinGrams,
+          calories: Math.round(proteinCalories),
+          percentage: proteinPercentage,
+        },
+        carbs: {
+          grams: carbsGrams,
+          calories: Math.round(carbsCalories),
+          percentage: carbsPercentage,
+        },
+        fat: { grams: fatGrams, calories: Math.round(fatCalories), percentage: fatPercentage },
+      },
     });
   };
 
   /**
    * Formats a number with thousand separators
-   * 
+   *
    * @private
    * @function formatNumber
    * @param {number} num - The number to format
    * @returns {string} Formatted number string
    */
   const formatNumber = (num: number) => {
-    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
   };
 
   // Farbdefinitionen
@@ -445,50 +458,59 @@ const NutritionCalculatorScreen: React.FC = () => {
   });
 
   return (
-    <View style={[styles.container, { paddingBottom: insets.bottom, backgroundColor: colors.background }]}>
-      <ScrollView 
-        style={{ flex: 1 }} 
+    <View
+      style={[
+        styles.container,
+        { paddingBottom: insets.bottom, backgroundColor: colors.background },
+      ]}
+    >
+      <ScrollView
+        style={{ flex: 1 }}
         contentContainerStyle={{ padding: 20 }}
         showsVerticalScrollIndicator={false}
       >
         <View style={formStyles.formContainer}>
           {/* Größe */}
           <View style={formStyles.inputRow}>
-            <Text style={formStyles.label}>Größe (cm)</Text>
+            <Text style={formStyles.label}>{t('height_cm')}</Text>
             <TextInput
               style={formStyles.input}
-              placeholder="z.B. 175"
+                              placeholder={t('height_cm_placeholder')}
               placeholderTextColor={colors.textSecondary}
               value={userData.height}
-              onChangeText={(value) => handleInputChange('height', value)}
+              onChangeText={value => handleInputChange('height', value)}
               keyboardType="numeric"
             />
-            {showErrors && errors.height && <Text style={formStyles.errorText}>{errors.height}</Text>}
+            {showErrors && errors.height && (
+              <Text style={formStyles.errorText}>{errors.height}</Text>
+            )}
           </View>
 
           {/* Gewicht */}
           <View style={formStyles.inputRow}>
-            <Text style={formStyles.label}>Gewicht (kg)</Text>
+            <Text style={formStyles.label}>{t('weight_kg')}</Text>
             <TextInput
               style={formStyles.input}
-              placeholder="z.B. 70"
+                              placeholder={t('weight_kg_placeholder')}
               placeholderTextColor={colors.textSecondary}
               value={userData.weight}
-              onChangeText={(value) => handleInputChange('weight', value)}
+              onChangeText={value => handleInputChange('weight', value)}
               keyboardType="numeric"
             />
-            {showErrors && errors.weight && <Text style={formStyles.errorText}>{errors.weight}</Text>}
+            {showErrors && errors.weight && (
+              <Text style={formStyles.errorText}>{errors.weight}</Text>
+            )}
           </View>
 
           {/* Alter */}
           <View style={formStyles.inputRow}>
-            <Text style={formStyles.label}>Alter</Text>
+            <Text style={formStyles.label}>{t('age')}</Text>
             <TextInput
               style={formStyles.input}
-              placeholder="z.B. 35"
+                              placeholder={t('age_placeholder')}
               placeholderTextColor={colors.textSecondary}
               value={userData.age}
-              onChangeText={(value) => handleInputChange('age', value)}
+              onChangeText={value => handleInputChange('age', value)}
               keyboardType="numeric"
             />
             {showErrors && errors.age && <Text style={formStyles.errorText}>{errors.age}</Text>}
@@ -496,9 +518,19 @@ const NutritionCalculatorScreen: React.FC = () => {
 
           {/* Geschlecht */}
           <View style={formStyles.inputRow}>
-            <Text style={formStyles.label}>Geschlecht</Text>
-            <View style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', marginBottom: 8 }}>
-              {[{ id: 'male', label: 'Männlich', icon: 'male-outline' }, { id: 'female', label: 'Weiblich', icon: 'female-outline' }].map(option => {
+            <Text style={formStyles.label}>{t('gender')}</Text>
+            <View
+              style={{
+                flexDirection: 'row',
+                flexWrap: 'wrap',
+                justifyContent: 'center',
+                marginBottom: 8,
+              }}
+            >
+              {[
+                { id: 'male', label: t('male'), icon: 'male-outline' },
+                { id: 'female', label: t('female'), icon: 'female-outline' },
+              ].map(option => {
                 const isActive = userData.gender === option.id;
                 return (
                   <TouchableOpacity
@@ -520,7 +552,9 @@ const NutritionCalculatorScreen: React.FC = () => {
                         elevation: isActive ? 4 : 0,
                       },
                     ]}
-                    onPress={() => setUserData({ ...userData, gender: option.id as 'male' | 'female' })}
+                    onPress={() =>
+                      setUserData({ ...userData, gender: option.id as 'male' | 'female' })
+                    }
                     activeOpacity={0.85}
                   >
                     <Icon
@@ -549,34 +583,42 @@ const NutritionCalculatorScreen: React.FC = () => {
 
           {/* Aktivitätslevel */}
           <View style={formStyles.inputRow}>
-            <Text style={formStyles.label}>Aktivitätslevel</Text>
-            {ACTIVITY_LEVELS.map((level) => (
+            <Text style={formStyles.label}>{t('activity_level')}</Text>
+            {getActivityLevels(t).map(level => (
               <TouchableOpacity
                 key={level.id}
                 style={[
                   formStyles.activityOption,
                   {
-                    backgroundColor: userData.activityLevel === level.id ? colors.primaryLight : colors.inputBackground,
-                    borderColor: userData.activityLevel === level.id ? colors.primary : colors.border,
-                  }
+                    backgroundColor:
+                      userData.activityLevel === level.id
+                        ? colors.primaryLight
+                        : colors.inputBackground,
+                    borderColor:
+                      userData.activityLevel === level.id ? colors.primary : colors.border,
+                  },
                 ]}
-                onPress={() => setUserData({...userData, activityLevel: level.id})}
+                onPress={() => setUserData({ ...userData, activityLevel: level.id })}
               >
-                <Icon 
-                  name={userData.activityLevel === level.id ? 'checkmark-circle' : 'ellipse-outline'} 
-                  size={22} 
-                  color={userData.activityLevel === level.id ? colors.primary : colors.textSecondary}
+                <Icon
+                  name={
+                    userData.activityLevel === level.id ? 'checkmark-circle' : 'ellipse-outline'
+                  }
+                  size={22}
+                  color={
+                    userData.activityLevel === level.id ? colors.primary : colors.textSecondary
+                  }
                 />
                 <View style={formStyles.activityTextContainer}>
-                  <Text style={[
-                    formStyles.activityTitle,
-                    {color: userData.activityLevel === level.id ? colors.primary : colors.text}
-                  ]}>
+                  <Text
+                    style={[
+                      formStyles.activityTitle,
+                      { color: userData.activityLevel === level.id ? colors.primary : colors.text },
+                    ]}
+                  >
                     {level.label}
                   </Text>
-                  <Text style={formStyles.activityDescription}>
-                    {level.description}
-                  </Text>
+                  <Text style={formStyles.activityDescription}>{level.description}</Text>
                 </View>
               </TouchableOpacity>
             ))}
@@ -587,7 +629,7 @@ const NutritionCalculatorScreen: React.FC = () => {
             style={[formStyles.button, { marginTop: 8, marginBottom: 16 }]}
             onPress={handleCalculate}
           >
-            <Text style={formStyles.buttonText}>Berechnen</Text>
+            <Text style={formStyles.buttonText}>{t('calculate')}</Text>
           </TouchableOpacity>
         </View>
 
@@ -596,11 +638,11 @@ const NutritionCalculatorScreen: React.FC = () => {
           <View style={formStyles.resultContainer}>
             {/* BMI */}
             <View style={formStyles.resultSection}>
-              <Text style={formStyles.sectionTitle}>Body Mass Index (BMI)</Text>
+              <Text style={formStyles.sectionTitle}>{t('body_mass_index_bmi')}</Text>
               <View style={formStyles.resultCard}>
                 <Text style={formStyles.resultEmphasis}>{results.bmi}</Text>
                 <View style={formStyles.resultRow}>
-                  <Text style={formStyles.resultLabel}>Kategorie</Text>
+                  <Text style={formStyles.resultLabel}>{t('category')}</Text>
                   <Text style={formStyles.resultValue}>{results.bmiCategory}</Text>
                 </View>
               </View>
@@ -608,77 +650,99 @@ const NutritionCalculatorScreen: React.FC = () => {
 
             {/* Kalorienbedarf */}
             <View style={formStyles.resultSection}>
-              <Text style={formStyles.sectionTitle}>Täglicher Energiebedarf</Text>
+              <Text style={formStyles.sectionTitle}>{t('daily_energy_requirement')}</Text>
               <View style={formStyles.resultCard}>
-                <Text style={formStyles.resultEmphasis}>{formatNumber(results.dailyCalories)} kcal</Text>
+                <Text style={formStyles.resultEmphasis}>
+                  {formatNumber(results.dailyCalories)} kcal
+                </Text>
               </View>
             </View>
 
             {/* Makronährstoffe */}
             <View style={formStyles.resultSection}>
-              <Text style={formStyles.sectionTitle}>Nährstoffverteilung</Text>
+              <Text style={formStyles.sectionTitle}>{t('nutrient_distribution')}</Text>
               <View style={formStyles.resultCard}>
                 {/* Makronährstoffbalken */}
                 <View style={formStyles.macroBar}>
-                  <View style={[
-                    formStyles.macroBarSection, 
-                    { 
-                      width: `${results.macros.protein.percentage}%`,
-                      backgroundColor: colors.protein
-                    }
-                  ]}>
-                    <Text style={formStyles.macroLabel}>P</Text>
+                  <View
+                    style={[
+                      formStyles.macroBarSection,
+                      {
+                        width: `${results.macros.protein.percentage}%`,
+                        backgroundColor: colors.protein,
+                      },
+                    ]}
+                  >
+                    <Text style={formStyles.macroLabel}>{t('protein_short')}</Text>
                   </View>
-                  <View style={[
-                    formStyles.macroBarSection, 
-                    { 
-                      width: `${results.macros.carbs.percentage}%`,
-                      backgroundColor: colors.carbs
-                    }
-                  ]}>
-                    <Text style={formStyles.macroLabel}>K</Text>
+                  <View
+                    style={[
+                      formStyles.macroBarSection,
+                      {
+                        width: `${results.macros.carbs.percentage}%`,
+                        backgroundColor: colors.carbs,
+                      },
+                    ]}
+                  >
+                    <Text style={formStyles.macroLabel}>{t('carbs_short')}</Text>
                   </View>
-                  <View style={[
-                    formStyles.macroBarSection, 
-                    { 
-                      width: `${results.macros.fat.percentage}%`,
-                      backgroundColor: colors.fat
-                    }
-                  ]}>
-                    <Text style={formStyles.macroLabel}>F</Text>
+                  <View
+                    style={[
+                      formStyles.macroBarSection,
+                      {
+                        width: `${results.macros.fat.percentage}%`,
+                        backgroundColor: colors.fat,
+                      },
+                    ]}
+                  >
+                    <Text style={formStyles.macroLabel}>{t('fat_short')}</Text>
                   </View>
                 </View>
 
                 <View style={formStyles.macroDetails}>
                   {/* Tabellenkopf */}
                   <View style={[formStyles.macroRow, { borderBottomWidth: 2 }]}>
-                    <Text style={[formStyles.macroName, { color: colors.textSecondary }]}>Nährstoff</Text>
-                    <Text style={[formStyles.macroValue, { color: colors.textSecondary }]}>Gramm</Text>
-                    <Text style={[formStyles.macroValue, { color: colors.textSecondary }]}>Kalorien</Text>
-                    <Text style={[formStyles.macroValue, { color: colors.textSecondary }]}>Anteil</Text>
+                    <Text style={[formStyles.macroName, { color: colors.textSecondary }]}>
+                      {t('nutrient')}
+                    </Text>
+                    <Text style={[formStyles.macroValue, { color: colors.textSecondary }]}>
+                      {t('grams')}
+                    </Text>
+                    <Text style={[formStyles.macroValue, { color: colors.textSecondary }]}>
+                      {t('calories')}
+                    </Text>
+                    <Text style={[formStyles.macroValue, { color: colors.textSecondary }]}>
+                      {t('proportion')}
+                    </Text>
                   </View>
-                  
+
                   {/* Protein */}
                   <View style={formStyles.macroRow}>
-                    <Text style={[formStyles.macroName, { color: colors.protein }]}>Protein</Text>
+                    <Text style={[formStyles.macroName, { color: colors.protein }]}>{t('protein')}</Text>
                     <Text style={formStyles.macroValue}>{results.macros.protein.grams}g</Text>
-                    <Text style={formStyles.macroValue}>{formatNumber(results.macros.protein.calories)}</Text>
+                    <Text style={formStyles.macroValue}>
+                      {formatNumber(results.macros.protein.calories)}
+                    </Text>
                     <Text style={formStyles.macroValue}>{results.macros.protein.percentage}%</Text>
                   </View>
-                  
+
                   {/* Kohlenhydrate */}
                   <View style={formStyles.macroRow}>
-                    <Text style={[formStyles.macroName, { color: colors.carbs }]}>Kohlenh.</Text>
+                    <Text style={[formStyles.macroName, { color: colors.carbs }]}>{t('carbohydrates')}</Text>
                     <Text style={formStyles.macroValue}>{results.macros.carbs.grams}g</Text>
-                    <Text style={formStyles.macroValue}>{formatNumber(results.macros.carbs.calories)}</Text>
+                    <Text style={formStyles.macroValue}>
+                      {formatNumber(results.macros.carbs.calories)}
+                    </Text>
                     <Text style={formStyles.macroValue}>{results.macros.carbs.percentage}%</Text>
                   </View>
-                  
+
                   {/* Fette */}
                   <View style={[formStyles.macroRow, { borderBottomWidth: 0 }]}>
-                    <Text style={[formStyles.macroName, { color: colors.fat }]}>Fette</Text>
+                    <Text style={[formStyles.macroName, { color: colors.fat }]}>{t('fat')}</Text>
                     <Text style={formStyles.macroValue}>{results.macros.fat.grams}g</Text>
-                    <Text style={formStyles.macroValue}>{formatNumber(results.macros.fat.calories)}</Text>
+                    <Text style={formStyles.macroValue}>
+                      {formatNumber(results.macros.fat.calories)}
+                    </Text>
                     <Text style={formStyles.macroValue}>{results.macros.fat.percentage}%</Text>
                   </View>
                 </View>
@@ -686,8 +750,7 @@ const NutritionCalculatorScreen: React.FC = () => {
             </View>
 
             <Text style={formStyles.disclaimer}>
-              Diese Berechnungen sind Schätzwerte und können je nach individuellen Faktoren variieren.
-              Bei gesundheitlichen Fragen konsultieren Sie bitte medizinisches Fachpersonal.
+              {t('nutrition_disclaimer')}
             </Text>
           </View>
         )}
@@ -696,4 +759,4 @@ const NutritionCalculatorScreen: React.FC = () => {
   );
 };
 
-export default NutritionCalculatorScreen; 
+export default NutritionCalculatorScreen;

@@ -4,7 +4,7 @@
  * @description
  * Dieser Context verwaltet die globalen Einstellungen der App wie Theme und Schriftgröße.
  * Die Einstellungen werden persistent im AsyncStorage gespeichert.
- * 
+ *
  * @requires react
  * @requires @react-native-async-storage/async-storage
  * @requires ../types/types
@@ -41,7 +41,7 @@ const SettingsContext = createContext<SettingsContextProps | null>(null);
  * @param {Object} props - Komponenten-Props
  * @param {React.ReactNode} props.children - Child-Komponenten
  * @returns {React.ReactElement} Der gerenderte Provider
- * 
+ *
  * @example
  * ```jsx
  * <SettingsProvider>
@@ -64,16 +64,16 @@ export const SettingsProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     try {
       const storedTheme = await AsyncStorage.getItem('theme');
       const storedFontSizeScale = await AsyncStorage.getItem('fontSizeScale');
-      
+
       if (storedTheme) {
         setTheme(storedTheme as 'light' | 'dark');
       }
-      
+
       if (storedFontSizeScale) {
         setFontSizeScale(parseFloat(storedFontSizeScale));
       }
     } catch (error) {
-      console.error('Fehler beim Laden der Einstellungen', error);
+      console.error('Error loading settings', error);
     } finally {
       setIsLoading(false);
     }
@@ -87,8 +87,8 @@ export const SettingsProvider: React.FC<{ children: React.ReactNode }> = ({ chil
    */
   const handleSetTheme = (newTheme: 'light' | 'dark') => {
     setTheme(newTheme);
-    AsyncStorage.setItem('theme', newTheme).catch(error => 
-      console.error('Fehler beim Speichern des Themes', error)
+    AsyncStorage.setItem('theme', newTheme).catch(error =>
+      console.error('Error saving theme', error)
     );
   };
 
@@ -101,8 +101,8 @@ export const SettingsProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     if (fontSizeScale < MAX_FONT_SCALE) {
       const newScale = Math.min(fontSizeScale + FONT_SCALE_STEP, MAX_FONT_SCALE);
       setFontSizeScale(newScale);
-      AsyncStorage.setItem('fontSizeScale', newScale.toString()).catch(error => 
-        console.error('Fehler beim Speichern der Schriftgröße', error)
+      AsyncStorage.setItem('fontSizeScale', newScale.toString()).catch(error =>
+        console.error('Error saving font size', error)
       );
     }
   };
@@ -116,8 +116,8 @@ export const SettingsProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     if (fontSizeScale > MIN_FONT_SCALE) {
       const newScale = Math.max(fontSizeScale - FONT_SCALE_STEP, MIN_FONT_SCALE);
       setFontSizeScale(newScale);
-      AsyncStorage.setItem('fontSizeScale', newScale.toString()).catch(error => 
-        console.error('Fehler beim Speichern der Schriftgröße', error)
+      AsyncStorage.setItem('fontSizeScale', newScale.toString()).catch(error =>
+        console.error('Error saving font size', error)
       );
     }
   };
@@ -131,29 +131,16 @@ export const SettingsProvider: React.FC<{ children: React.ReactNode }> = ({ chil
    * Context-Werte für den Provider
    * @type {SettingsContextProps}
    */
-  const contextValue: SettingsContextProps = isLoading 
-    ? {
-        theme: 'light',
-        setTheme: handleSetTheme,
-        fontSizeScale: 1.0,
-        increaseFontSize: () => {},
-        decreaseFontSize: () => {},
-        baseFontSize: BASE_FONT_SIZE,
-      }
-    : {
-        theme,
-        setTheme: handleSetTheme,
-        fontSizeScale,
-        increaseFontSize,
-        decreaseFontSize,
-        baseFontSize: BASE_FONT_SIZE,
-      };
+  const contextValue: SettingsContextProps = {
+    theme: isLoading ? 'light' : theme,
+    setTheme: handleSetTheme,
+    fontSizeScale: isLoading ? 1.0 : fontSizeScale,
+    increaseFontSize,
+    decreaseFontSize,
+    baseFontSize: BASE_FONT_SIZE,
+  };
 
-  return (
-    <SettingsContext.Provider value={contextValue}>
-      {children}
-    </SettingsContext.Provider>
-  );
+  return <SettingsContext.Provider value={contextValue}>{children}</SettingsContext.Provider>;
 };
 
 /**
@@ -161,7 +148,7 @@ export const SettingsProvider: React.FC<{ children: React.ReactNode }> = ({ chil
  * @function useSettings
  * @returns {SettingsContextProps} Die aktuellen Einstellungen und Funktionen
  * @throws {Error} Wenn der Hook außerhalb des SettingsProvider verwendet wird
- * 
+ *
  * @example
  * ```jsx
  * const { theme, setTheme } = useSettings();
@@ -170,7 +157,7 @@ export const SettingsProvider: React.FC<{ children: React.ReactNode }> = ({ chil
 export const useSettings = (): SettingsContextProps => {
   const context = useContext(SettingsContext);
   if (!context) {
-    throw new Error('useSettings muss innerhalb eines SettingsProvider verwendet werden');
+    throw new Error('useSettings must be used within a SettingsProvider');
   }
   return context;
-}; 
+};

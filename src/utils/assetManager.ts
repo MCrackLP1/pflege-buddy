@@ -38,7 +38,7 @@ interface AssetCache<T> {
  * @returns {string} Base path for assets
  */
 const getBasePath = (): string => {
-  return Platform.OS === 'android' 
+  return Platform.OS === 'android'
     ? `${RNFS.DocumentDirectoryPath}/assets/data/`
     : `${RNFS.MainBundlePath}/assets/data/`;
 };
@@ -85,13 +85,13 @@ const loadFromCache = async <T>(assetId: string): Promise<T | null> => {
   try {
     const cacheKey = `${CACHE_KEY_PREFIX}${assetId}`;
     const cachedString = await AsyncStorage.getItem(cacheKey);
-    
+
     if (!cachedString) {
       return null;
     }
 
     const cache: AssetCache<T> = JSON.parse(cachedString);
-    
+
     // Check if cache is valid
     if (cache.version !== ASSET_VERSION) {
       await AsyncStorage.removeItem(cacheKey);
@@ -122,7 +122,7 @@ const saveToCache = async <T>(assetId: string, data: T): Promise<void> => {
     const cache: AssetCache<T> = {
       version: ASSET_VERSION,
       timestamp: Date.now(),
-      data
+      data,
     };
 
     const cacheKey = `${CACHE_KEY_PREFIX}${assetId}`;
@@ -162,4 +162,4 @@ export const preloadAssets = async (): Promise<void> => {
   } catch (error) {
     console.error('Error preloading assets:', error);
   }
-}; 
+};

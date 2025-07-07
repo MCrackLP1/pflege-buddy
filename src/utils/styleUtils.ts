@@ -6,47 +6,48 @@
 import { StyleSheet } from 'react-native';
 
 export const getDynamicStyles = (theme: 'light' | 'dark', scaledFontSize: number) => {
-  const colors = theme === 'dark' 
-    ? {
-        background: '#121212',
-        card: '#1e1e1e',
-        surface: '#252525',
-        text: '#e1e1e1',
-        subText: '#b0b0b0',
-        border: '#333333',
-        input: '#2a2a2a',
-        button: '#bb86fc',
-        buttonText: '#ffffff',
-        primary: '#bb86fc', // violett
-        accent: '#bb86fc',
-        inactive: '#777777',
-        error: '#cf6679', // rot
-        notification: '#03dac6', // türkis
-        highlight: '#1f1f1f',
-        headerBg: '#1e1e1e',
-        divider: '#333333',
-        ripple: 'rgba(255, 255, 255, 0.1)',
-      }
-    : {
-        background: '#f5f5f5',
-        card: '#ffffff',
-        surface: '#ffffff',
-        text: '#333333',
-        subText: '#666666',
-        border: '#dddddd',
-        input: '#ffffff',
-        button: '#0066cc',
-        buttonText: '#ffffff',
-        primary: '#0066cc', // blau
-        accent: '#0066cc',
-        inactive: '#999999',
-        error: '#e53935', // rot
-        notification: '#00acc1', // türkis
-        highlight: '#f0f0f0',
-        headerBg: '#ffffff',
-        divider: '#e0e0e0',
-        ripple: 'rgba(0, 0, 0, 0.1)',
-      };
+  const colors =
+    theme === 'dark'
+      ? {
+          background: '#121212',
+          card: '#1e1e1e',
+          surface: '#252525',
+          text: '#e1e1e1',
+          subText: '#b0b0b0',
+          border: '#333333',
+          input: '#2a2a2a',
+          button: '#bb86fc',
+          buttonText: '#ffffff',
+          primary: '#bb86fc', // violett
+          accent: '#bb86fc',
+          inactive: '#777777',
+          error: '#cf6679', // rot
+          notification: '#03dac6', // türkis
+          highlight: '#1f1f1f',
+          headerBg: '#1e1e1e',
+          divider: '#333333',
+          ripple: 'rgba(255, 255, 255, 0.1)',
+        }
+      : {
+          background: '#f5f5f5',
+          card: '#ffffff',
+          surface: '#ffffff',
+          text: '#333333',
+          subText: '#666666',
+          border: '#dddddd',
+          input: '#ffffff',
+          button: '#0066cc',
+          buttonText: '#ffffff',
+          primary: '#0066cc', // blau
+          accent: '#0066cc',
+          inactive: '#999999',
+          error: '#e53935', // rot
+          notification: '#00acc1', // türkis
+          highlight: '#f0f0f0',
+          headerBg: '#ffffff',
+          divider: '#e0e0e0',
+          ripple: 'rgba(0, 0, 0, 0.1)',
+        };
 
   // Standardisierte Abstandswerte für einheitliches Design
   const spacing = {
@@ -348,8 +349,8 @@ export const getStatusColors = (theme: 'light' | 'dark') => {
   return {
     success: theme === 'dark' ? '#81c784' : '#4caf50', // grün
     warning: theme === 'dark' ? '#ffb74d' : '#ff9800', // orange
-    error: theme === 'dark' ? '#e57373' : '#f44336',   // rot
-    info: theme === 'dark' ? '#64b5f6' : '#2196f3',    // blau
+    error: theme === 'dark' ? '#e57373' : '#f44336', // rot
+    info: theme === 'dark' ? '#64b5f6' : '#2196f3', // blau
   };
 };
 
@@ -369,4 +370,4 @@ export const standardRadius = {
   l: 12,
   xl: 16,
   xxl: 24,
-}; 
+};

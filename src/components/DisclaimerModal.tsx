@@ -4,28 +4,33 @@
  */
 
 import React, { useEffect, useState } from 'react';
-import { 
-  View, 
-  Text, 
-  Modal, 
-  ScrollView, 
-  TouchableOpacity, 
-  StyleSheet, 
+import {
+  View,
+  Text,
+  Modal,
+  ScrollView,
+  TouchableOpacity,
+  StyleSheet,
   Dimensions,
-  SafeAreaView
+  SafeAreaView,
 } from 'react-native';
 import { useSettings } from '../context/SettingsContext';
 import { useDisclaimer } from '../context/DisclaimerContext';
+import { useTranslation } from 'react-i18next';
 
 interface DisclaimerModalProps {
   forceVisible?: boolean;
   onRequestClose?: () => void;
 }
 
-const DisclaimerModal: React.FC<DisclaimerModalProps> = ({ forceVisible = false, onRequestClose }) => {
+const DisclaimerModal: React.FC<DisclaimerModalProps> = ({
+  forceVisible = false,
+  onRequestClose,
+}) => {
   const { theme, fontSizeScale, baseFontSize } = useSettings();
+  const { t } = useTranslation();
   let disclaimerAccepted = false;
-  let setDisclaimerAccepted = () => {};
+  let setDisclaimerAccepted: (accepted: boolean) => void = () => {};
   let acceptedAt: string | null = null;
   try {
     // Context nur verwenden, wenn forceVisible nicht aktiv ist
@@ -77,68 +82,73 @@ const DisclaimerModal: React.FC<DisclaimerModalProps> = ({ forceVisible = false,
       <SafeAreaView style={scaledStyles.safeArea}>
         <View style={scaledStyles.modalContainer}>
           <View style={scaledStyles.modalContent}>
-            <Text style={scaledStyles.title}>Rechtlicher Hinweis</Text>
+            <Text style={scaledStyles.title}>{t('disclaimer_title')}</Text>
             {/* Apple-konformer Haftungshinweis */}
-            <View style={{ marginBottom: 16, backgroundColor: '#fffbe6', borderRadius: 6, padding: 10, borderWidth: 1, borderColor: '#ffd700' }}>
-              <Text style={{ fontWeight: 'bold', color: '#b8860b', fontSize: scaledFontSize * 1.1, textAlign: 'center' }}>
-                Wichtiger Hinweis:
+            <View
+              style={{
+                marginBottom: 16,
+                backgroundColor: '#fffbe6',
+                borderRadius: 6,
+                padding: 10,
+                borderWidth: 1,
+                borderColor: '#ffd700',
+              }}
+            >
+              <Text
+                style={{
+                  fontWeight: 'bold',
+                  color: '#b8860b',
+                  fontSize: scaledFontSize * 1.1,
+                  textAlign: 'center',
+                }}
+              >
+                {t('disclaimer_important_note_title')}
               </Text>
-              <Text style={{ fontWeight: 'bold', color: '#b8860b', marginTop: 4, textAlign: 'center' }}>
-                Diese App ersetzt keinesfalls die professionelle Beratung, Diagnose oder Behandlung durch approbierte Ärzt:innen oder medizinisches Fachpersonal. Bei gesundheitlichen Fragen oder Beschwerden wenden Sie sich bitte immer an eine qualifizierte Fachkraft. Im Notfall wählen Sie den Notruf (112).
+              <Text
+                style={{ fontWeight: 'bold', color: '#b8860b', marginTop: 4, textAlign: 'center' }}
+              >
+                {t('disclaimer_important_note')}
               </Text>
             </View>
             {/* Hinweis, wenn bereits akzeptiert */}
             {alreadyAccepted && (
               <View style={{ marginBottom: 10 }}>
-                <Text style={[scaledStyles.paragraph, { color: '#32b8ca', fontWeight: 'bold' }]}>Haftungsausschluss wurde bereits akzeptiert{acceptedDate ? ` am ${new Date(acceptedDate).toLocaleDateString()}` : ''}.</Text>
+                <Text style={[scaledStyles.paragraph, { color: '#32b8ca', fontWeight: 'bold' }]}>
+                  {t('disclaimer_already_accepted', { date: acceptedDate ? new Date(acceptedDate).toLocaleDateString() : '' })}
+                </Text>
               </View>
             )}
-            
+
             <ScrollView style={scaledStyles.scrollView}>
-              <Text style={scaledStyles.paragraphTitle}>Haftungsbeschränkung</Text>
-              <Text style={scaledStyles.paragraph}>
-                Die Inhalte der Pflegebuddy-App werden mit größtmöglicher Sorgfalt erstellt und regelmäßig aktualisiert. Dennoch übernimmt Pflegebuddy keine Gewähr für die Richtigkeit, Vollständigkeit oder Aktualität der bereitgestellten Informationen. Die Nutzung erfolgt auf eigenes Risiko. Durch die Nutzung der App entsteht kein rechtsverbindliches Vertragsverhältnis zwischen dem Nutzer und dem Anbieter.
-              </Text>
-              <Text style={scaledStyles.paragraph}>
-                Alle Inhalte der App dienen ausschließlich zu Informations- und Lernzwecken im pflegerischen Kontext. Pflegebuddy stellt keine Diagnosen, gibt keine medizinischen Empfehlungen und ersetzt keinesfalls ärztlichen oder therapeutischen Rat. Die Anwendung der Inhalte – insbesondere von Rechenhilfen, Handlungsempfehlungen oder allgemeinen Informationen – erfolgt eigenverantwortlich und unterliegt der Pflicht des Nutzers, diese vor Anwendung auf Richtigkeit und Angemessenheit zu prüfen. Die App richtet sich ausschließlich an geschultes Fachpersonal.
-              </Text>
-              <Text style={scaledStyles.paragraph}>
-                Soweit Behandlungs- oder Pflegestandards, Dosierungen oder Scores angegeben werden, dienen diese nur der allgemeinen Orientierung. Sie ersetzen keine individuelle Bewertung im konkreten Einzelfall. Angaben zu Gesetzen, Richtlinien oder Normen können veraltet oder unvollständig sein – es wird empfohlen, stets die offiziellen Quellen heranzuziehen.
-              </Text>
-              <Text style={scaledStyles.paragraph}>
-                Die integrierten Rechner, Scores und Tools basieren auf bekannten Fachquellen und wurden mit Sorgfalt implementiert. Dennoch kann keine Haftung für deren Ergebnisse übernommen werden. Sie dienen ausschließlich der Weiterbildung und nicht der direkten Anwendung am Patienten.
-              </Text>
-              <Text style={scaledStyles.paragraph}>
-                Pflegebuddy ist als ergänzendes digitales Hilfsmittel konzipiert, nicht als Ersatz für fundiertes Fachwissen, praktische Erfahrung oder institutionelle Schulungen.
-              </Text>
+              <Text style={scaledStyles.paragraphTitle}>{t('disclaimer_liability_title')}</Text>
+              <Text style={scaledStyles.paragraph}>{t('disclaimer_liability_1')}</Text>
+              <Text style={scaledStyles.paragraph}>{t('disclaimer_liability_2')}</Text>
+              <Text style={scaledStyles.paragraph}>{t('disclaimer_liability_3')}</Text>
+              <Text style={scaledStyles.paragraph}>{t('disclaimer_liability_4')}</Text>
+              <Text style={scaledStyles.paragraph}>{t('disclaimer_liability_5')}</Text>
 
-              <Text style={scaledStyles.paragraphTitle}>Notfallmaßnahmen</Text>
-              <Text style={scaledStyles.paragraph}>
-                Die in der App beschriebenen Notfallmaßnahmen ersetzen nicht die Ausbildung in Erster Hilfe oder medizinischer Notfallversorgung. Im Notfall wählen Sie umgehend den Notruf (112) und/oder konsultieren Sie sofort medizinisches Fachpersonal.
-              </Text>
+              <Text style={scaledStyles.paragraphTitle}>{t('disclaimer_ai_title')}</Text>
+              <Text style={scaledStyles.paragraph}>{t('disclaimer_ai_1')}</Text>
+              <Text style={scaledStyles.paragraph}>{t('disclaimer_ai_2')}</Text>
 
-              <Text style={scaledStyles.paragraphTitle}>Externe Links</Text>
-              <Text style={scaledStyles.paragraph}>
-                Falls Pflegebuddy externe Inhalte (z. B. Wikipedia, ICD-10, Herstellerinformationen) verlinkt oder einbettet, übernehmen wir keine Verantwortung für deren Inhalt. Für den Inhalt externer Seiten sind ausschließlich deren Betreiber verantwortlich.
-              </Text>
+              <Text style={scaledStyles.paragraphTitle}>{t('disclaimer_emergency_title')}</Text>
+              <Text style={scaledStyles.paragraph}>{t('disclaimer_emergency')}</Text>
 
-              <Text style={scaledStyles.paragraphTitle}>Urheber- und Schutzrechte</Text>
-              <Text style={scaledStyles.paragraph}>
-                Alle innerhalb der App veröffentlichten Inhalte unterliegen dem deutschen Urheberrecht. Eine Vervielfältigung, Verbreitung oder sonstige Nutzung außerhalb der engen Schranken des Urheberrechts ist ohne vorherige schriftliche Zustimmung unzulässig. Die Darstellung von Pflegebuddy-Inhalten in externen Frames oder Anwendungen ist nur mit ausdrücklicher Genehmigung erlaubt.
-              </Text>
+              <Text style={scaledStyles.paragraphTitle}>{t('disclaimer_links_title')}</Text>
+              <Text style={scaledStyles.paragraph}>{t('disclaimer_links')}</Text>
 
-              <Text style={scaledStyles.paragraphTitle}>Datenschutz</Text>
-              <Text style={scaledStyles.paragraph}>
-                Durch die Nutzung dieser App akzeptieren Sie unsere Datenschutzbestimmungen. Weitere Informationen finden Sie in der Datenschutzerklärung in den Einstellungen.
-              </Text>
+              <Text style={scaledStyles.paragraphTitle}>{t('disclaimer_copyright_title')}</Text>
+              <Text style={scaledStyles.paragraph}>{t('disclaimer_copyright')}</Text>
+
+              <Text style={scaledStyles.paragraphTitle}>{t('disclaimer_privacy_title')}</Text>
+              <Text style={scaledStyles.paragraph}>{t('disclaimer_privacy')}</Text>
             </ScrollView>
-            
+
             <View style={scaledStyles.buttonContainer}>
-              <TouchableOpacity 
-                style={scaledStyles.acceptButton}
-                onPress={handleAccept}
-              >
-                <Text style={scaledStyles.buttonText}>{alreadyAccepted ? 'Schließen' : 'Ich habe verstanden und akzeptiere'}</Text>
+              <TouchableOpacity style={scaledStyles.acceptButton} onPress={handleAccept}>
+                <Text style={scaledStyles.buttonText}>
+                  {alreadyAccepted ? 'Schließen' : 'Ich habe verstanden und akzeptiere'}
+                </Text>
               </TouchableOpacity>
             </View>
           </View>
@@ -151,11 +161,11 @@ const DisclaimerModal: React.FC<DisclaimerModalProps> = ({ forceVisible = false,
 // Styles mit Skalierungsfaktor für Schriftgröße
 const getScaledStyles = (fontSize: number, isDarkMode: boolean) => {
   const { width, height } = Dimensions.get('window');
-  
+
   return StyleSheet.create({
     safeArea: {
       flex: 1,
-      backgroundColor: 'rgba(0, 0, 0, 0.5)'
+      backgroundColor: 'rgba(0, 0, 0, 0.5)',
     },
     modalContainer: {
       flex: 1,
@@ -218,4 +228,4 @@ const getScaledStyles = (fontSize: number, isDarkMode: boolean) => {
   });
 };
 
-export default DisclaimerModal; 
+export default DisclaimerModal;

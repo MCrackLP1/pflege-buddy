@@ -4,19 +4,20 @@
  */
 
 import React, { useState, useEffect, useRef } from 'react';
-import { 
-  View, 
-  Text, 
-  TouchableOpacity, 
-  StyleSheet, 
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
   ScrollView,
   Vibration,
-  Animated
+  Animated,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { useTranslation } from 'react-i18next';
 
 // Import Typen
 import { RootStackParamList } from '../types/types';
@@ -43,12 +44,28 @@ const FrequencyCounterScreen: React.FC = () => {
   const { theme, fontSizeScale, baseFontSize } = useSettings();
   const styles = getDynamicStyles(theme, baseFontSize * fontSizeScale);
   const insets = useSafeAreaInsets();
+  const { t } = useTranslation();
 
   // Optionen für verschiedene Frequenztypen
   const frequencyOptions: FrequencyOption[] = [
-    { id: 'heart', label: 'Herzfrequenz', icon: 'heart-outline', normalRange: '60-100 Schläge/min' },
-    { id: 'breath', label: 'Atemfrequenz', icon: 'fitness-outline', normalRange: '12-20 Atemzüge/min' },
-    { id: 'other', label: 'Andere Frequenz', icon: 'stopwatch-outline', normalRange: 'Je nach Parameter' },
+    {
+      id: 'heart',
+      label: t('heart_frequency'),
+      icon: 'heart-outline',
+      normalRange: t('heart_frequency_range'),
+    },
+    {
+      id: 'breath',
+      label: t('breath_frequency'),
+      icon: 'fitness-outline',
+      normalRange: t('breath_frequency_range'),
+    },
+    {
+      id: 'other',
+      label: t('other_frequency'),
+      icon: 'stopwatch-outline',
+      normalRange: t('other_frequency_range'),
+    },
   ];
 
   // States für den Frequenzzähler
@@ -61,7 +78,8 @@ const FrequencyCounterScreen: React.FC = () => {
   const buttonScale = useRef(new Animated.Value(1)).current;
 
   // Frequenzinformationen des gewählten Typs
-  const currentFrequencyInfo = frequencyOptions.find(opt => opt.id === selectedType) || frequencyOptions[0];
+  const currentFrequencyInfo =
+    frequencyOptions.find(opt => opt.id === selectedType) || frequencyOptions[0];
 
   // Funktion zum Zurücksetzen des Zählers
   const resetCounter = () => {
@@ -75,7 +93,7 @@ const FrequencyCounterScreen: React.FC = () => {
   // Haupt-Button-Handler: Starten der Zählung oder Zählen
   const handleMainButtonPress = () => {
     const now = Date.now();
-    
+
     // Erstes Drücken: Starte den Zähler
     if (!counting) {
       setCounting(true);
@@ -85,10 +103,10 @@ const FrequencyCounterScreen: React.FC = () => {
       setFrequency(null);
       return; // Ersten Schlag nicht mitzählen
     }
-    
+
     // Vibration als Feedback
     Vibration.vibrate(20);
-    
+
     // Animation des Buttons
     Animated.sequence([
       Animated.timing(buttonScale, {
@@ -105,11 +123,11 @@ const FrequencyCounterScreen: React.FC = () => {
 
     // Zähle einen Schlag
     setCount(prevCount => prevCount + 1);
-    
+
     if (startTime) {
       // Speichere den Zeitstempel für eine genauere Berechnung
       setRecentBeats(prev => [...prev, now]);
-      
+
       // Berechne vorläufige Frequenz in Echtzeit
       const secondsElapsed = (now - startTime) / 1000;
       if (secondsElapsed > 0) {
@@ -133,15 +151,15 @@ const FrequencyCounterScreen: React.FC = () => {
       // Durchschnittliche Zeit zwischen den Schlägen berechnen, wenn mehr als 1 Schlag vorhanden
       if (recentBeats.length > 1) {
         const intervals: number[] = [];
-        
+
         // Berechne alle Intervalle zwischen aufeinanderfolgenden Schlägen
         for (let i = 1; i < recentBeats.length; i++) {
-          intervals.push(recentBeats[i] - recentBeats[i-1]);
+          intervals.push(recentBeats[i] - recentBeats[i - 1]);
         }
-        
+
         // Berechne den Durchschnitt der Intervalle in Millisekunden
         const avgInterval = intervals.reduce((sum, val) => sum + val, 0) / intervals.length;
-        
+
         // Umrechnen in Frequenz pro Minute (60000 ms = 1 Minute)
         const calculatedFreq = Math.round(60000 / avgInterval);
         setFrequency(calculatedFreq);
@@ -161,75 +179,80 @@ const FrequencyCounterScreen: React.FC = () => {
     width: 200,
     height: 200,
     borderRadius: 100,
-    backgroundColor: counting 
-      ? theme === 'dark' 
-        ? 'rgba(244, 67, 54, 0.2)' 
+    backgroundColor: counting
+      ? theme === 'dark'
+        ? 'rgba(244, 67, 54, 0.2)'
         : 'rgba(244, 67, 54, 0.1)'
-      : theme === 'dark' 
-        ? '#32b8ca20' 
+      : theme === 'dark'
+        ? '#32b8ca20'
         : '#32b8ca10',
     justifyContent: 'center' as 'center',
     alignItems: 'center' as 'center',
     borderWidth: 2,
     borderColor: counting ? '#f44336' : '#32b8ca',
-    alignSelf: 'center' as 'center'
+    alignSelf: 'center' as 'center',
   };
 
   return (
     <View style={[styles.container, { paddingBottom: insets.bottom }]}>
       {/* Haupt-Zählbutton direkt unterhalb des Headers */}
-      <Animated.View style={{ 
-        transform: [{ scale: buttonScale }],
-        alignItems: 'center',
-        marginVertical: 20
-      }}>
+      <Animated.View
+        style={{
+          transform: [{ scale: buttonScale }],
+          alignItems: 'center',
+          marginVertical: 20,
+        }}
+      >
         <TouchableOpacity
           style={mainButtonStyle}
           onPress={handleMainButtonPress}
           onLongPress={handleLongPress}
           delayLongPress={500}
         >
-          <Icon 
-            name={counting ? "finger-print-outline" : "play-outline"} 
-            size={60} 
-            color={counting ? '#f44336' : '#32b8ca'} 
+          <Icon
+            name={counting ? 'finger-print-outline' : 'play-outline'}
+            size={60}
+            color={counting ? '#f44336' : '#32b8ca'}
           />
-          <Text style={[
-            styles.headerTitle, 
-            { 
-              marginTop: 8, 
-              fontSize: baseFontSize * fontSizeScale * 1.5,
-              color: counting ? '#f44336' : '#32b8ca',
-              textAlign: 'center'
-            }
-          ]}>
-            {counting ? count : 'Start'}
-          </Text>
-          <Text style={[
-            styles.itemSubtitle,
-            {
-              marginTop: 4,
-              textAlign: 'center',
-              color: counting ? '#f44336' : '#32b8ca',
-              maxWidth: 160,
-              fontSize: baseFontSize * fontSizeScale * 0.85,
-              alignSelf: 'center',
-            }
-          ]}
-          numberOfLines={2}
-          ellipsizeMode="tail"
+          <Text
+            style={[
+              styles.headerTitle,
+              {
+                marginTop: 8,
+                fontSize: baseFontSize * fontSizeScale * 1.5,
+                color: counting ? '#f44336' : '#32b8ca',
+                textAlign: 'center',
+              },
+            ]}
           >
-            {counting ? 'Tippen für Zählen, Halten zum Stoppen' : 'Zum Starten tippen'}
+            {counting ? count : t('start')}
+          </Text>
+          <Text
+            style={[
+              styles.itemSubtitle,
+              {
+                marginTop: 4,
+                textAlign: 'center',
+                color: counting ? '#f44336' : '#32b8ca',
+                maxWidth: 160,
+                fontSize: baseFontSize * fontSizeScale * 0.85,
+                alignSelf: 'center',
+              },
+            ]}
+            numberOfLines={2}
+            ellipsizeMode="tail"
+          >
+            {counting ? t('tap_to_count_hold_to_stop') : t('tap_to_start')}
           </Text>
         </TouchableOpacity>
       </Animated.View>
-      
-      <ScrollView 
-        style={{ flex: 1 }} 
-        contentContainerStyle={{ 
+
+      <ScrollView
+        style={{ flex: 1 }}
+        contentContainerStyle={{
           paddingHorizontal: 16,
           paddingBottom: 30,
-          alignItems: 'center'
+          alignItems: 'center',
         }}
       >
         {/* Frequenztyp-Auswahl */}
@@ -243,7 +266,7 @@ const FrequencyCounterScreen: React.FC = () => {
             width: '100%',
           }}
         >
-          {frequencyOptions.map((option) => {
+          {frequencyOptions.map(option => {
             const isActive = selectedType === option.id;
             return (
               <TouchableOpacity
@@ -258,7 +281,9 @@ const FrequencyCounterScreen: React.FC = () => {
                     marginHorizontal: 6,
                     marginBottom: 10,
                     backgroundColor: isActive
-                      ? (theme === 'dark' ? '#32b8ca' : '#0066cc')
+                      ? theme === 'dark'
+                        ? '#32b8ca'
+                        : '#0066cc'
                       : styles.chip.backgroundColor,
                     shadowColor: isActive ? '#32b8ca' : 'transparent',
                     shadowOpacity: isActive ? 0.18 : 0,
@@ -279,14 +304,14 @@ const FrequencyCounterScreen: React.FC = () => {
                 <Icon
                   name={option.icon}
                   size={26}
-                  color={isActive ? '#fff' : (theme === 'dark' ? '#32b8ca' : '#0066cc')}
+                  color={isActive ? '#fff' : theme === 'dark' ? '#32b8ca' : '#0066cc'}
                   style={{ marginRight: 10 }}
                 />
                 <Text
                   style={[
                     styles.chipText,
                     {
-                      color: isActive ? '#fff' : (theme === 'dark' ? '#e1e1e1' : '#333'),
+                      color: isActive ? '#fff' : theme === 'dark' ? '#e1e1e1' : '#333',
                       fontWeight: isActive ? 'bold' : '500',
                       fontSize: baseFontSize * fontSizeScale * 1.0,
                     },
@@ -300,20 +325,25 @@ const FrequencyCounterScreen: React.FC = () => {
         </View>
 
         {/* Ergebnisanzeige */}
-        <View style={[styles.card, { 
-          marginBottom: 16, 
-          width: 300, 
-          alignItems: 'center',
-          alignSelf: 'center'
-        }]}>
+        <View
+          style={[
+            styles.card,
+            {
+              marginBottom: 16,
+              width: 300,
+              alignItems: 'center',
+              alignSelf: 'center',
+            },
+          ]}
+        >
           <Text style={[styles.headerTitle, { fontSize: baseFontSize * fontSizeScale * 2 }]}>
             {frequency !== null ? `${frequency}` : '--'}
           </Text>
           <Text style={[styles.headerSubtitle, { marginTop: 8 }]}>
-            {frequencyOptions.find(opt => opt.id === selectedType)?.label || ''} pro Minute
+            {frequencyOptions.find(opt => opt.id === selectedType)?.label || ''} {t('per_minute')}
           </Text>
           <Text style={[styles.itemSubtitle, { marginTop: 8 }]}>
-            Normbereich: {currentFrequencyInfo.normalRange}
+            {t('normal_range')}: {currentFrequencyInfo.normalRange}
           </Text>
         </View>
       </ScrollView>
@@ -321,4 +351,4 @@ const FrequencyCounterScreen: React.FC = () => {
   );
 };
 
-export default FrequencyCounterScreen; 
+export default FrequencyCounterScreen;

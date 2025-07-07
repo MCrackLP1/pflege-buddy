@@ -4,10 +4,11 @@
  */
 
 import React from 'react';
-import { View, ScrollView } from 'react-native';
+import { View, ScrollView, Alert } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { useTranslation } from 'react-i18next';
 
 // Import Typen
 import { RootStackParamList } from '../types/types';
@@ -29,82 +30,102 @@ const ToolsScreen: React.FC = () => {
   const { theme, fontSizeScale, baseFontSize } = useSettings();
   const styles = getDynamicStyles(theme, baseFontSize * fontSizeScale);
   const insets = useSafeAreaInsets();
+  const { t } = useTranslation();
+
+  // Optimierte Abstände für die ListItems
+  const listItemStyle = {
+    marginVertical: 10,
+    borderLeftWidth: 5,
+    borderLeftColor: theme === 'dark' ? '#03dac6' : '#00acc1',
+    borderRadius: 16,
+  };
 
   return (
     <View style={[styles.container, { paddingBottom: insets.bottom }]}>
-      <PageHeader 
-        title="Pflege-Tools" 
-        subtitle="Nützliche Werkzeuge für den Pflegealltag" 
-      />
+      <PageHeader title={t('tools_header')} subtitle={t('tools_subtitle')} />
 
-      <ScrollView>
+      <ScrollView 
+        contentContainerStyle={{ 
+          paddingTop: 15,
+          paddingBottom: 20,
+          paddingHorizontal: 8
+        }} 
+        showsVerticalScrollIndicator={false}
+      >
         <ListItem
-          title="Wundbeurteilung"
-          subtitle="Systematische Beurteilung von Wunden mit Ampelsystem"
+          title={t('tools_wound_title')}
+          subtitle={t('tools_wound_subtitle')}
           iconName="bandage-outline"
+          style={listItemStyle}
           onPress={() => {
             // @ts-ignore - Ignoriere Typprobleme mit der Navigation
             navigation.navigate('WoundAssessment');
           }}
         />
-        
+
         <ListItem
-          title="Frequenzzähler"
-          subtitle="Herzschlag, Atem und andere Vitalparameter"
+          title={t('tools_frequency_title')}
+          subtitle={t('tools_frequency_subtitle')}
           iconName="stopwatch-outline"
+          style={listItemStyle}
           onPress={() => {
             // @ts-ignore - Ignoriere Typprobleme mit der Navigation
             navigation.navigate('FrequencyCounter');
           }}
         />
-        
+
         <ListItem
-          title="Kontakte"
-          subtitle="Wichtige Telefonnummern verwalten"
+          title={t('tools_contacts_title')}
+          subtitle={t('tools_contacts_subtitle')}
           iconName="call-outline"
+          style={listItemStyle}
           onPress={() => {
             // @ts-ignore - Ignoriere Typprobleme mit der Navigation
             navigation.navigate('Contacts');
           }}
         />
-        
+
         <ListItem
-          title="Ernährungsrechner"
-          subtitle="BMI, Energiebedarf und Nährstoffverteilung"
+          title={t('tools_nutrition_title')}
+          subtitle={t('tools_nutrition_subtitle')}
           iconName="nutrition-outline"
+          style={listItemStyle}
           onPress={() => {
             // @ts-ignore - Ignoriere Typprobleme mit der Navigation
             navigation.navigate('NutritionCalculator');
           }}
         />
-        
+
         <ListItem
-          title="Infusions- & Medikationsrechner"
-          subtitle="Tropfenzahl, ml/h, Medikamentenkonzentration"
+          title={t('tools_medication_title')}
+          subtitle={t('tools_medication_subtitle')}
           iconName="medical-outline"
+          style={listItemStyle}
           onPress={() => {
             // @ts-ignore - Ignoriere Typprobleme mit der Navigation
             navigation.navigate('MedicationCalculator');
           }}
         />
-        
+
         <ListItem
-          title="Arbeitszeiterfassung"
-          subtitle="Automatische Zeiterfassung mit GPS und Geofencing"
-          iconName="time-outline"
-          onPress={() => {
-            // @ts-ignore - Ignoriere Typprobleme mit der Navigation
-            navigation.navigate('WorkTimeTracker');
-          }}
-        />
-        
-        <ListItem
-          title="Dokumentationshilfen"
-          subtitle="Vorlagen für die Pflegedokumentation"
+          title={t('tools_documentation_title')}
+          subtitle={t('tools_documentation_subtitle')}
           iconName="clipboard-outline"
+          style={listItemStyle}
           onPress={() => {
             // @ts-ignore - Ignoriere Typprobleme mit der Navigation
             navigation.navigate('Documentation');
+          }}
+        />
+
+        <ListItem
+          title={t('tools_interactive_cases_title')}
+          subtitle={t('tools_interactive_cases_subtitle')}
+          iconName="library-outline"
+          style={listItemStyle}
+          onPress={() => {
+            // @ts-ignore - Ignoriere Typprobleme mit der Navigation
+            navigation.navigate('InteractiveCasesLanding');
           }}
         />
       </ScrollView>
@@ -112,4 +133,4 @@ const ToolsScreen: React.FC = () => {
   );
 };
 
-export default ToolsScreen; 
+export default ToolsScreen;

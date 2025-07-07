@@ -4,11 +4,8 @@
  */
 
 import React from 'react';
-import { 
-  View, 
-  Text, 
-  ScrollView 
-} from 'react-native';
+import { View, Text, ScrollView, Linking } from 'react-native';
+import { useTranslation } from 'react-i18next';
 
 // Import hooks
 import { useSettings } from '../context/SettingsContext';
@@ -18,21 +15,36 @@ import { getDynamicStyles } from '../utils/styleUtils';
 
 const DatenschutzScreen: React.FC = () => {
   const { theme, fontSizeScale, baseFontSize } = useSettings();
+  const { t } = useTranslation();
   const styles = getDynamicStyles(theme, baseFontSize * fontSizeScale);
 
   return (
     <View style={styles.container}>
       <ScrollView>
         <View style={{ padding: 16 }}>
-          <Text style={[styles.itemTitle, { 
-            fontSize: baseFontSize * fontSizeScale * 1.4, 
-            marginBottom: 16 
-          }]}>
-            Datenschutzerklärung
+          <Text
+            style={[
+              styles.itemTitle,
+              {
+                fontSize: baseFontSize * fontSizeScale * 1.4,
+                marginBottom: 16,
+              },
+            ]}
+          >
+            {t('privacy')}
           </Text>
-          
+          <Text style={[styles.itemSubtitle, { marginBottom: 16, fontStyle: 'italic' }]}>
+            {t('privacy_online_hint')}
+            <Text 
+              style={{ color: theme === 'dark' ? '#58a6ff' : '#007AFF', textDecorationLine: 'underline' }}
+              onPress={() => Linking.openURL('https://www.plegebuddy.care/datenschutz-app.html')}
+            >
+              plegebuddy.care/datenschutz-app.html
+            </Text>
+          </Text>
+
           <View style={styles.card}>
-            <Text style={[styles.itemTitle, { marginBottom: 8 }]}>Verantwortlicher:</Text>
+            <Text style={[styles.itemTitle, { marginBottom: 8 }]}>{t('privacy_responsible')}</Text>
             <Text style={styles.itemSubtitle}>
               {`Mark Tietz
 Königplatz 3
@@ -46,69 +58,64 @@ Heckenstraße 1
 E-Mail: deinpflegebuddy@gmail.com`}
             </Text>
           </View>
-          
-          <View style={[styles.card, { marginTop: 16 }]}>
-            <Text style={[styles.itemTitle, { marginBottom: 8 }]}>Datenverarbeitung in der App:</Text>
-            <Text style={styles.itemSubtitle}>
-              Die PflegeBuddy verarbeitet alle Daten ausschließlich lokal auf Ihrem Gerät. Es werden keine personenbezogenen Daten an externe Server übertragen oder in der Cloud gespeichert. Folgende Daten werden verarbeitet:{'\n\n'}
-              • App-Einstellungen (Theme, Schriftgröße): Diese werden im lokalen Speicher Ihres Geräts gesichert.{'\n'}
-              • Suchverlauf: Ihre Suchanfragen werden temporär für eine verbesserte Benutzerfreundlichkeit gespeichert.{'\n\n'}
-              Da alle Daten ausschließlich auf Ihrem Gerät verbleiben, haben Sie die volle Kontrolle über Ihre Daten.
-            </Text>
-          </View>
-          
-          <View style={[styles.card, { marginTop: 16 }]}>
-            <Text style={[styles.itemTitle, { marginBottom: 8 }]}>Berechtigungen:</Text>
-            <Text style={styles.itemSubtitle}>
-              Die App benötigt folgende Berechtigungen:{'\n\n'}
-              • Internetzugang: Nur für die erweiterte Medizinsuche erforderlich, falls Sie nach Informationen suchen, die nicht lokal verfügbar sind.{'\n'}
-              • Speicherzugriff: Zum Speichern Ihrer App-Einstellungen.
-            </Text>
-          </View>
-          
-          <View style={[styles.card, { marginTop: 16 }]}>
-            <Text style={[styles.itemTitle, { marginBottom: 8 }]}>Datenverarbeitung durch Dritte:</Text>
-            <Text style={styles.itemSubtitle}>
-              Bei der Nutzung der Medizinsuche werden Suchanfragen an den Anbieter der Suchfunktion weitergeleitet. Dabei können IP-Adressen und Suchanfragen übermittelt werden. Wir empfehlen, für diese Suchanfragen die Datenschutzbestimmungen des jeweiligen Anbieters zu beachten.
-            </Text>
-          </View>
-          
-          <View style={[styles.card, { marginTop: 16 }]}>
-            <Text style={[styles.itemTitle, { marginBottom: 8 }]}>Ihre Rechte:</Text>
-            <Text style={styles.itemSubtitle}>
-              Sie haben folgende Rechte bezüglich Ihrer personenbezogenen Daten:{'\n\n'}
-              • Auskunftsrecht{'\n'}
-              • Recht auf Berichtigung{'\n'}
-              • Recht auf Löschung{'\n'}
-              • Recht auf Einschränkung der Verarbeitung{'\n'}
-              • Recht auf Datenübertragbarkeit{'\n'}
-              • Widerspruchsrecht{'\n\n'}
-              Da die Daten ausschließlich auf Ihrem Gerät gespeichert werden, können Sie diese Rechte jederzeit ausüben, indem Sie die App löschen, den App-Cache leeren oder die App-Daten zurücksetzen.
-            </Text>
-          </View>
-          
-          <View style={[styles.card, { marginTop: 16 }]}>
-            <Text style={[styles.itemTitle, { marginBottom: 8 }]}>Datensicherheit:</Text>
-            <Text style={styles.itemSubtitle}>
-              Wir setzen angemessene technische und organisatorische Maßnahmen ein, um die Sicherheit Ihrer Daten zu gewährleisten. Da die App-Daten nur lokal auf Ihrem Gerät gespeichert werden, empfehlen wir, Ihr Gerät mit einem Passwort/PIN zu schützen und regelmäßige Backups durchzuführen.
-            </Text>
-          </View>
-          
-          <View style={[styles.card, { marginTop: 16 }]}>
-            <Text style={[styles.itemTitle, { marginBottom: 8 }]}>Änderungen der Datenschutzerklärung:</Text>
-            <Text style={styles.itemSubtitle}>
-              Diese Datenschutzerklärung kann gelegentlich aktualisiert werden. Änderungen werden mit einem App-Update veröffentlicht. Wir empfehlen, diese Datenschutzerklärung regelmäßig zu überprüfen.
-            </Text>
-          </View>
-          
-          <View style={[styles.card, { marginTop: 16, marginBottom: 20 }]}>
-            <Text style={[styles.itemTitle, { marginBottom: 8 }]}>Kontakt:</Text>
-            <Text style={styles.itemSubtitle}>
-              {`Bei Fragen zum Datenschutz kontaktieren Sie uns bitte unter:
 
-Mark Tietz
-E-Mail: deinpflegebuddy@gmail.com
-Telefon: +49 1741632129`}
+          <View style={[styles.card, { marginTop: 16 }]}>
+            <Text style={[styles.itemTitle, { marginBottom: 8 }]}>
+              {t('privacy_data_processing')}
+            </Text>
+            <Text style={styles.itemSubtitle}>
+              {t('privacy_data_processing_text')}
+            </Text>
+          </View>
+
+          <View style={[styles.card, { marginTop: 16 }]}>
+            <Text style={[styles.itemTitle, { marginBottom: 8 }]}>{t('privacy_ai_title')}</Text>
+            <Text style={styles.itemSubtitle}>
+              {t('privacy_ai_text')}
+            </Text>
+          </View>
+
+          <View style={[styles.card, { marginTop: 16 }]}>
+            <Text style={[styles.itemTitle, { marginBottom: 8 }]}>{t('privacy_permissions')}</Text>
+            <Text style={styles.itemSubtitle}>
+              {t('privacy_permissions_text')}
+            </Text>
+          </View>
+
+          <View style={[styles.card, { marginTop: 16 }]}>
+            <Text style={[styles.itemTitle, { marginBottom: 8 }]}>
+              {t('privacy_third_party_processing')}
+            </Text>
+            <Text style={styles.itemSubtitle}>
+              {t('privacy_third_party_processing_text')}
+            </Text>
+          </View>
+
+          <View style={[styles.card, { marginTop: 16 }]}>
+            <Text style={[styles.itemTitle, { marginBottom: 8 }]}>{t('privacy_your_rights')}</Text>
+            <Text style={styles.itemSubtitle}>
+              {t('privacy_your_rights_text')}
+            </Text>
+          </View>
+
+          <View style={[styles.card, { marginTop: 16 }]}>
+            <Text style={[styles.itemTitle, { marginBottom: 8 }]}>{t('privacy_security_title')}</Text>
+            <Text style={styles.itemSubtitle}>
+              {t('privacy_security_text')}
+            </Text>
+          </View>
+
+          <View style={[styles.card, { marginTop: 16 }]}>
+            <Text style={[styles.itemTitle, { marginBottom: 8 }]}>{t('privacy_changes_title')}</Text>
+            <Text style={styles.itemSubtitle}>
+              {t('privacy_changes_text')}
+            </Text>
+          </View>
+
+          <View style={[styles.card, { marginTop: 16, marginBottom: 20 }]}>
+            <Text style={[styles.itemTitle, { marginBottom: 8 }]}>{t('privacy_contact_title')}</Text>
+            <Text style={styles.itemSubtitle}>
+              {t('privacy_contact_text')}
             </Text>
           </View>
         </View>
@@ -117,4 +124,4 @@ Telefon: +49 1741632129`}
   );
 };
 
-export default DatenschutzScreen; 
+export default DatenschutzScreen;

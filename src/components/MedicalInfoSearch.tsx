@@ -1,23 +1,23 @@
 import React, { useState } from 'react';
-import { 
-  View, 
-  Text, 
-  TextInput, 
-  TouchableOpacity, 
-  FlatList, 
-  StyleSheet, 
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  FlatList,
+  StyleSheet,
   ActivityIndicator,
   Linking,
   Platform,
   SafeAreaView,
-  Dimensions
+  Dimensions,
 } from 'react-native';
-import { 
-  searchMedicalInfo, 
-  getMedicalInfoByICD, 
-  getMedicationInfo, 
-  Language, 
-  MedlinePlusResponse 
+import {
+  searchMedicalInfo,
+  getMedicalInfoByICD,
+  getMedicationInfo,
+  Language,
+  MedlinePlusResponse,
 } from '../services/MedlinePlusService';
 
 interface SearchResult {
@@ -44,10 +44,10 @@ const MedicalInfoSearch: React.FC = () => {
 
     setIsLoading(true);
     setError(null);
-    
+
     try {
       let response: MedlinePlusResponse;
-      
+
       switch (searchType) {
         case 'term':
           response = await searchMedicalInfo(searchQuery.trim(), language);
@@ -61,12 +61,12 @@ const MedicalInfoSearch: React.FC = () => {
         default:
           response = await searchMedicalInfo(searchQuery.trim(), language);
       }
-      
+
       if (response.feed.entry && response.feed.entry.length > 0) {
         const formattedResults = response.feed.entry.map(entry => ({
           title: entry.title,
           summary: entry.summary,
-          link: entry.link[0].href
+          link: entry.link[0].href,
         }));
         setResults(formattedResults);
       } else {
@@ -87,8 +87,8 @@ const MedicalInfoSearch: React.FC = () => {
       if (supported) {
         Linking.openURL(url);
       } else {
-        console.log("Kann den Link nicht öffnen: " + url);
-        setError("Kann den Link nicht öffnen");
+        console.log('Kann den Link nicht öffnen: ' + url);
+        setError('Kann den Link nicht öffnen');
       }
     });
   };
@@ -96,13 +96,13 @@ const MedicalInfoSearch: React.FC = () => {
   const getPlaceholderText = () => {
     switch (searchType) {
       case 'term':
-        return "z.B. Diabetes, Hypertonie, Dekubitus...";
+        return 'z.B. Diabetes, Hypertonie, Dekubitus...';
       case 'icd':
-        return "z.B. E11, I10, L89...";
+        return 'z.B. E11, I10, L89...';
       case 'medication':
-        return "z.B. Metformin, Aspirin, Insulin...";
+        return 'z.B. Metformin, Aspirin, Insulin...';
       default:
-        return "Suchbegriff eingeben...";
+        return 'Suchbegriff eingeben...';
     }
   };
 
@@ -110,36 +110,39 @@ const MedicalInfoSearch: React.FC = () => {
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.title}>Medizinische Informationen</Text>
-        
+
         <View style={styles.toggleContainer}>
-          <ScrollableToggle 
+          <ScrollableToggle
             options={[
               { id: 'term', label: 'Begriff' },
               { id: 'icd', label: 'ICD-10' },
-              { id: 'medication', label: 'Medikament' }
+              { id: 'medication', label: 'Medikament' },
             ]}
             selectedValue={searchType}
-            onSelect={(value) => {
+            onSelect={value => {
               setSearchType(value as SearchType);
               setResults([]);
               setError(null);
             }}
           />
         </View>
-        
-        <TouchableOpacity style={styles.languageButton} onPress={() => {
-          setLanguage(prevLang => {
-            if (prevLang === 'en') return 'de';
-            if (prevLang === 'de') return 'es';
-            return 'en';
-          });
-        }}>
+
+        <TouchableOpacity
+          style={styles.languageButton}
+          onPress={() => {
+            setLanguage(prevLang => {
+              if (prevLang === 'en') return 'de';
+              if (prevLang === 'de') return 'es';
+              return 'en';
+            });
+          }}
+        >
           <Text style={styles.languageButtonText}>
             Sprache: {language === 'de' ? 'Deutsch' : language === 'en' ? 'Englisch' : 'Spanisch'}
           </Text>
         </TouchableOpacity>
       </View>
-      
+
       <View style={styles.searchContainer}>
         <TextInput
           style={styles.searchInput}
@@ -149,16 +152,13 @@ const MedicalInfoSearch: React.FC = () => {
           returnKeyType="search"
           onSubmitEditing={performSearch}
         />
-        <TouchableOpacity 
-          style={styles.searchButton} 
-          onPress={performSearch}
-        >
+        <TouchableOpacity style={styles.searchButton} onPress={performSearch}>
           <Text style={styles.searchButtonText}>Suchen</Text>
         </TouchableOpacity>
       </View>
-      
+
       {error && <Text style={styles.errorText}>{error}</Text>}
-      
+
       {isLoading ? (
         <View style={styles.centered}>
           <ActivityIndicator size="large" color="#0066cc" />
@@ -171,11 +171,10 @@ const MedicalInfoSearch: React.FC = () => {
           renderItem={({ item }) => (
             <View style={styles.resultItem}>
               <Text style={styles.resultTitle}>{item.title}</Text>
-              <Text style={styles.resultSummary} numberOfLines={4}>{item.summary}</Text>
-              <TouchableOpacity 
-                style={styles.linkButton}
-                onPress={() => openLink(item.link)}
-              >
+              <Text style={styles.resultSummary} numberOfLines={4}>
+                {item.summary}
+              </Text>
+              <TouchableOpacity style={styles.linkButton} onPress={() => openLink(item.link)}>
                 <Text style={styles.linkText}>Mehr erfahren</Text>
               </TouchableOpacity>
             </View>
@@ -184,19 +183,15 @@ const MedicalInfoSearch: React.FC = () => {
             !error && !isLoading ? (
               <View style={styles.centered}>
                 <Text style={styles.emptyText}>
-                  {searchQuery.trim() 
-                    ? 'Keine Ergebnisse gefunden.' 
+                  {searchQuery.trim()
+                    ? 'Keine Ergebnisse gefunden.'
                     : 'Geben Sie einen Suchbegriff ein, um Informationen zu finden.'}
                 </Text>
                 {searchQuery.trim() && (
                   <View style={styles.suggestionsContainer}>
                     <Text style={styles.suggestionsTitle}>Vorschläge:</Text>
-                    <Text style={styles.suggestion}>
-                      • Überprüfen Sie die Schreibweise
-                    </Text>
-                    <Text style={styles.suggestion}>
-                      • Versuchen Sie allgemeinere Begriffe
-                    </Text>
+                    <Text style={styles.suggestion}>• Überprüfen Sie die Schreibweise</Text>
+                    <Text style={styles.suggestion}>• Versuchen Sie allgemeinere Begriffe</Text>
                     <Text style={styles.suggestion}>
                       • Wechseln Sie zur {searchType === 'term' ? 'ICD-10' : 'Begriff'}-Suche
                     </Text>
@@ -207,7 +202,7 @@ const MedicalInfoSearch: React.FC = () => {
           }
         />
       )}
-      
+
       <View style={styles.footer}>
         <Text style={styles.footerText}>
           Daten bereitgestellt von MedlinePlus® - U.S. National Library of Medicine
@@ -218,30 +213,27 @@ const MedicalInfoSearch: React.FC = () => {
 };
 
 // Hilfskomponente für die Tabs
-const ScrollableToggle = ({ 
-  options, 
-  selectedValue, 
-  onSelect 
-}: { 
-  options: Array<{id: string, label: string}>, 
-  selectedValue: string, 
-  onSelect: (value: string) => void 
+const ScrollableToggle = ({
+  options,
+  selectedValue,
+  onSelect,
+}: {
+  options: Array<{ id: string; label: string }>;
+  selectedValue: string;
+  onSelect: (value: string) => void;
 }) => {
   return (
     <View style={toggleStyles.container}>
       {options.map(option => (
         <TouchableOpacity
           key={option.id}
-          style={[
-            toggleStyles.option,
-            selectedValue === option.id && toggleStyles.selectedOption
-          ]}
+          style={[toggleStyles.option, selectedValue === option.id && toggleStyles.selectedOption]}
           onPress={() => onSelect(option.id)}
         >
           <Text
             style={[
               toggleStyles.optionText,
-              selectedValue === option.id && toggleStyles.selectedOptionText
+              selectedValue === option.id && toggleStyles.selectedOptionText,
             ]}
           >
             {option.label}
@@ -441,7 +433,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: '#777',
     textAlign: 'center',
-  }
+  },
 });
 
-export default MedicalInfoSearch; 
+export default MedicalInfoSearch;
